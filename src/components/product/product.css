@@ -1,0 +1,48 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f6f6f6;
+  border-radius: 15px;
+  width: 18rem;
+  height: 22rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+}
+.product:hover {
+  box-shadow: #25456f 0px 7px 30px 0px;
+}
+.product-image {
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 13rem;
+  height: 13rem;
+}
+.product-name {
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  color: #1e3c64;
+}
+.productOldPrice {
+  cursor: pointer;
+  text-decoration: line-through;
+  margin-top: 12px;
+  margin-bottom: -15px;
+  font-weight: 400;
+  font-size: 16px;
+  margin-right: 105px;
+  color: rgb(175, 39, 39);
+}
+.product-price {
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  font-size: 24px;
+  margin-right: 70px;
+  color: #1e3c64;
+}
+.productMargin {
+  cursor: pointer;
+  margin-top: 20px;
+}

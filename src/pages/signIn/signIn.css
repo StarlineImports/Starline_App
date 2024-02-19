@@ -1,0 +1,24 @@
+.signIn-component {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #dddddd;
+  margin-bottom: 150px;
+}
+@media (max-width: 274px) {
+  .signIn-component {
+    margin-top: 0px;
+  }
+}
+@media (max-width: 576px) {
+  .signIn-component {
+    margin-top: 30px;
+  }
+}
+@media (min-width: 997px) {
+  .signIn-component {
+    margin-top: 30px;
+  }
+}

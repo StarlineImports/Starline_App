@@ -1,0 +1,17 @@
+:root {
+  scroll-behavior: smooth;
+}
+.full-register-container {
+  display: flex;
+  flex-direction: column;
+}
+.register-image {
+  width: 16rem;
+  height: 18rem;
+}
+@media (min-width: 400px) {
+  .register-image {
+    margin-left: 50px;
+    margin-right: 60px;
+  }
+}

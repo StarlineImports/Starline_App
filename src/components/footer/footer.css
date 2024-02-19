@@ -1,0 +1,99 @@
+.footer-body {
+  display: flex;
+  color: rgb(255, 255, 255);
+  align-items: center;
+  justify-content: center;
+  background-color: #1e3c64;
+
+  height: 25rem;
+  margin-top: 5rem;
+}
+
+.footer-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-footer {
+  width: 22rem;
+  height: 9rem;
+}
+.help-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+.help {
+  display: flex;
+  flex-direction: column;
+}
+.help-text {
+  margin-top: 1rem;
+}
+.company-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+.company {
+  display: flex;
+  flex-direction: column;
+}
+.company-text {
+  margin-top: 1rem;
+}
+.text {
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.text:hover {
+  color: rgb(188, 188, 188);
+}
+.more-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+.more {
+  display: flex;
+  flex-direction: column;
+}
+.more-text {
+  margin-top: 1rem;
+}
+.social-media-title {
+  font-size: 24px;
+  font-weight: 600;
+}
+.social-media {
+  display: flex;
+  flex-direction: column;
+}
+.social-media-text {
+  margin-top: 1rem;
+}
+
+@media (max-width: 576px) {
+  .footer-body {
+    height: auto;
+    padding: 2rem;
+  }
+  .help-title {
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .help-text {
+    margin-top: 3px;
+    margin-bottom: 15px;
+  }
+  .company-text {
+    margin-top: 3px;
+    margin-bottom: 15px;
+  }
+  .more-text {
+    margin-top: 3px;
+    margin-bottom: 15px;
+  }
+  .social-media-text {
+    margin-top: 3px;
+    margin-bottom: 15px;
+  }
+}

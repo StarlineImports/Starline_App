@@ -1,0 +1,81 @@
+:root {
+  scroll-behavior: smooth;
+}
+.full-signIn-container {
+  display: flex;
+  flex-direction: column;
+}
+.form-control {
+  background-color: #e9e9e9;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  border-radius: 12px;
+  border: none;
+  border-width: 2px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+.input {
+  background-color: #e9e9e9;
+  border-radius: 12px;
+  border: none;
+  border-width: 2px;
+}
+.signIn-image {
+  width: 18rem;
+  height: 20rem;
+}
+.button {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: #217b29;
+}
+.button:hover {
+  background-color: #18591d;
+}
+.google-button {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  background-color: #1262ac;
+}
+.google-button:hover {
+  background-color: #125797;
+}
+
+.google-icon {
+  margin-right: 20px;
+}
+.register-text {
+  color: #1e3c64;
+  text-decoration: none;
+  opacity: 80%;
+  margin-top: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.register-text:hover {
+  opacity: 100%;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.invisible {
+  display: none;
+}
+.text-center {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+.forgot {
+  cursor: pointer;
+  margin-bottom: 20px;
+  opacity: 80%;
+}

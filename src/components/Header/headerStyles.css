@@ -1,0 +1,110 @@
+.first-header {
+  display: flex;
+  align-items: center;
+}
+.logo-image {
+  width: 9rem;
+  height: 10rem;
+}
+.loupe-input {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="darkGray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 15L21 21M10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10C17 13.866 13.866 17 10 17Z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  padding-left: 40px;
+  color: black;
+}
+.search-input {
+  color: black;
+  border-radius: 10px;
+  background-color: rgb(238, 238, 238);
+  height: 2.5rem;
+  border: solid rgb(206, 206, 206) 0.5px;
+}
+.search-input::placeholder {
+  font-size: 14px;
+  color: #999;
+  padding-left: 10px;
+}
+.signIn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+}
+.signIn-icon {
+  margin-right: 10px;
+}
+.signIn-text {
+  color: #1e3c64;
+  text-decoration: none;
+}
+.cart-text {
+  color: #1e3c64;
+  text-decoration: none;
+}
+.cart {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.cart-icon {
+  margin-right: 10px;
+}
+.cart-text:hover {
+  color: rgb(135, 135, 135);
+}
+.signIn-text:hover {
+  color: rgb(135, 135, 135);
+}
+.second-header {
+  height: 4rem;
+  background-color: #1e3c64;
+}
+.second-header-text {
+  padding: 20px;
+  list-style: none;
+  display: flex;
+}
+.second-text {
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+}
+.second-text:hover {
+  color: #aaaaaa;
+}
+.input-container {
+  display: flex;
+}
+@media (max-width: 576px) {
+  .header-mini-icon {
+    margin-left: 120px;
+  }
+  .header-mini-input {
+    margin-right: 35px;
+  }
+  .signIn-mini {
+    display: none;
+  }
+  .cart-mini {
+    display: none;
+  }
+  .header-big-icon {
+    display: flex;
+  }
+  .search-input::placeholder {
+    font-size: 14px;
+    padding-left: 5px;
+  }
+}
+@media (min-width: 997px) {
+  .header-big-icon {
+    display: none;
+  }
+  .signIn-big {
+    margin-left: 120px;
+  }
+  .first-header {
+    width: 100%;
+  }
+}
