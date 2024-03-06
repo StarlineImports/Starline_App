@@ -1,0 +1,18 @@
+.full-list {
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.productList-Text {
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  font-size: 24px;
+  color: #1e3c64;
+  font-weight: 700;
+}
+@media (max-width: 576px) {
+  .full-list {
+    margin-left: 5px;
+  }
+}
