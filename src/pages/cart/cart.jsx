@@ -2,6 +2,7 @@ import React from "react";
 import HeaderComponent from "../../components/Header/HeaderComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from "../../components/footer/footer";
+import "./cart.css";
 
 const Cart = () => {
   return (

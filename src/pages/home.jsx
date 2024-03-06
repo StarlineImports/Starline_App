@@ -1,4 +1,3 @@
-// Home.jsx
 import React from "react";
 import HeaderComponent from "../components/Header/HeaderComponent";
 import ComponentImage from "../components/carousel/index.jsx";
