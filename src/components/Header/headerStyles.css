@@ -67,6 +67,8 @@
 }
 .second-text {
   font-weight: 600;
+  list-style: none;
+  text-decoration: none;
   color: #fff;
   cursor: pointer;
 }

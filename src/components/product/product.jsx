@@ -1,4 +1,3 @@
-// Product.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -40,6 +39,8 @@ Product.propTypes = {
     oldPrice: PropTypes.string,
     price: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    subcategory: PropTypes.string.isRequired,
   }).isRequired,
 };
 

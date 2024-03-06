@@ -98,9 +98,13 @@ const HeaderComponent = () => {
         <div className="col-xxl-9 col-lg-9 col-sm-8">
           <ul className="second-header-text">
             <div className="col-lg-3"></div>
+
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
-              Futebol
+              <Link className="second-text" to={`/search`}>
+                Futebol
+              </Link>
             </li>
+
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
               Basquete
             </li>

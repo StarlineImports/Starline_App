@@ -7,6 +7,8 @@ import Footer from "../../components/footer/footer";
 import "./productListPage.css";
 
 const ProductListPage = () => {
+  const { subcategory } = useParams();
+
   return (
     <>
       <div></div>

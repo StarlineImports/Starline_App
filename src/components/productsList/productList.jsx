@@ -1,4 +1,3 @@
-// ProductList.jsx
 import React, { useState, useEffect } from "react";
 import "./productList.css";
 import Product from "../product/product";
