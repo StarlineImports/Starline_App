@@ -5,7 +5,8 @@
     "oldPrice": "999,99",
     "price": "998,99",
     "image": "https://s2-ge.glbimg.com/ATXp1t5F8W5L_btuxlab6P7FMaY=/0x0:2300x1710/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2022/v/q/gfa41hTgivRfjAN8y01Q/2022-12-10t215050z-2112243253-up1eica1lnbdq-rtrmadp-3-soccer-worldcup-eng-fra-report.jpg",
-    "category": "Starline"
+    "category": "Starline",
+    "subcategory": "futebol"
   },
   {
     "id": 1,
@@ -13,7 +14,8 @@
     "oldPrice": "139,90",
     "price": "114,90",
     "image": "https://static.netshoes.com.br/produtos/camisa-santos-2023-uniforme-3-japao-numero-10-umbro-azul-marinho-vermelho/66/2IA-8546-066/2IA-8546-066_zoom1.jpg?ts=1698429324",
-    "category": "Santos"
+    "category": "Santos",
+    "subcategory": "futebol"
   },
   {
     "id": 2,
@@ -21,7 +23,8 @@
     "oldPrice": "139,90",
     "price": "114,90",
     "image": "https://acdn.mitiendanube.com/stores/001/862/193/products/camisa-santos-ii-2021-2022-branca-e-preta-umbro-masculina-marinho-11-a7cb8e996c65e1297a16220503905657-640-01-d490652b9f4c5f094f16317025565944-640-0.jpg",
-    "category": "Santos"
+    "category": "Santos",
+    "subcategory": "futebol"
   },
   {
     "id": 3,
@@ -30,7 +33,8 @@
     "price": "114,90",
     "image": "https://cdn.awsli.com.br/2500x2500/1621/1621592/produto/217237992/camisa-santos-i-fnj8w78t7y-ys1x641mqa.png",
     "description": "Vista sua paixão, torça a cada jogada com estilo! A Camisa Masculina Umbro Santos Oficial 2022/2023 foi inspirada nos 60 anos de uma temporada contemplada por quatro títulos. A peça traz recortes nas laterais, mangas em jacquard e gola careca. O modelo destaca o selo personalizado “Santos do Mundo”.",
-    "category": "Santos"
+    "category": "Santos",
+    "subcategory": "futebol"
   },
   {
     "id": 4,
@@ -38,7 +42,8 @@
     "oldPrice": "139,90",
     "price": "114,90",
     "image": "https://images.tcdn.com.br/img/img_prod/638286/camisa_manchester_city_2024_uniforme_3_jogador_dry_cell_9853_1_6d473365f2afec417d3ad52f8e60b802.jpg",
-    "category": "Manchester City"
+    "category": "Manchester City",
+    "subcategory": "futebol"
   },
   {
     "id": 5,
@@ -46,7 +51,8 @@
     "oldPrice": "139,90",
     "price": "114,90",
     "image": "https://www.desports.com.br/cdn/shop/files/imagem_2023-11-09_092035873.png?v=1699539640",
-    "category": "São Paulo"
+    "category": "São Paulo",
+    "subcategory": "futebol"
   },
   {
     "id": 6,
@@ -55,41 +61,47 @@
     "price": "114,90",
     "image": "https://acdn.mitiendanube.com/stores/003/164/010/products/home-frente1-7de76489cdaf0de1e516848692252956-1024-1024.png",
     "description": "Camisa Flamengo modelo torcedor 23/24. Desenvolvida pela Adidas, a camisa I do Flamengo 2023, é perfeita para os torcedores fanáticos demonstrem toda a sua paixão pelo Mengão nas arquibancadas e nos momentos casuais. O manto é feito 100% em poliéster, tecido de alta qualidade",
-    "category": "Flamengo"
+    "category": "Flamengo",
+    "subcategory": "futebol"
   },
   {
     "id": 7,
     "name": "Camisa Man City 23/24",
     "price": "139,90",
     "image": "https://images.tcdn.com.br/img/img_prod/638286/camisa_manchester_city_2024_uniforme_titular_dry_cell_9525_1_09f0816aca1be57cb8d9e6d6dd6a06a4.jpeg",
-    "category": "Manchester City"
+    "category": "Manchester City",
+    "subcategory": "futebol"
   },
   {
     "id": 8,
     "name": "Camisa Liverpool 23/24",
     "price": "139,90",
     "image": "https://static.wixstatic.com/media/ffff24_701043e73c2549c9a38ea158b6a5ad75~mv2.png/v1/fill/w_480,h_480,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ffff24_701043e73c2549c9a38ea158b6a5ad75~mv2.png",
-    "category": "Liverpool"
+    "category": "Liverpool",
+    "subcategory": "futebol"
   },
   {
     "id": 9,
     "name": "Camisa São Paulo 22/23",
     "price": "139,90",
     "image": "https://kssports23.com.br/wp-content/uploads/2022/04/camisa-sao-paulo-branca-home-2022-2023-todos-patrocinadores-versao-torcedor-1.jpg",
-    "category": "São Paulo"
+    "category": "São Paulo",
+    "subcategory": "futebol"
   },
   {
     "id": 10,
     "name": "Camisa Santos 23/24",
     "price": "139,90",
     "image": "https://lojaodagringa.com.br/cdn/shop/files/camisa-santos-blaze.jpg?v=1686617242",
-    "category": "Santos"
+    "category": "Santos",
+    "subcategory": "futebol"
   },
   {
     "id": 11,
     "name": "Camisa Palmeiras 23/24",
     "price": "139,90",
     "image": "https://lojapalmeiras.vteximg.com.br/arquivos/ids/175889-1000-1000/774802-01--1-.png?v=638104516930700000",
-    "category": "Palmeiras"
+    "category": "Palmeiras",
+    "subcategory": "futebol"
   }
 ]
