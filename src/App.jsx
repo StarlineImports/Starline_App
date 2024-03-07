@@ -7,6 +7,7 @@ import Cart from "./pages/cart/cart";
 import Register from "./pages/register/register";
 import ProductListPageFootball from "./pages/productListPageFootball/productListPageFootball";
 import ProductListPageAcessories from "./pages/productListPageAccessories/productListPageAccessories";
+import ProductListPageNFL from "./pages/productListPageNFL/productListPageNFL";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           path="/search/acessorios"
           element={<ProductListPageAcessories />}
         />
+        <Route path="/search/nfl" element={<ProductListPageAcessories />} />
       </Routes>
     </Router>
   );
