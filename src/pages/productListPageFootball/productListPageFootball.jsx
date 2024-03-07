@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import HeaderComponent from "../../components/Header/HeaderComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
@@ -16,6 +16,29 @@ const ProductListPageFootball = () => {
     (product) => product.subcategory === "futebol"
   );
 
+  const [orderBy, setOrderBy] = useState("popularity");
+
+  const handleOrderByChange = (e) => {
+    setOrderBy(e.target.value);
+  };
+
+  const sortProducts = (products, orderBy) => {
+    switch (orderBy) {
+      case "popularity":
+        return products.sort((a, b) => b.popularity - a.popularity);
+      case "newest":
+        return products.sort((a, b) => new Date(b.date) - new Date(a.date));
+      case "priceHigh":
+        return products.sort((a, b) => b.price - a.price);
+      case "priceLow":
+        return products.sort((a, b) => a.price - b.price);
+      default:
+        return products;
+    }
+  };
+
+  const sortedProducts = sortProducts(footballProducts, orderBy);
+
   return (
     <>
       <div className="product-list-page-container">
@@ -28,18 +51,19 @@ const ProductListPageFootball = () => {
             <h5>Coleção Futebol</h5>
             <div className="order-filter-container">
               <label className="order-filter-label">Ordenar Por</label>
-              <select className="order-filter">
-                <option>Mais Populares</option>
-                <option>Lançamentos</option>
-                <option>Maior Preço</option>
-                <option>Menor Preço</option>
+              <select
+                className="order-filter"
+                value={orderBy}
+                onChange={handleOrderByChange}
+              >
+                <option value="popularity">Mais Populares</option>
+                <option value="newest">Lançamentos</option>
+                <option value="priceHigh">Maior Preço</option>
+                <option value="priceLow">Menor Preço</option>
               </select>
             </div>
           </div>
-          <ProductListAll
-            selectedProducts={footballProducts}
-            renderAllProducts={true}
-          />
+          <ProductListAll selectedProducts={sortedProducts} />
         </div>
         <div className="product-list-page-footer">
           <Footer />
