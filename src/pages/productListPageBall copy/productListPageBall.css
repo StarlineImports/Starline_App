@@ -1,0 +1,28 @@
+.filter-container {
+  width: 100px;
+  height: auto;
+}
+.product-list-page-body {
+  display: flex;
+  flex-direction: column;
+}
+.products-header {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.order-filter {
+  border-radius: 5px;
+  border: none;
+  width: 300px;
+  height: 40px;
+}
+.order-filter-container {
+  display: flex;
+  margin-left: 100px;
+  flex-direction: column;
+}
+.order-filter-label {
+  margin-bottom: 10px;
+}
