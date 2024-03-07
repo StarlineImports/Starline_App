@@ -10,6 +10,7 @@ import ProductListPageAcessories from "./pages/productListPageAccessories/produc
 import ProductListPageNFL from "./pages/productListPageNFL/productListPageNFL";
 import ProductListPageBall from "./pages/productListPageBall/productListPageBall";
 import ProductListPageBasket from "./pages/productListPageBasket/productListPageBasket";
+import ProductListPageF1 from "./pages/productListPageF1/productListPageF1";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/search/nfl" element={<ProductListPageNFL />} />
         <Route path="/search/bolas" element={<ProductListPageBall />} />
         <Route path="/search/basquete" element={<ProductListPageBasket />} />
+        <Route path="/search/f1" element={<ProductListPageF1 />} />
       </Routes>
     </Router>
   );
