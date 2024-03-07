@@ -48,7 +48,7 @@ const ProductListPageF1 = () => {
         <div className="product-list-page-body">
           <div className="filter-container"></div>
           <div className="products-header">
-            <h5>Coleção NFL</h5>
+            <h5>Coleção Formula 1</h5>
             <div className="order-filter-container">
               <label className="order-filter-label">Ordenar Por</label>
               <select
