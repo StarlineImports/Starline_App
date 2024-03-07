@@ -6,6 +6,7 @@ import ProductPage from "./pages/productPage/productPage";
 import Cart from "./pages/cart/cart";
 import Register from "./pages/register/register";
 import ProductListPageFootball from "./pages/productListPageFootball/productListPageFootball";
+import ProductListPageAcessories from "./pages/productListPageAccessories/productListPageAccessories";
 
 function App() {
   return (
@@ -16,7 +17,11 @@ function App() {
         <Route path="/produto/:id" element={<ProductPage />} />
         <Route path="/carrinho" element={<Cart />} />
         <Route path="/cadastrar" element={<Register />} />
-        <Route path="/search" element={<ProductListPageFootball />} />
+        <Route path="/search/futebol" element={<ProductListPageFootball />} />
+        <Route
+          path="/search/acessorios"
+          element={<ProductListPageAcessories />}
+        />
       </Routes>
     </Router>
   );

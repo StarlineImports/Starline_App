@@ -115,7 +115,9 @@ const HeaderComponent = () => {
               Roupas NFL
             </li>
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
-              Acessórios
+              <Link className="second-text" to={`/search/acessorios`}>
+                Acessórios
+              </Link>
             </li>
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
               Bolas

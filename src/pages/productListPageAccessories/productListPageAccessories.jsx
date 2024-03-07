@@ -7,9 +7,9 @@ import Footer from "../../components/footer/footer";
 import ProductListAll from "../../components/productListAll/productListAll";
 
 import ProductData from "../../product.json";
-import "./productListPage.css";
+import "./productListPageAccessories.css";
 
-const ProductListPageFootball = () => {
+const ProductListPageAcessories = () => {
   const { subcategory } = useParams();
 
   const footballProducts = ProductData.filter(
@@ -48,7 +48,7 @@ const ProductListPageFootball = () => {
         <div className="product-list-page-body">
           <div className="filter-container"></div>
           <div className="products-header">
-            <h5>Coleção Futebol</h5>
+            <h5>Acessorios</h5>
             <div className="order-filter-container">
               <label className="order-filter-label">Ordenar Por</label>
               <select
@@ -73,4 +73,4 @@ const ProductListPageFootball = () => {
   );
 };
 
-export default ProductListPageFootball;
+export default ProductListPageAcessories;
