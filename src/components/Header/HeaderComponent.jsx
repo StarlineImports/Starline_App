@@ -100,7 +100,7 @@ const HeaderComponent = () => {
             <div className="col-lg-3"></div>
 
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
-              <Link className="second-text" to={`/search`}>
+              <Link className="second-text" to={`/search/futebol`}>
                 Futebol
               </Link>
             </li>
@@ -122,7 +122,9 @@ const HeaderComponent = () => {
               </Link>
             </li>
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
-              Bolas
+              <Link className="second-text" to={`/search/bolas`}>
+                Bolas
+              </Link>
             </li>
           </ul>
         </div>

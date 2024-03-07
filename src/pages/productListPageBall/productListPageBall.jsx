@@ -73,4 +73,4 @@ const ProductListPageBall = () => {
   );
 };
 
-export default ProductListPageNFL;
+export default ProductListPageBall;
