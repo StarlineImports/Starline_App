@@ -9,7 +9,7 @@ import ProductListAll from "../../components/productListAll/productListAll";
 import ProductData from "../../product.json";
 import "./productListPage.css";
 
-const ProductListPage = () => {
+const ProductListPageFootball = () => {
   const { subcategory } = useParams();
 
   const footballProducts = ProductData.filter(
@@ -23,11 +23,20 @@ const ProductListPage = () => {
           <HeaderComponent />
         </div>
         <div className="product-list-page-body">
-          <div className="filter-container">
-            <select></select>
+          <div className="filter-container"></div>
+          <div className="products-header">
+            <h5>Coleção Futebol</h5>
+            <div className="order-filter-container">
+              <label className="order-filter-label">Ordenar Por</label>
+              <select className="order-filter">
+                <option>Mais Populares</option>
+                <option>Lançamentos</option>
+                <option>Maior Preço</option>
+                <option>Menor Preço</option>
+              </select>
+            </div>
           </div>
           <ProductListAll
-            listTitle="Coleção Futebol"
             selectedProducts={footballProducts}
             renderAllProducts={true}
           />
@@ -40,4 +49,4 @@ const ProductListPage = () => {
   );
 };
 
-export default ProductListPage;
+export default ProductListPageFootball;
