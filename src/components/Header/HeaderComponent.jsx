@@ -111,7 +111,9 @@ const HeaderComponent = () => {
               </Link>
             </li>
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
-              Formula 1
+              <Link className="second-text" to={`/search/f1`}>
+                Formula 1
+              </Link>
             </li>
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
               <Link className="second-text" to={`/search/nfl`}>
