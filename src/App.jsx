@@ -23,7 +23,7 @@ function App() {
           path="/search/acessorios"
           element={<ProductListPageAcessories />}
         />
-        <Route path="/search/nfl" element={<ProductListPageAcessories />} />
+        <Route path="/search/nfl" element={<ProductListPageNFL />} />
       </Routes>
     </Router>
   );
