@@ -23,7 +23,9 @@ const ProductListPage = () => {
           <HeaderComponent />
         </div>
         <div className="product-list-page-body">
-          <h1></h1>
+          <div className="filter-container">
+            <select></select>
+          </div>
           <ProductListAll
             listTitle="Coleção Futebol"
             selectedProducts={footballProducts}
