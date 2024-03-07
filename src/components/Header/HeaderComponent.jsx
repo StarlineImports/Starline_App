@@ -106,7 +106,9 @@ const HeaderComponent = () => {
             </li>
 
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
-              Basquete
+              <Link className="second-text" to={`/search/basquete`}>
+                Basquete
+              </Link>
             </li>
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
               Formula 1
