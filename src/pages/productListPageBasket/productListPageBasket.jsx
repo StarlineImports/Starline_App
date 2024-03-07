@@ -13,7 +13,7 @@ const ProductListPageBasket = () => {
   const { subcategory } = useParams();
 
   const footballProducts = ProductData.filter(
-    (product) => product.subcategory === "acessorios"
+    (product) => product.subcategory === "basquete"
   );
 
   const [orderBy, setOrderBy] = useState("popularity");
