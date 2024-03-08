@@ -7,7 +7,7 @@ import Footer from "../../../components/footer/footer";
 import ProductListAll from "../../../components/productListAll/productListAll";
 
 import ProductData from "../../../product.json";
-import "./productListPageF1.css";
+import "../productListPageStyles.css";
 
 const ProductListPageF1 = () => {
   const { subcategory } = useParams();

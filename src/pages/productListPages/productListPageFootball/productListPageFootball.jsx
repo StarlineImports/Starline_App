@@ -7,7 +7,7 @@ import Footer from "../../../components/footer/footer";
 import ProductListAll from "../../../components/productListAll/productListAll";
 
 import ProductData from "../../../product.json";
-import "./productListPageFootball.css";
+import "../productListPageStyles.css";
 
 const ProductListPageFootball = () => {
   const footballProducts = ProductData.filter(
