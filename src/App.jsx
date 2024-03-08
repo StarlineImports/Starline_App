@@ -5,12 +5,12 @@ import SignIn from "./pages/signIn/singIn";
 import ProductPage from "./pages/productPage/productPage";
 import Cart from "./pages/cart/cart";
 import Register from "./pages/register/register";
-import ProductListPageFootball from "./pages/productListPageFootball/productListPageFootball";
-import ProductListPageAcessories from "./pages/productListPageAccessories/productListPageAccessories";
-import ProductListPageNFL from "./pages/productListPageNFL/productListPageNFL";
-import ProductListPageBall from "./pages/productListPageBall/productListPageBall";
-import ProductListPageBasket from "./pages/productListPageBasket/productListPageBasket";
-import ProductListPageF1 from "./pages/productListPageF1/productListPageF1";
+import ProductListPageFootball from "./pages/productListPages/productListPageFootball/productListPageFootball";
+import ProductListPageAcessories from "./pages/productListPages/productListPageAccessories/productListPageAccessories";
+import ProductListPageNFL from "./pages/productListPages/productListPageNFL/productListPageNFL";
+import ProductListPageBall from "./pages/productListPages/productListPageBall/productListPageBall";
+import ProductListPageBasket from "./pages/productListPages/productListPageBasket/productListPageBasket";
+import ProductListPageF1 from "./pages/productListPages/productListPageF1/productListPageF1";
 
 function App() {
   return (

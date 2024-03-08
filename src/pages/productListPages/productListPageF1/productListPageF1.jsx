@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import HeaderComponent from "../../components/Header/HeaderComponent";
+import HeaderComponent from "../../../components/Header/HeaderComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
 
-import Footer from "../../components/footer/footer";
-import ProductListAll from "../../components/productListAll/productListAll";
+import Footer from "../../../components/footer/footer";
+import ProductListAll from "../../../components/productListAll/productListAll";
 
-import ProductData from "../../product.json";
+import ProductData from "../../../product.json";
 import "./productListPageF1.css";
 
 const ProductListPageF1 = () => {

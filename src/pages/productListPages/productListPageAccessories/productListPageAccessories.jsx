@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import HeaderComponent from "../../components/Header/HeaderComponent";
+import HeaderComponent from "../../../components/Header/HeaderComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
 
-import Footer from "../../components/footer/footer";
-import ProductListAll from "../../components/productListAll/productListAll";
+import Footer from "../../../components/footer/footer";
+import ProductListAll from "../../../components/productListAll/productListAll";
 
-import ProductData from "../../product.json";
-import "./productListPageNFL.css";
+import ProductData from "../../../product.json";
+import "./productListPageAccessories.css";
 
-const ProductListPageNFL = () => {
+const ProductListPageAcessories = () => {
   const { subcategory } = useParams();
 
   const footballProducts = ProductData.filter(
-    (product) => product.subcategory === "nfl"
+    (product) => product.subcategory === "acessorios"
   );
 
   const [orderBy, setOrderBy] = useState("popularity");
@@ -56,7 +56,7 @@ const ProductListPageNFL = () => {
         <div className="product-list-page-body">
           <div className="filter-container"></div>
           <div className="products-header">
-            <h5>Coleção NFL</h5>
+            <h5>Acessorios</h5>
             <div className="order-filter-container">
               <label className="order-filter-label">Ordenar Por</label>
               <select
@@ -81,4 +81,4 @@ const ProductListPageNFL = () => {
   );
 };
 
-export default ProductListPageNFL;
+export default ProductListPageAcessories;

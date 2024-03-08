@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import HeaderComponent from "../../components/Header/HeaderComponent";
+import HeaderComponent from "../../../components/Header/HeaderComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
 
-import Footer from "../../components/footer/footer";
-import ProductListAll from "../../components/productListAll/productListAll";
+import Footer from "../../../components/footer/footer";
+import ProductListAll from "../../../components/productListAll/productListAll";
 
-import ProductData from "../../product.json";
-import "./productListPageBasket.css";
+import ProductData from "../../../product.json";
+import "./productListPageFootball.css";
 
-const ProductListPageBasket = () => {
-  const { subcategory } = useParams();
-
+const ProductListPageFootball = () => {
   const footballProducts = ProductData.filter(
-    (product) => product.subcategory === "basquete"
+    (product) => product.subcategory === "futebol"
   );
 
   const [orderBy, setOrderBy] = useState("popularity");
@@ -56,7 +54,7 @@ const ProductListPageBasket = () => {
         <div className="product-list-page-body">
           <div className="filter-container"></div>
           <div className="products-header">
-            <h5>Coleção Basquete</h5>
+            <h5>Coleção Futebol</h5>
             <div className="order-filter-container">
               <label className="order-filter-label">Ordenar Por</label>
               <select
@@ -81,4 +79,4 @@ const ProductListPageBasket = () => {
   );
 };
 
-export default ProductListPageBasket;
+export default ProductListPageFootball;
