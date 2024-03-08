@@ -29,9 +29,17 @@ const ProductListPageNFL = () => {
       case "newest":
         return products.sort((a, b) => new Date(b.date) - new Date(a.date));
       case "priceHigh":
-        return products.sort((a, b) => b.price - a.price);
+        return products.sort(
+          (a, b) =>
+            parseFloat(b.price.replace(",", ".")) -
+            parseFloat(a.price.replace(",", "."))
+        );
       case "priceLow":
-        return products.sort((a, b) => a.price - b.price);
+        return products.sort(
+          (a, b) =>
+            parseFloat(a.price.replace(",", ".")) -
+            parseFloat(b.price.replace(",", "."))
+        );
       default:
         return products;
     }
