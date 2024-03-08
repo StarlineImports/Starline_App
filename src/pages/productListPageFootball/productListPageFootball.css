@@ -26,3 +26,15 @@
 .order-filter-label {
   margin-bottom: 10px;
 }
+
+@media (max-width: 576px) {
+  .order-filter {
+    margin-right: 100px;
+    max-width: 200px;
+    height: 30px;
+  }
+
+  .products-header {
+    flex-direction: column;
+  }
+}
