@@ -7,6 +7,7 @@ import Footer from "../../components/footer/footer";
 import "./productPage.css";
 
 const ProductPage = () => {
+  const [price, setPrice] = useState();
   const [additionalPrice, setAdditionalPrice] = useState(false);
 
   const { id } = useParams();
@@ -14,21 +15,25 @@ const ProductPage = () => {
     (product) => product.id === parseInt(id)
   );
 
+  useEffect(() => {
+    setPrice(productInfo.price);
+  }, []);
+
   if (!productInfo) {
     return <div>Produto não encontrado.</div>;
   }
 
-  const handleAdditionalPriceClick = () => {
-    setAdditionalPrice(true);
-  };
-
-  const calculateTotalPrice = () => {
-    let totalPrice = parseFloat(productInfo.price.replace(",", "."));
-    if (additionalPrice) {
-      totalPrice += 10;
-    }
-    return totalPrice.toFixed(2);
-  };
+  useEffect(() => {
+    const calculateTotalPrice = () => {
+      let totalPrice = parseFloat(productInfo.price.replace(",", "."));
+      if (additionalPrice) {
+        totalPrice += 10;
+      }
+      console.log(totalPrice);
+      return setPrice(totalPrice.toFixed(2).replace(".", ","));
+    };
+    calculateTotalPrice();
+  }, [additionalPrice]);
 
   const hasOldPrice =
     productInfo.oldPrice !== undefined &&
@@ -58,21 +63,56 @@ const ProductPage = () => {
             <div className="product-size-container">
               Tamanhos:
               <div className="size-button-container">
-                <button className="size-button">P</button>
-                <button className="size-button">M</button>
-                <button className="size-button">G</button>
-                <button className="size-button">GG</button>
+                <button
+                  className="size-button"
+                  onClick={() => setAdditionalPrice(false)}
+                >
+                  P
+                </button>
+                <button
+                  className="size-button"
+                  onClick={() => setAdditionalPrice(false)}
+                >
+                  M
+                </button>
+                <button
+                  className="size-button"
+                  onClick={() => setAdditionalPrice(false)}
+                >
+                  G
+                </button>
+                <button
+                  className="size-button"
+                  onClick={() => setAdditionalPrice(false)}
+                >
+                  GG
+                </button>
                 <div className="mobile-size-button-division">
                   <button
                     className="size-button"
-                    onClick={handleAdditionalPriceClick}
+                    onClick={() => setAdditionalPrice(true)}
                   >
                     XGG
                   </button>
-                  <button className="size-button">XGGG</button>
+                  <button
+                    className="size-button"
+                    onClick={() => setAdditionalPrice(true)}
+                  >
+                    XGGG
+                  </button>
                 </div>
-                <button className="size-button size-button-pc">XGG</button>
-                <button className="size-button size-button-pc">XGGG</button>
+                <button
+                  className="size-button size-button-pc"
+                  onClick={() => setAdditionalPrice(true)}
+                >
+                  XGG
+                </button>
+                <button
+                  className="size-button size-button-pc"
+                  onClick={() => setAdditionalPrice(true)}
+                >
+                  XGGG
+                </button>
               </div>
             </div>
             <div className="desktop-product-price">
@@ -87,7 +127,7 @@ const ProductPage = () => {
                     !hasOldPrice ? "productMargin" : ""
                   }`}
                 >
-                  R${calculateTotalPrice()}
+                  R${price}
                 </label>
               </div>
             </div>
@@ -101,7 +141,7 @@ const ProductPage = () => {
                   !hasOldPrice ? "productMargin" : ""
                 }`}
               >
-                R${calculateTotalPrice()}
+                R${price}
               </label>
             </div>
             <p className="mobile-product-description">
