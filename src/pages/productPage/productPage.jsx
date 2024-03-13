@@ -9,6 +9,7 @@ import "./productPage.css";
 const ProductPage = () => {
   const [price, setPrice] = useState();
   const [additionalPrice, setAdditionalPrice] = useState(false);
+  const [selectedSizes, setSelectedSizes] = useState([]);
 
   const { id } = useParams();
   const productInfo = productData.find(
@@ -40,6 +41,12 @@ const ProductPage = () => {
     productInfo.oldPrice !== null &&
     parseFloat(productInfo.oldPrice) > parseFloat(productInfo.price);
 
+  const handleSizeButtonClick = (size) => {
+    setSelectedSizes(size);
+
+    setAdditionalPrice(["GG", "XGG", "XGGG"].includes(size));
+  };
+
   return (
     <div>
       <div className="product-page-full-body">
@@ -64,52 +71,68 @@ const ProductPage = () => {
               Tamanhos:
               <div className="size-button-container">
                 <button
-                  className="size-button"
-                  onClick={() => setAdditionalPrice(false)}
+                  className={`size-button ${
+                    selectedSizes === "P" ? "colored-size-button" : ""
+                  }`}
+                  onClick={() => handleSizeButtonClick("P")}
                 >
                   P
                 </button>
                 <button
-                  className="size-button"
-                  onClick={() => setAdditionalPrice(false)}
+                  className={`size-button ${
+                    selectedSizes === "M" ? "colored-size-button" : ""
+                  }`}
+                  onClick={() => handleSizeButtonClick("M")}
                 >
                   M
                 </button>
                 <button
-                  className="size-button"
-                  onClick={() => setAdditionalPrice(false)}
+                  className={`size-button ${
+                    selectedSizes === "G" ? "colored-size-button" : ""
+                  }`}
+                  onClick={() => handleSizeButtonClick("G")}
                 >
                   G
                 </button>
                 <button
-                  className="size-button"
-                  onClick={() => setAdditionalPrice(false)}
+                  className={`size-button ${
+                    selectedSizes === "GG" ? "colored-size-button" : ""
+                  }`}
+                  onClick={() => handleSizeButtonClick("GG")}
                 >
                   GG
                 </button>
                 <div className="mobile-size-button-division">
                   <button
-                    className="size-button"
-                    onClick={() => setAdditionalPrice(true)}
+                    className={`size-button ${
+                      selectedSizes === "XGG" ? "colored-size-button" : ""
+                    }`}
+                    onClick={() => handleSizeButtonClick("XGG")}
                   >
                     XGG
                   </button>
                   <button
-                    className="size-button"
-                    onClick={() => setAdditionalPrice(true)}
+                    className={`size-button ${
+                      selectedSizes === "XGGG" ? "colored-size-button" : ""
+                    }`}
+                    onClick={() => handleSizeButtonClick("XGGG")}
                   >
                     XGGG
                   </button>
                 </div>
                 <button
-                  className="size-button size-button-pc"
-                  onClick={() => setAdditionalPrice(true)}
+                  className={`size-button size-button-pc ${
+                    selectedSizes === "XGG" ? "colored-size-button" : ""
+                  }`}
+                  onClick={() => handleSizeButtonClick("XGG")}
                 >
                   XGG
                 </button>
                 <button
-                  className="size-button size-button-pc"
-                  onClick={() => setAdditionalPrice(true)}
+                  className={`size-button size-button-pc ${
+                    selectedSizes === "XGGG" ? "colored-size-button" : ""
+                  }`}
+                  onClick={() => handleSizeButtonClick("XGGG")}
                 >
                   XGGG
                 </button>
