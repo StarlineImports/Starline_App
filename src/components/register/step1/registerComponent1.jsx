@@ -81,7 +81,7 @@ const RegisterComponent1 = () => {
             className="form-control button"
             id="inputPassword"
           >
-            Cria
+            Criar
           </button>
         </div>
       </form>
