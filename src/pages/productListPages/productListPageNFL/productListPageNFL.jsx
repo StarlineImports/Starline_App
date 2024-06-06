@@ -65,7 +65,6 @@ const ProductListPageNFL = () => {
                 onChange={handleOrderByChange}
               >
                 <option value="popularity">Mais Populares</option>
-                <option value="newest">Lançamentos</option>
                 <option value="priceHigh">Maior Preço</option>
                 <option value="priceLow">Menor Preço</option>
               </select>
