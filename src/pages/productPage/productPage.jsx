@@ -171,6 +171,7 @@ const ProductPage = () => {
               {productInfo.description}
             </p>
             <button className="buy-button">COMPRAR AGORA</button>
+            <button className="add-car-button"></button>
           </div>
         </div>
       </div>
