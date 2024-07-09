@@ -5,7 +5,12 @@ import SignIn from "./pages/signIn/singIn";
 import ProductPage from "./pages/productPage/productPage";
 import Cart from "./pages/cart/cart";
 import Register from "./pages/register/register";
+
 import ProductListPageFootball from "./pages/productListPages/productListPageFootball/productListPageFootball";
+import ProductListPageFC from "./pages/productListPages/productListPageFootball/productListPageFC";
+import ProductListPageFShorts from "./pages/productListPages/productListPageFootball/productListPageFShorts";
+import ProductListPageFConj from "./pages/productListPages/productListPageFootball/productListPageFConj";
+
 import ProductListPageAcessories from "./pages/productListPages/productListPageAccessories/productListPageAccessories";
 import ProductListPageNFL from "./pages/productListPages/productListPageNFL/productListPageNFL";
 import ProductListPageBall from "./pages/productListPages/productListPageBall/productListPageBall";
@@ -21,7 +26,18 @@ function App() {
         <Route path="/produto/:id" element={<ProductPage />} />
         <Route path="/carrinho" element={<Cart />} />
         <Route path="/cadastrar" element={<Register />} />
+        {/* ------ */}
         <Route path="/search/futebol" element={<ProductListPageFootball />} />
+        <Route path="/search/futebol/camisas" element={<ProductListPageFC />} />
+        <Route
+          path="/search/futebol/shorts"
+          element={<ProductListPageFShorts />}
+        />
+        <Route
+          path="/search/futebol/conjuntos"
+          element={<ProductListPageFConj />}
+        />
+
         <Route
           path="/search/acessorios"
           element={<ProductListPageAcessories />}

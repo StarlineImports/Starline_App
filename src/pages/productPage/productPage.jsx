@@ -53,7 +53,7 @@ const ProductPage = () => {
         <HeaderComponent />
         <div className="categories">
           <h4 className="mini-header-categories">
-            {productInfo.category.toUpperCase()}
+            {productInfo.team.toUpperCase()}
           </h4>
         </div>
         <div className="productPage-body">

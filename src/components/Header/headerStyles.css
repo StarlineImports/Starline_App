@@ -1,6 +1,9 @@
 .first-header {
   display: flex;
+  width: 100%;
   align-items: center;
+  height: 150px;
+  background-color: #fff;
 }
 .logo-image {
   width: 9rem;
@@ -60,6 +63,36 @@
   height: 4rem;
   background-color: #1e3c64;
 }
+.third-header {
+  margin-top: 0px;
+  height: 4rem;
+  background-color: #fff;
+  border-top: 1px solid #1e3c64;
+  border-bottom: 5px solid #1e3c64;
+}
+.third-header-fut {
+  padding: 3px;
+  list-style: none;
+  display: flex;
+  margin-left: -60px;
+}
+.third-header-basq {
+  padding: 3px;
+  list-style: none;
+  display: flex;
+  margin-right: -350px;
+}
+.third-text {
+  font-weight: 800;
+  list-style: none;
+  text-decoration: none;
+  color: #1e3c64;
+  cursor: pointer;
+}
+.third-text:hover {
+  color: #2b5792;
+}
+
 .second-header-text {
   padding: 20px;
   list-style: none;

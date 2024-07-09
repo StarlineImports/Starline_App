@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LogoStarlineBlue from "../../assets/logoStarlineBlue.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./headerStyles.css";
+
 const HeaderComponent = () => {
+  const [visibleSection, setVisibleSection] = useState(null);
+
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path.startsWith("/search/futebol")) {
+      setVisibleSection("futebol");
+    } else if (path.startsWith("/search/basquete")) {
+      setVisibleSection("basquete");
+    }
+  }, []);
+
+  const handleSectionClick = (section) => {
+    setVisibleSection(section);
+  };
+
   return (
     <div className="full-header">
       <header className="first-header row col-lg-8">
         <div className="col-lg-3 col-sm-3 d-flex align-items-center justify-content-center col-12">
           <Link to="/">
-            <img className="logo-image" src={LogoStarlineBlue} />
+            <img className="logo-image" src={LogoStarlineBlue} alt="Logo" />
           </Link>
         </div>
         <div className="row col-lg-4">
@@ -27,9 +43,9 @@ const HeaderComponent = () => {
                     id="Vector"
                     d="M5 17H19M5 12H19M5 7H19"
                     stroke="#1e3c64"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </g>
               </svg>
@@ -56,9 +72,9 @@ const HeaderComponent = () => {
             <path
               d="M15 19C15 15.134 11.866 12 8 12C4.13401 12 1 15.134 1 19M8 9C5.79086 9 4 7.20914 4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5C12 7.20914 10.2091 9 8 9Z"
               stroke="#1e3c64"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
           <div className="signIn-text">
@@ -81,9 +97,9 @@ const HeaderComponent = () => {
                 id="Vector"
                 d="M3 3H3.26835C3.74213 3 3.97943 3 4.17267 3.08548C4.34304 3.16084 4.48871 3.28218 4.59375 3.43604C4.71269 3.61026 4.75564 3.8429 4.84137 4.30727L7.00004 16L17.4218 16C17.875 16 18.1023 16 18.29 15.9199C18.4559 15.8492 18.5989 15.7346 18.7051 15.5889C18.8252 15.4242 18.8761 15.2037 18.9777 14.7631L18.9785 14.76L20.5477 7.95996L20.5481 7.95854C20.7023 7.29016 20.7796 6.95515 20.6947 6.69238C20.6202 6.46182 20.4635 6.26634 20.2556 6.14192C20.0184 6 19.6758 6 18.9887 6H5.5M18 21C17.4477 21 17 20.5523 17 20C17 19.4477 17.4477 19 18 19C18.5523 19 19 19.4477 19 20C19 20.5523 18.5523 21 18 21ZM8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20C9 20.5523 8.55228 21 8 21Z"
                 stroke="#1e3c64"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </g>
           </svg>
@@ -100,13 +116,21 @@ const HeaderComponent = () => {
             <div className="col-lg-3"></div>
 
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
-              <Link className="second-text" to={`/search/futebol`}>
+              <Link
+                className="second-text"
+                to="/search/futebol"
+                onClick={() => handleSectionClick("futebol")}
+              >
                 Futebol
               </Link>
             </li>
 
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
-              <Link className="second-text" to={`/search/basquete`}>
+              <Link
+                className="second-text"
+                to="/search/basquete"
+                onClick={() => handleSectionClick("basquete")}
+              >
                 Basquete
               </Link>
             </li>
@@ -132,6 +156,65 @@ const HeaderComponent = () => {
             </li>
           </ul>
         </div>
+      </div>
+      <div
+        className="third-header row g-3"
+        style={{ display: visibleSection ? "block" : "none" }}
+      >
+        {visibleSection === "futebol" && (
+          <div className="col-xxl-9 col-lg-9 col-sm-8">
+            <ul className="third-header-fut">
+              <div className="col-lg-4"></div>
+              <li className="third-text col-xxl-2 col-xl-2 col-lg-2 col-12">
+                <Link className="third-text" to={`/search/futebol/camisas`}>
+                  Camisas
+                </Link>
+              </li>
+              <li className="third-text col-xxl-2 col-xl-2 col-lg-2 col-12">
+                <Link className="third-text" to={`/search/futebol/shorts`}>
+                  Shorts
+                </Link>
+              </li>
+              <li className="third-text col-xxl-2 col-xl-2 col-lg-2 col-12">
+                <Link className="third-text" to={`/search/futebol/conjuntos`}>
+                  Conjuntos
+                </Link>
+              </li>
+              <li className="third-text col-xxl-2 col-xl-2 col-lg-2 col-12">
+                <Link className="third-text" to={`/search/futebol/jaquetas`}>
+                  Jaquetas
+                </Link>
+              </li>
+              <li className="third-text col-xxl-2 col-xl-2 col-lg-2 col-12">
+                <Link className="third-text" to={`/search/futebol/bolas`}>
+                  Bolas de futebol
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
+        {visibleSection === "basquete" && (
+          <div className="col-xxl-9 col-lg-9 col-sm-8">
+            <ul className="third-header-basq">
+              <div className="col-lg-4"></div>
+              <li className="third-text col-xxl-2 col-xl-2 col-lg-2 col-12">
+                <Link className="third-text" to={`/search/basquete/camisas`}>
+                  Camisas de Basquete
+                </Link>
+              </li>
+              <li className="third-text col-xxl-2 col-xl-2 col-lg-2 col-12">
+                <Link className="third-text" to={`/search/basquete/jaquetas`}>
+                  Jaquetas de Basquete
+                </Link>
+              </li>
+              <li className="third-text col-xxl-2 col-xl-2 col-lg-2 col-12">
+                <Link className="third-text" to={`/search/basquete/bolas`}>
+                  Bolas de basquete
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
