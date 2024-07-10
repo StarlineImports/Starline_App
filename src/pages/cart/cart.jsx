@@ -27,11 +27,11 @@ const Cart = () => {
           <div className="cart-itens-container row">
             <div className="cart-box-title ">
               <input type="radio" className="check-all" />
-              <div className="cart-header-text">
-                <h6 className="cart-text">Nome do Produto</h6>
-                <h6 className="cart-text">Tamanho</h6>
-                <h6 className="cart-text">Quantidade</h6>
-                <h6 className="cart-text">Preço</h6>
+              <div className="cart-header-container">
+                <h6 className="cart-header-text">Nome do Produto</h6>
+                <h6 className="cart-header-text">Tamanho</h6>
+                <h6 className="cart-header-text">Quantidade</h6>
+                <h6 className="cart-header-text">Preço</h6>
               </div>
             </div>
             {filteredProducts.map((product) => (
@@ -92,10 +92,10 @@ const Cart = () => {
                 <li className="li-title">Preço Total: </li>
               </ul>
               <ul className="result-ul">
-                <li className="result-li">VALOR</li>
-                <li className="result-li">VALOR</li>
-                <li className="result-li">VALOR</li>
-                <li className="result-li">VALOR</li>
+                <li className="result-li">R$ 472,30</li>
+                <li className="result-li">R$ 27,70</li>
+                <li className="result-li">R$ 97,70</li>
+                <li className="result-li">R$ 597,70</li>
               </ul>
             </div>
             <Button className="result-btn" variant="success">
