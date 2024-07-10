@@ -16,6 +16,11 @@ const CartItem = () => {
     }
   }
 
+  const handleOnlyNumber = (e) => {
+    const numericValue = e.target.value.replace(/\D/g, "");
+    e.target.value = numericValue.slice(0, 20)
+  }
+
   const selectedProductIds = [6, 11, 9, 10, 15, 2, 3];
 
   const filteredProducts = ProductData.filter((product) =>
@@ -42,6 +47,7 @@ const CartItem = () => {
                 type="radio"
                 value=""
                 aria-label="Radio button for following text input"
+                
               />
               <img
                 src={product.image}
@@ -80,8 +86,9 @@ const CartItem = () => {
               aria-describedby="inputGroup-sizing-sm"
               placeholder="DIGITE SEU CEP"
               className="cep-input"
+              onInput={handleOnlyNumber}
             ></input>
-            <Button variant="warning" className="cep-calc-btn">
+            <Button variant="warning" className="cep-calc-btn" >
               <FaSearch />
             </Button>
           </>
