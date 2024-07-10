@@ -72,7 +72,7 @@
   color: white;
   margin-top: 50px;
   border-radius: 15px;
-  width: 330px;
+  width: 400px;
   height: 50px;
   background-color: #2ecf79;
   border: none;
@@ -81,18 +81,6 @@
   background-color: #187845;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
-
-.add-cart-button {
-  color: white;
-  margin-top: 50px;
-  margin-left: 10px;
-  border-radius: 15px;
-  width: 50px;
-  height: 50px;
-  background-color: #ababab;
-  border: none;
-}
-
 .productPage-price {
   cursor: pointer;
   font-weight: 600;
