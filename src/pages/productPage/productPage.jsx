@@ -63,6 +63,19 @@ const ProductPage = () => {
             alt={productInfo.name}
           />
           <div>
+            {ProductData.map((product) => (
+              <div key={product.id} className="cart-prod-info">
+                <input
+                  className="input-cart-check"
+                  type="checkbox"
+                  value=""
+                  aria-label="Radio button for following text input"
+                />
+                <img src={product.image} alt={product.name} width="80" />
+                <h1 className="cart-prod-name ">{product.name}</h1>
+                <p>Preço: {product.price}</p>
+              </div>
+            ))}
             <div className="desktop-product-name">
               <h2>{productInfo.name}</h2>
               <p className="product-description">{productInfo.description}</p>
