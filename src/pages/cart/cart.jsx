@@ -11,7 +11,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Card from "react-bootstrap/Card";
 
 const Cart = () => {
-  const selectedProductIds = [2, 3];
+  const selectedProductIds = [6, 11, 9, 10, 15, 2, 3];
 
   const filteredProducts = ProductData.filter((product) =>
     selectedProductIds.includes(product.id)
@@ -23,28 +23,45 @@ const Cart = () => {
         <HeaderComponent />
       </div>
       <div className="cart-content">
-        <div className="cart-item-box row">
-          <div className="cart-box-title ">
-            <input type="checkbox" className="check-all" />
-            <ul className="">Nome do Produto</ul>
-            <ul className="">Tamanho</ul>
-            <ul className="">Quantidade</ul>
-            <ul className="">Preço</ul>
-          </div>
-          <div>
+        <div className="cart-itens">
+          <div className="cart-itens-container row">
+            <div className="cart-box-title ">
+              <input type="radio" className="check-all" />
+              <div className="cart-header-text">
+                <h6 className="cart-text">Nome do Produto</h6>
+                <h6 className="cart-text">Tamanho</h6>
+                <h6 className="cart-text">Quantidade</h6>
+                <h6 className="cart-text">Preço</h6>
+              </div>
+            </div>
             {filteredProducts.map((product) => (
               <div key={product.id} className="cart-prod-info">
                 <div className="cart-product">
                   <input
-                    className="input-cart-check"
-                    type="checkbox"
+                    className="check-all"
+                    type="radio"
                     value=""
                     aria-label="Radio button for following text input"
                   />
-                  <img src={product.image} alt={product.name} width="70" />
-                  <h1 className="cart-prod-name ">{product.name}</h1>
-                  <input type="number" className="cart-qtd" />
-                  <p className="cart-price"> {product.price}</p>
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="cart-product-image"
+                  />
+                  <h1 className="cart-prod-name">{product.name}</h1>
+                  <h1 className="cart-prod-size">M</h1>
+                  <div className="cart-size">
+                    <button className="cart-size-button">
+                      <h1 className="cart-size-text-btn">+</h1>
+                    </button>
+                    <div className="cart-size-text-container">
+                      <h1 className="cart-size-text">2</h1>
+                    </div>
+                    <button className="cart-size-button">
+                      <h1 className="cart-size-text-btn">-</h1>
+                    </button>
+                  </div>
+                  <p className="cart-price">R$ {product.price}</p>
                 </div>
               </div>
             ))}
@@ -52,10 +69,10 @@ const Cart = () => {
           <div className="cart-prod-btn">
             <Button variant="danger" className="dgr-btn">
               DELETAR
-            </Button>{" "}
+            </Button>
             <Button variant="warning" className="warn-btn ">
               CALCULAR FRETE
-            </Button>{" "}
+            </Button>
             <Form.Control
               aria-label="Small"
               aria-describedby="inputGroup-sizing-sm"
@@ -83,7 +100,7 @@ const Cart = () => {
             </div>
             <Button className="result-btn" variant="success">
               COMPRAR
-            </Button>{" "}
+            </Button>
           </form>
         </div>
       </div>
