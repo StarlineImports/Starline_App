@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import productData from "../../product.json";
 import Footer from "../../components/footer/footer";
 import "./productPage.css";
+import { FaCartShopping } from "react-icons/fa6";
 
 const ProductPage = () => {
   const [price, setPrice] = useState();
@@ -184,7 +185,7 @@ const ProductPage = () => {
               {productInfo.description}
             </p>
             <button className="buy-button">COMPRAR AGORA</button>
-            <button className="add-car-button"></button>
+            <button className="add-cart-button"><FaCartShopping /></button>
           </div>
         </div>
       </div>
