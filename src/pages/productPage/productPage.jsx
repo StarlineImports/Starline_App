@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import HeaderComponent from "../../components/Header/HeaderComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
+import { FaCartShopping } from "react-icons/fa6";
 import productData from "../../product.json";
 import Footer from "../../components/footer/footer";
 import "./productPage.css";
@@ -30,7 +31,7 @@ const ProductPage = () => {
       if (additionalPrice) {
         totalPrice += 10;
       }
-      console.log(totalPrice);
+
       return setPrice(totalPrice.toFixed(2).replace(".", ","));
     };
     calculateTotalPrice();
@@ -63,19 +64,6 @@ const ProductPage = () => {
             alt={productInfo.name}
           />
           <div>
-            {ProductData.map((product) => (
-              <div key={product.id} className="cart-prod-info">
-                <input
-                  className="input-cart-check"
-                  type="checkbox"
-                  value=""
-                  aria-label="Radio button for following text input"
-                />
-                <img src={product.image} alt={product.name} width="80" />
-                <h1 className="cart-prod-name ">{product.name}</h1>
-                <p>Preço: {product.price}</p>
-              </div>
-            ))}
             <div className="desktop-product-name">
               <h2>{productInfo.name}</h2>
               <p className="product-description">{productInfo.description}</p>

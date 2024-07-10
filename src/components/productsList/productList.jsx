@@ -12,7 +12,7 @@ const ProductList = ({ listTitle, selectedProducts, renderAllProducts }) => {
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < 1265);
-      setIsMediumScreen(window.innerWidth < 1750);
+      setIsMediumScreen(window.innerWidth < 1910);
     };
 
     window.addEventListener("resize", handleResize);

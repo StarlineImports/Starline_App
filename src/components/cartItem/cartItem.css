@@ -108,13 +108,39 @@
 .cart-price {
   font-weight: 700;
   color: #419c62;
+  margin-top: 5px;
   margin-left: 100px;
+}
+.cart-prod-btn {
+  width: 850px;
 }
 
 .dgr-btn {
-  width: 190px;
+  width: 200px;
+  color: black;
+  font-weight: 600;
+  height: 45px;
 }
 
 .cep-btn {
-  width: 190px;
+  margin-left: 30px;
+  width: 200px;
+  color: black;
+  font-weight: 600;
+  height: 45px;
+}
+.cep-calc-btn {
+  margin-left: 10px;
+  width: 45px;
+  color: black;
+  font-weight: 600;
+  height: 45px;
+}
+
+.cep-input {
+  margin-left: 30px;
+  width: 300px;
+  height: 45px;
+  border: 1px solid #25456e;
+  border-radius: 10px;
 }
