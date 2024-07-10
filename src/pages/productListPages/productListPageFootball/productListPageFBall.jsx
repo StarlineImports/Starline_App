@@ -9,11 +9,10 @@ import ProductListAll from "../../../components/productListAll/productListAll";
 import ProductData from "../../../product.json";
 import "../productListPageStyles.css";
 
-const ProductListPageBall = () => {
-  const { subcategory } = useParams();
-
+const ProductListPageFBall = () => {
   const footballProducts = ProductData.filter(
-    (product) => product.category === "ball"
+    (product) =>
+      product.subcategory === "futebol" && product.category === "ball"
   );
 
   const [orderBy, setOrderBy] = useState("popularity");
@@ -56,7 +55,7 @@ const ProductListPageBall = () => {
         <div className="product-list-page-body">
           <div className="filter-container"></div>
           <div className="products-header">
-            <h5>Bolas</h5>
+            <h5>Bolas de Futebol</h5>
             <div className="order-filter-container">
               <label className="order-filter-label">Ordenar Por</label>
               <select
@@ -80,4 +79,4 @@ const ProductListPageBall = () => {
   );
 };
 
-export default ProductListPageBall;
+export default ProductListPageFBall;

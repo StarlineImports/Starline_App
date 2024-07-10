@@ -11,6 +11,7 @@ import ProductListPageFC from "./pages/productListPages/productListPageFootball/
 import ProductListPageFShorts from "./pages/productListPages/productListPageFootball/productListPageFShorts";
 import ProductListPageFConj from "./pages/productListPages/productListPageFootball/productListPageFConj";
 import ProductListPageFJaq from "./pages/productListPages/productListPageFootball/productListPageFJaq";
+import ProductListPageFBall from "./pages/productListPages/productListPageFootball/productListPageFBall";
 
 import ProductListPageAcessories from "./pages/productListPages/productListPageAccessories/productListPageAccessories";
 import ProductListPageNFL from "./pages/productListPages/productListPageNFL/productListPageNFL";
@@ -41,6 +42,10 @@ function App() {
         <Route
           path="/search/futebol/jaquetas"
           element={<ProductListPageFJaq />}
+        />
+        <Route
+          path="/search/futebol/bolas"
+          element={<ProductListPageFBall />}
         />
 
         <Route
