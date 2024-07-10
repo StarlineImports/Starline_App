@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   background-color: #1e3c64;
-
+  border-top: 4px solid black;
   height: 25rem;
   margin-top: 5rem;
 }
