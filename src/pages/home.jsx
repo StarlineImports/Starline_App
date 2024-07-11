@@ -38,7 +38,12 @@ function Home() {
         listTitle="Produtos mais Vendidos"
         selectedProducts={selectedProducts}
       />
+<<<<<<< HEAD
       <Footer/>
+=======
+
+      <Footer />
+>>>>>>> 2d554afe13ee969e7cb28e09f725303453c294ef
     </div>
   );
 }
