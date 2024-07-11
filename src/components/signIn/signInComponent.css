@@ -28,9 +28,18 @@
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   color: #fff;
   margin-top: 20px;
+  height: 50px;
   margin-bottom: 10px;
   background-color: #217b29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.textButton {
+  margin-top: 18px;
+  font-weight: 600;
+}
+
 .button:hover {
   background-color: #18591d;
 }
