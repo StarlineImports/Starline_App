@@ -4,6 +4,7 @@ import ComponentImage from "../components/carousel/index.jsx";
 import ProductList from "../components/productsList/productList.jsx";
 import Footer from "../components/footer/footer.jsx";
 import ProductData from "../product.json";
+import MyItems from "./myItems/myItems.jsx";
 
 function Home() {
   const promotionProducts = [
@@ -33,7 +34,9 @@ function Home() {
         listTitle="Produtos mais Vendidos"
         selectedProducts={selectedProducts}
       />
-
+      <MyItems
+        listTitle="Meus pedidos"
+      />
       <Footer />
     </div>
   );

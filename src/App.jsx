@@ -5,6 +5,7 @@ import SignIn from "./pages/signIn/singIn";
 import ProductPage from "./pages/productPage/productPage";
 import Cart from "./pages/cart/cart";
 import Register from "./pages/register/register";
+import MyItems from "./pages/myItems/myItems";
 
 import ProductListPageFootball from "./pages/productListPages/productListPageFootball/productListPageFootball";
 import ProductListPageFC from "./pages/productListPages/productListPageFootball/productListPageFC";
@@ -23,6 +24,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/myItems" element={<MyItems/>} />
         <Route path="/" element={<Home />} />
         <Route path="/entrar" element={<SignIn />} />
         <Route path="/produto/:id" element={<ProductPage />} />
