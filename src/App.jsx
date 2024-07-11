@@ -28,7 +28,7 @@ function App() {
         <Route path="/produto/:id" element={<ProductPage />} />
         <Route path="/carrinho" element={<Cart />} />
         <Route path="/cadastrar" element={<Register />} />
-        {/* ------ */}
+
         <Route path="/search/futebol" element={<ProductListPageFootball />} />
         <Route path="/search/futebol/camisas" element={<ProductListPageFC />} />
         <Route

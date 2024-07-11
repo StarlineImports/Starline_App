@@ -9,6 +9,11 @@
   width: 16rem;
   height: 18rem;
 }
+
+.signIn-input {
+  background-color: rgb(224, 224, 224);
+  border: 1px solid #1e3c64;
+}
 @media (min-width: 400px) {
   .register-image {
     margin-left: 50px;

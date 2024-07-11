@@ -51,7 +51,11 @@ const SignInComponent = () => {
           <label htmlFor="inputEmail" className="form-label">
             Email
           </label>
-          <input type="text" className="form-control" id="inputEmail" />
+          <input
+            type="text"
+            className="form-control signIn-input"
+            id="inputEmail"
+          />
         </div>
         <div className="col-lg-12 col-md-10 col-sm-12">
           <label htmlFor="inputSenha" className="form-label">
@@ -61,7 +65,7 @@ const SignInComponent = () => {
             type="password"
             value={password.replace(/./g, "*")}
             onChange={handlePasswordChange}
-            className="form-control"
+            className="form-control signIn-input"
             id="inputPassword"
           />
         </div>
