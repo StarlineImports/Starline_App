@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { initializeApp } from "firebase/app";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 import LogoStarlineBlue from "../../assets/logoStarlineBlue.png";
+import Loader from "../../components/loader/Loader";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./signInComponent.css";
+import myContext from "../../context/myContext";
 
 const SignInComponent = () => {
+  const context = useContext(myContext);
+  const { loading, setLoading } = context;
   const [password, setPassword] = useState("");
+  const [userLogin, setUserLogin] = useState({
+    email: "",
+    password: "",
+  });
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -16,15 +24,59 @@ const SignInComponent = () => {
 
   const navigate = useNavigate();
 
+  const userLoginFunction = async () => {
+    // validation
+    if (userLogin.email === "" || userLogin.password === "") {
+      toast.error("All Fields are required");
+    }
+
+    setLoading(true);
+    try {
+      const users = await signInWithEmailAndPassword(
+        auth,
+        userLogin.email,
+        userLogin.password
+      );
+
+      try {
+        const q = query(
+          collection(fireDB, "user"),
+          where("uid", "==", users?.user?.uid)
+        );
+        const data = onSnapshot(q, (QuerySnapshot) => {
+          let user;
+          QuerySnapshot.forEach((doc) => (user = doc.data()));
+          localStorage.setItem("users", JSON.stringify(user));
+          setUserLogin({
+            email: "",
+            password: "",
+          });
+          toast.success("Login Successfully");
+          setLoading(false);
+          if (user.role === "user") {
+            navigate("/user-dashboard");
+          } else {
+            navigate("/admin-dashboard");
+          }
+        });
+        return () => data;
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      }
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      toast.error("Login Failed");
+    }
+  };
+
   const signInWithGoogle = async () => {
-    console.log("teste");
     try {
       await signInWithPopup(auth, new GoogleAuthProvider());
-      console.log("teste2");
       navigate("/");
       alert("Logado com sucesso!");
     } catch (error) {
-      console.log("teste3");
       console.error("Erro ao fazer login:", error);
     }
   };
@@ -46,6 +98,13 @@ const SignInComponent = () => {
             type="text"
             className="form-control signIn-input"
             id="inputEmail"
+            value={userLogin.email}
+            onChange={(e) => {
+              setUserLogin({
+                ...userLogin,
+                email: e.target.value,
+              });
+            }}
           />
         </div>
         <div className="col-lg-12 col-md-10 col-sm-12">
@@ -54,15 +113,25 @@ const SignInComponent = () => {
           </label>
           <input
             type="password"
-            value={password.replace(/./g, "*")}
-            onChange={handlePasswordChange}
+            value={userLogin.password}
+            onChange={(e) => {
+              setUserLogin({
+                ...userLogin,
+                password: e.target.value,
+              });
+            }}
             className="form-control signIn-input"
             id="inputPassword"
           />
         </div>
         <div className="col-lg-12 col-md-10 col-sm-12">
-          <button type="text" className="form-control button" id="submitButton">
-            Entrar
+          <button
+            className="form-control button"
+            id="submitButton"
+            onClick={userLoginFunction}
+          >
+            {!loading && <p className="textButton">Entrar</p>}{" "}
+            {loading && <Loader />}
           </button>
           <Link to="/">
             <label className="forgot">Esqueceu sua senha?</label>
