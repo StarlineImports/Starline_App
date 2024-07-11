@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import HeaderComponent from "../components/Header/HeaderComponent";
 import ComponentImage from "../components/carousel/index.jsx";
 import ProductList from "../components/productsList/productList.jsx";
 import Footer from "../components/footer/footer.jsx";
 import ProductData from "../product.json";
+import myContext from "../context/myContext.jsx";
 
 function Home() {
+  const context = useContext(myContext);
+  const name = context;
+
   const promotionProducts = [
     ProductData[9],
     ProductData[4],

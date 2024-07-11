@@ -19,45 +19,52 @@ import ProductListPageBall from "./pages/productListPages/productListPageBall/pr
 import ProductListPageBasket from "./pages/productListPages/productListPageBasket/productListPageBasket";
 import ProductListPageF1 from "./pages/productListPages/productListPageF1/productListPageF1";
 
+import MyState from "./context/myState";
+
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/entrar" element={<SignIn />} />
-        <Route path="/produto/:id" element={<ProductPage />} />
-        <Route path="/carrinho" element={<Cart />} />
-        <Route path="/cadastrar" element={<Register />} />
+    <MyState>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/entrar" element={<SignIn />} />
+          <Route path="/produto/:id" element={<ProductPage />} />
+          <Route path="/carrinho" element={<Cart />} />
+          <Route path="/cadastrar" element={<Register />} />
 
-        <Route path="/search/futebol" element={<ProductListPageFootball />} />
-        <Route path="/search/futebol/camisas" element={<ProductListPageFC />} />
-        <Route
-          path="/search/futebol/shorts"
-          element={<ProductListPageFShorts />}
-        />
-        <Route
-          path="/search/futebol/conjuntos"
-          element={<ProductListPageFConj />}
-        />
-        <Route
-          path="/search/futebol/jaquetas"
-          element={<ProductListPageFJaq />}
-        />
-        <Route
-          path="/search/futebol/bolas"
-          element={<ProductListPageFBall />}
-        />
+          <Route path="/search/futebol" element={<ProductListPageFootball />} />
+          <Route
+            path="/search/futebol/camisas"
+            element={<ProductListPageFC />}
+          />
+          <Route
+            path="/search/futebol/shorts"
+            element={<ProductListPageFShorts />}
+          />
+          <Route
+            path="/search/futebol/conjuntos"
+            element={<ProductListPageFConj />}
+          />
+          <Route
+            path="/search/futebol/jaquetas"
+            element={<ProductListPageFJaq />}
+          />
+          <Route
+            path="/search/futebol/bolas"
+            element={<ProductListPageFBall />}
+          />
 
-        <Route
-          path="/search/acessorios"
-          element={<ProductListPageAcessories />}
-        />
-        <Route path="/search/nfl" element={<ProductListPageNFL />} />
-        <Route path="/search/bolas" element={<ProductListPageBall />} />
-        <Route path="/search/basquete" element={<ProductListPageBasket />} />
-        <Route path="/search/f1" element={<ProductListPageF1 />} />
-      </Routes>
-    </Router>
+          <Route
+            path="/search/acessorios"
+            element={<ProductListPageAcessories />}
+          />
+          <Route path="/search/nfl" element={<ProductListPageNFL />} />
+          <Route path="/search/bolas" element={<ProductListPageBall />} />
+          <Route path="/search/basquete" element={<ProductListPageBasket />} />
+          <Route path="/search/f1" element={<ProductListPageF1 />} />
+        </Routes>
+      </Router>
+    </MyState>
   );
 }
 

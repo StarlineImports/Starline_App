@@ -16,15 +16,6 @@ const SignInComponent = () => {
 
   const navigate = useNavigate();
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyBQUvUD81Kcnejm7NwlsSdlbP5R6qbf58k",
-    authDomain: "starlineimports-25396.firebaseapp.com",
-    projectId: "starlineimports-25396",
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
   const signInWithGoogle = async () => {
     console.log("teste");
     try {
