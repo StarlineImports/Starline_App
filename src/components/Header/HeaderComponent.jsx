@@ -1,20 +1,50 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LogoStarlineBlue from "../../assets/logoStarlineBlue.png";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { fireDB } from "../../firebase";
+import { doc, getDoc } from "firebase/firestore";
 import "./headerStyles.css";
 
 const HeaderComponent = () => {
   const [visibleSection, setVisibleSection] = useState(null);
+  const [isLogged, setIsLogged] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("usuarios"));
+
+  const logout = () => {
+    localStorage.clear("users");
+    setIsLogged(false);
+    navigate("/entrar");
+  };
 
   useEffect(() => {
+    if (user) {
+      setIsLogged(true);
+
+      const userRef = doc(fireDB, "usuarios", user.uid);
+      getDoc(userRef)
+        .then((docSnapshot) => {
+          if (docSnapshot.exists()) {
+            setUserName(docSnapshot.data().nome);
+          } else {
+            console.log("Nenhum documento encontrado!");
+          }
+        })
+        .catch((error) => {
+          console.error("Erro ao obter informações do usuário:", error);
+        });
+    }
+
     const path = window.location.pathname;
     if (path.startsWith("/search/futebol")) {
       setVisibleSection("futebol");
     } else if (path.startsWith("/search/basquete")) {
       setVisibleSection("basquete");
     }
-  }, []);
+  }, [user]);
 
   const handleSectionClick = (section) => {
     setVisibleSection(section);
@@ -61,27 +91,39 @@ const HeaderComponent = () => {
           </div>
         </div>
         <div className="signIn signIn-mini signIn-big col-xl-2 col-lg-2">
-          <svg
-            className="signIn-icon"
-            width="16"
-            height="20"
-            viewBox="0 0 16 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15 19C15 15.134 11.866 12 8 12C4.13401 12 1 15.134 1 19M8 9C5.79086 9 4 7.20914 4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5C12 7.20914 10.2091 9 8 9Z"
-              stroke="#1e3c64"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <div className="signIn-text">
-            <Link className="signIn-text" to="/entrar">
-              Entrar/Cadastre-se
-            </Link>
-          </div>
+          {!isLogged && (
+            <>
+              <svg
+                className="signIn-icon"
+                width="16"
+                height="20"
+                viewBox="0 0 16 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 19C15 15.134 11.866 12 8 12C4.13401 12 1 15.134 1 19M8 9C5.79086 9 4 7.20914 4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5C12 7.20914 10.2091 9 8 9Z"
+                  stroke="#1e3c64"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <div className="signIn-text">
+                <Link className="signIn-text" to="/entrar">
+                  Entrar/Cadastre-se
+                </Link>
+              </div>
+            </>
+          )}
+
+          {isLogged && (
+            <div className="signIn-text">
+              <Link className="signIn-text" to="/entrar">
+                {userName ? <>Olá, {userName}</> : <>Olá, Usuário</>}
+              </Link>
+            </div>
+          )}
         </div>
         <div className="cart cart-mini col-lg-2">
           <svg

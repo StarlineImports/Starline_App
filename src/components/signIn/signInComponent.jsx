@@ -1,73 +1,53 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { collection, onSnapshot, query, where } from "firebase/firestore";
-import LogoStarlineBlue from "../../assets/logoStarlineBlue.png";
+import toast from "react-hot-toast";
+import { auth, fireDB } from "../../firebase";
+import {
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  getAuth,
+  GoogleAuthProvider,
+  updateProfile,
+} from "firebase/auth";
 import Loader from "../../components/loader/Loader";
-import "bootstrap/dist/css/bootstrap.min.css";
+import LogoStarlineBlue from "../../assets/logoStarlineBlue.png";
 import "./signInComponent.css";
-import myContext from "../../context/myContext";
 
 const SignInComponent = () => {
-  const context = useContext(myContext);
-  const { loading, setLoading } = context;
-  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const [userLogin, setUserLogin] = useState({
     email: "",
     password: "",
   });
 
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-
   const navigate = useNavigate();
 
   const userLoginFunction = async () => {
-    // validation
     if (userLogin.email === "" || userLogin.password === "") {
-      toast.error("All Fields are required");
+      toast.error("Todos os campos são obrigatórios");
+      return;
     }
 
     setLoading(true);
     try {
-      const users = await signInWithEmailAndPassword(
+      const userCredential = await signInWithEmailAndPassword(
         auth,
         userLogin.email,
         userLogin.password
       );
-
-      try {
-        const q = query(
-          collection(fireDB, "user"),
-          where("uid", "==", users?.user?.uid)
-        );
-        const data = onSnapshot(q, (QuerySnapshot) => {
-          let user;
-          QuerySnapshot.forEach((doc) => (user = doc.data()));
-          localStorage.setItem("users", JSON.stringify(user));
-          setUserLogin({
-            email: "",
-            password: "",
-          });
-          toast.success("Login Successfully");
-          setLoading(false);
-          if (user.role === "user") {
-            navigate("/user-dashboard");
-          } else {
-            navigate("/admin-dashboard");
-          }
-        });
-        return () => data;
-      } catch (error) {
-        console.log(error);
-        setLoading(false);
+      const user = userCredential.user;
+      if (user && user.displayName === null) {
+        await updateProfile(user, { displayName: "Nome do Usuário" });
       }
-    } catch (error) {
-      console.log(error);
+      toast.success("Login realizado com sucesso");
       setLoading(false);
-      toast.error("Login Failed");
+      localStorage.setItem("usuarios", JSON.stringify(user));
+      console.log("Login realizado com sucesso");
+      navigate("/");
+    } catch (error) {
+      console.error("Erro ao fazer login:", error);
+      toast.error("Erro ao fazer login");
+      setLoading(false);
     }
   };
 
@@ -75,8 +55,10 @@ const SignInComponent = () => {
     try {
       await signInWithPopup(auth, new GoogleAuthProvider());
       navigate("/");
-      alert("Logado com sucesso!");
+      localStorage.setItem("usuarios", JSON.stringify(user));
+      toast.success("Logado com Sucesso");
     } catch (error) {
+      toast.error("Erro ao fazer login");
       console.error("Erro ao fazer login:", error);
     }
   };
@@ -128,7 +110,10 @@ const SignInComponent = () => {
           <button
             className="form-control button"
             id="submitButton"
-            onClick={userLoginFunction}
+            onClick={(e) => {
+              e.preventDefault();
+              userLoginFunction();
+            }}
           >
             {!loading && <p className="textButton">Entrar</p>}{" "}
             {loading && <Loader />}

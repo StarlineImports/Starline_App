@@ -1,24 +1,74 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MaskedInput from "react-input-mask";
-import axios from "axios";
+import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
+import toast from "react-hot-toast";
+import { addDoc, collection } from "firebase/firestore";
+import { fireDB, auth } from "../../../firebase";
 import LogoStarlineBlue from "../../../assets/logoStarlineBlue.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./registerComponent1.css";
 
 const RegisterComponent1 = () => {
+  const navigate = useNavigate();
   const [repetPassword, setRepetPassword] = useState("");
   const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({
-    name: "",
+    displayName: "",
     email: "",
-    password: "",
-    phone: "",
-    phone_ddd: "",
-    status: 1,
-    id_user_type: 1,
+    senha: "",
+    confirmarSenha: "",
+    telefone: "",
     cpf: "",
   });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { displayName, email, senha, confirmarSenha, telefone, cpf } =
+      formData;
+
+    const tipo = 1;
+
+    if (
+      !displayName ||
+      !email ||
+      !senha ||
+      !confirmarSenha ||
+      !telefone ||
+      !cpf
+    ) {
+      alert("Preencha todos os campos obrigatórios.");
+      return;
+    }
+    if (senha !== confirmarSenha) {
+      alert("As senhas não coincidem.");
+      return;
+    }
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        senha
+      );
+      const uid = userCredential.user.uid;
+      const userData = {
+        displayName,
+        email,
+        telefone,
+        cpf,
+        tipo,
+      };
+      const userRef = collection(fireDB, "usuarios");
+      await addDoc(userRef, userData);
+      navigate("/entrar");
+      alert("Registro realizado com sucesso");
+      toast.success("Registro realizado com sucesso");
+    } catch (error) {
+      console.error("Erro de registro:", error.message);
+      alert("Falha no registro. Tente novamente.");
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -26,11 +76,11 @@ const RegisterComponent1 = () => {
   };
 
   const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
+    setFormData({ ...formData, senha: event.target.value });
   };
 
   const handleRepetPasswordChange = (event) => {
-    setRepetPassword(event.target.value);
+    setFormData({ ...formData, confirmarSenha: event.target.value });
   };
 
   return (
@@ -49,9 +99,9 @@ const RegisterComponent1 = () => {
           <input
             type="text"
             className="form-control signIn-input"
-            id="inputName"
-            name="name"
-            value={formData.name}
+            id="inputdisplayName"
+            name="displayName"
+            value={formData.displayName}
             onChange={handleChange}
             required
           />
@@ -94,8 +144,8 @@ const RegisterComponent1 = () => {
             type="text"
             className="form-control signIn-input"
             id="inputTel"
-            name="phone"
-            value={formData.phone}
+            name="telefone"
+            value={formData.telefone}
             onChange={handleChange}
             required
           />
@@ -109,8 +159,8 @@ const RegisterComponent1 = () => {
             type="password"
             className="form-control signIn-input"
             id="inputPassword"
-            name="password"
-            value={password}
+            name="senha"
+            value={formData.senha}
             onChange={handlePasswordChange}
             required
           />
@@ -123,14 +173,18 @@ const RegisterComponent1 = () => {
             type="password"
             className="form-control signIn-input"
             id="inputRepetPassword"
-            name="repetPassword"
-            value={repetPassword}
+            name="confirmarSenha"
+            value={formData.confirmarSenha}
             onChange={handleRepetPasswordChange}
             required
           />
         </div>
         <div className="col-lg-12 col-md-10 col-sm-12">
-          <button type="submit" className="form-control button">
+          <button
+            type="submit"
+            className="form-control button"
+            onClick={handleSubmit}
+          >
             Criar
           </button>
         </div>
