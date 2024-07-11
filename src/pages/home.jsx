@@ -38,10 +38,7 @@ function Home() {
         listTitle="Produtos mais Vendidos"
         selectedProducts={selectedProducts}
       />
-      <MyItems
-        listTitle="Meus pedidos"
-      />
-      <Footer />
+      <Footer/>
     </div>
   );
 }
