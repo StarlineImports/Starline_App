@@ -5,7 +5,6 @@ import SignIn from "./pages/signIn/singIn";
 import ProductPage from "./pages/productPage/productPage";
 import Cart from "./pages/cart/cart";
 import Register from "./pages/register/register";
-import MyItems from "./pages/myItems/myItems";
 
 import ProductListPageFootball from "./pages/productListPages/productListPageFootball/productListPageFootball";
 import ProductListPageFC from "./pages/productListPages/productListPageFootball/productListPageFC";
@@ -19,40 +18,12 @@ import ProductListPageNFL from "./pages/productListPages/productListPageNFL/prod
 import ProductListPageBall from "./pages/productListPages/productListPageBall/productListPageBall";
 import ProductListPageBasket from "./pages/productListPages/productListPageBasket/productListPageBasket";
 import ProductListPageF1 from "./pages/productListPages/productListPageF1/productListPageF1";
+import MyItems from "./pages/myItems/myItems";
 
 import MyState from "./context/myState";
 
 function App() {
   return (
-<<<<<<< HEAD
-    <Router>
-      <Routes>
-        <Route path="/myItems" element={<MyItems/>} />
-        <Route path="/" element={<Home />} />
-        <Route path="/entrar" element={<SignIn />} />
-        <Route path="/produto/:id" element={<ProductPage />} />
-        <Route path="/carrinho" element={<Cart />} />
-        <Route path="/cadastrar" element={<Register />} />
-        {/* ------ */}
-        <Route path="/search/futebol" element={<ProductListPageFootball />} />
-        <Route path="/search/futebol/camisas" element={<ProductListPageFC />} />
-        <Route
-          path="/search/futebol/shorts"
-          element={<ProductListPageFShorts />}
-        />
-        <Route
-          path="/search/futebol/conjuntos"
-          element={<ProductListPageFConj />}
-        />
-        <Route
-          path="/search/futebol/jaquetas"
-          element={<ProductListPageFJaq />}
-        />
-        <Route
-          path="/search/futebol/bolas"
-          element={<ProductListPageFBall />}
-        />
-=======
     <MyState>
       <Router>
         <Routes>
@@ -60,9 +31,8 @@ function App() {
           <Route path="/entrar" element={<SignIn />} />
           <Route path="/produto/:id" element={<ProductPage />} />
           <Route path="/carrinho" element={<Cart />} />
+          <Route path="/MyItems" element={<MyItems />} />
           <Route path="/cadastrar" element={<Register />} />
->>>>>>> ce65744413c28d91a7d8158a32eed136a7bd6fee
-
           <Route path="/search/futebol" element={<ProductListPageFootball />} />
           <Route
             path="/search/futebol/camisas"

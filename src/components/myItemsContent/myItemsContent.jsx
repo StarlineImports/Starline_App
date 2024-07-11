@@ -18,8 +18,8 @@ const MyItemsContent = () => {
                         <h3 className="item-order">Pedido: 15565-78</h3>
                         </div>
                         <div className="btn-top">
-                            <button className="">Ajuda com o Pedido</button>
-                            <button className="">Ver Detalhes</button>
+                            <Button variant="outline-warning">Warning</Button>{' '}
+                            <Button variant="outline-warning">Warning</Button>{' '}
                         </div>
                     </div>
                    <div>

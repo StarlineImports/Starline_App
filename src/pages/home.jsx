@@ -4,11 +4,8 @@ import ComponentImage from "../components/carousel/index.jsx";
 import ProductList from "../components/productsList/productList.jsx";
 import Footer from "../components/footer/footer.jsx";
 import ProductData from "../product.json";
-<<<<<<< HEAD
 import MyItems from "./myItems/myItems.jsx";
-=======
 import myContext from "../context/myContext.jsx";
->>>>>>> ce65744413c28d91a7d8158a32eed136a7bd6fee
 
 function Home() {
   const context = useContext(myContext);
