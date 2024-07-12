@@ -40,12 +40,26 @@
 .signIn-text {
   color: #1e3c64;
   text-decoration: none;
+  margin-right: 40px;
+  cursor: pointer;
+}
+.user-header-image {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: 2px solid black;
+  margin-left: 10px;
+}
+.user-header-image:hover {
+  border: 2px solid rgb(106, 106, 106);
 }
 .cart-text {
   color: #1e3c64;
   text-decoration: none;
 }
 .cart {
+  margin-left: 120px;
+  width: 200px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -58,6 +72,11 @@
 }
 .signIn-text:hover {
   color: rgb(135, 135, 135);
+}
+.logged-text-header {
+  display: flex;
+  width: 350px;
+  align-items: center;
 }
 .second-header {
   height: 4rem;

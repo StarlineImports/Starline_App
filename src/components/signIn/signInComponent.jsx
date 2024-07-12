@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
   updateProfile,
 } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
 import Loader from "../../components/loader/Loader";
 import LogoStarlineBlue from "../../assets/logoStarlineBlue.png";
 import "./signInComponent.css";
@@ -36,13 +37,24 @@ const SignInComponent = () => {
         userLogin.password
       );
       const user = userCredential.user;
+
       if (user && user.displayName === null) {
         await updateProfile(user, { displayName: "Nome do Usuário" });
       }
+
+      const userDocRef = doc(fireDB, "usuarios", user.uid);
+      const userDoc = await getDoc(userDocRef);
+
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        localStorage.setItem("usuarios", JSON.stringify(userData));
+        console.log("Dados do usuário:", userData);
+      } else {
+        console.error("Documento não encontrado");
+      }
+
       toast.success("Login realizado com sucesso");
       setLoading(false);
-      localStorage.setItem("usuarios", JSON.stringify(user));
-      console.log("Login realizado com sucesso");
       navigate("/");
     } catch (error) {
       console.error("Erro ao fazer login:", error);

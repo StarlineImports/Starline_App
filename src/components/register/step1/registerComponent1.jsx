@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import MaskedInput from "react-input-mask";
-import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import toast from "react-hot-toast";
-import { addDoc, collection } from "firebase/firestore";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { toast } from "react-hot-toast";
+import { doc, setDoc } from "firebase/firestore";
 import { fireDB, auth } from "../../../firebase";
 import LogoStarlineBlue from "../../../assets/logoStarlineBlue.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,8 +11,6 @@ import "./registerComponent1.css";
 
 const RegisterComponent1 = () => {
   const navigate = useNavigate();
-  const [repetPassword, setRepetPassword] = useState("");
-  const [password, setPassword] = useState("");
   const [formData, setFormData] = useState({
     displayName: "",
     email: "",
@@ -20,13 +18,14 @@ const RegisterComponent1 = () => {
     confirmarSenha: "",
     telefone: "",
     cpf: "",
+    image: "https://cdn-icons-png.flaticon.com/512/1144/1144760.png",
   });
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { displayName, email, senha, confirmarSenha, telefone, cpf } =
+    const { displayName, email, senha, confirmarSenha, telefone, cpf, image } =
       formData;
-
     const tipo = 1;
 
     if (
@@ -40,6 +39,7 @@ const RegisterComponent1 = () => {
       alert("Preencha todos os campos obrigatórios.");
       return;
     }
+
     if (senha !== confirmarSenha) {
       alert("As senhas não coincidem.");
       return;
@@ -51,19 +51,22 @@ const RegisterComponent1 = () => {
         email,
         senha
       );
-      const uid = userCredential.user.uid;
-      const userData = {
+      const user = userCredential.user;
+
+      await updateProfile(user, { displayName });
+
+      const userDocRef = doc(fireDB, "usuarios", user.uid);
+      await setDoc(userDocRef, {
         displayName,
         email,
         telefone,
         cpf,
         tipo,
-      };
-      const userRef = collection(fireDB, "usuarios");
-      await addDoc(userRef, userData);
-      navigate("/entrar");
-      alert("Registro realizado com sucesso");
+        image,
+      });
+
       toast.success("Registro realizado com sucesso");
+      navigate("/entrar");
     } catch (error) {
       console.error("Erro de registro:", error.message);
       alert("Falha no registro. Tente novamente.");

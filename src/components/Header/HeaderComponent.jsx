@@ -10,12 +10,13 @@ const HeaderComponent = () => {
   const [visibleSection, setVisibleSection] = useState(null);
   const [isLogged, setIsLogged] = useState(false);
   const [userName, setUserName] = useState("");
+  const [userImage, setUserImage] = useState("");
 
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem("usuarios"));
 
   const logout = () => {
-    localStorage.clear("users");
+    localStorage.clear("usuarios");
     setIsLogged(false);
     navigate("/entrar");
   };
@@ -23,19 +24,8 @@ const HeaderComponent = () => {
   useEffect(() => {
     if (user) {
       setIsLogged(true);
-
-      const userRef = doc(fireDB, "usuarios", user.uid);
-      getDoc(userRef)
-        .then((docSnapshot) => {
-          if (docSnapshot.exists()) {
-            setUserName(docSnapshot.data().nome);
-          } else {
-            console.log("Nenhum documento encontrado!");
-          }
-        })
-        .catch((error) => {
-          console.error("Erro ao obter informações do usuário:", error);
-        });
+      setUserName(user.displayName);
+      setUserImage(user.image);
     }
 
     const path = window.location.pathname;
@@ -90,8 +80,8 @@ const HeaderComponent = () => {
             </div>
           </div>
         </div>
-        <div className="signIn signIn-mini signIn-big col-xl-2 col-lg-2">
-          {!isLogged && (
+        {!isLogged && (
+          <div className="signIn signIn-mini signIn-big col-xl-2 col-lg-2">
             <>
               <svg
                 className="signIn-icon"
@@ -115,16 +105,8 @@ const HeaderComponent = () => {
                 </Link>
               </div>
             </>
-          )}
-
-          {isLogged && (
-            <div className="signIn-text">
-              <Link className="signIn-text" to="/entrar">
-                {userName ? <>Olá, {userName}</> : <>Olá, Usuário</>}
-              </Link>
-            </div>
-          )}
-        </div>
+          </div>
+        )}
         <div className="cart cart-mini col-lg-2">
           <svg
             className="cart-icon"
@@ -151,6 +133,25 @@ const HeaderComponent = () => {
             </Link>
           </div>
         </div>
+        {isLogged && (
+          <div className="logged-text-header">
+            <div className="signIn-text" onClick={logout}>
+              Sair
+            </div>
+            <div className="signIn-text">
+              <Link className="signIn-text" to="/MyItems">
+                {userName ? (
+                  <>
+                    Olá, {userName.split(" ")[0]}{" "}
+                    <img className="user-header-image" src={userImage}></img>
+                  </>
+                ) : (
+                  <>Olá, Usuário</>
+                )}
+              </Link>
+            </div>
+          </div>
+        )}
       </header>
       <div className="second-header d-none d-sm-block row g-3">
         <div className="col-xxl-9 col-lg-9 col-sm-8">

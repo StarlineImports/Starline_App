@@ -4,7 +4,7 @@ import ComponentImage from "../components/carousel/index.jsx";
 import ProductList from "../components/productsList/productList.jsx";
 import Footer from "../components/footer/footer.jsx";
 import ProductData from "../product.json";
-import MyItems from "./myItems/myItems.jsx";
+
 import myContext from "../context/myContext.jsx";
 
 function Home() {
@@ -38,12 +38,7 @@ function Home() {
         listTitle="Produtos mais Vendidos"
         selectedProducts={selectedProducts}
       />
-<<<<<<< HEAD
-      <Footer/>
-=======
-
       <Footer />
->>>>>>> 2d554afe13ee969e7cb28e09f725303453c294ef
     </div>
   );
 }
