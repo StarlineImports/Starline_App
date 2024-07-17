@@ -1,0 +1,6 @@
+.profile-ofcanvas{
+    position: fixed;
+    background-color: rgb(221, 221, 221);
+    border-radius: 8px;
+    height: 50%;
+}
