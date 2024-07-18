@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderComponent from "../../components/Header/HeaderComponent";
 import Form from "react-bootstrap/Form";
-import Footer from "../../components/footer/Footer";
+import Footer from "../../components/footer/footer";
 import "./myItemsTop.css";
 
 const MyItemsTop = () => {

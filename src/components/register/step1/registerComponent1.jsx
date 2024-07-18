@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { toast } from "react-hot-toast";
 import { doc, setDoc } from "firebase/firestore";
 import { fireDB, auth } from "../../../firebase";
-import LogoStarlineBlue from "../../../assets/logoStarlineBlue.png";
+import LogoStarlineBlue from "../../../assets/logoStarlineblue.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./registerComponent1.css";
 

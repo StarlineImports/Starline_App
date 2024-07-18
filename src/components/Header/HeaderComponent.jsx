@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import LogoStarlineBlue from "../../assets/logoStarlineBlue.png";
+import LogoStarlineBlue from "../../assets/logoStarlineblue.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { fireDB } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";

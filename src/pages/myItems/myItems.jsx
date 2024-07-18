@@ -1,6 +1,6 @@
 import MyItemsContent from "../../components/myItemsContent/myItemsContent";
 import MyItemsTop from "../../components/myItemsTop/myItemsTop";
-import Footer from "../../components/footer/Footer"; 
+import Footer from "../../components/footer/footer"; 
 
 const MyItems = () => {
     return ( 
