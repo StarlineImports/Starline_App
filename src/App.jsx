@@ -22,51 +22,43 @@ import MyItems from "./pages/myItems/myItems";
 
 import MyState from "./context/myState";
 
-function App() {
-  return (
-    <MyState>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/entrar" element={<SignIn />} />
-          <Route path="/produto/:id" element={<ProductPage />} />
-          <Route path="/carrinho" element={<Cart />} />
-          <Route path="/MyItems" element={<MyItems />} />
-          <Route path="/cadastrar" element={<Register />} />
-          <Route path="/search/futebol" element={<ProductListPageFootball />} />
-          <Route
-            path="/search/futebol/camisas"
-            element={<ProductListPageFC />}
-          />
-          <Route
-            path="/search/futebol/shorts"
-            element={<ProductListPageFShorts />}
-          />
-          <Route
-            path="/search/futebol/conjuntos"
-            element={<ProductListPageFConj />}
-          />
-          <Route
-            path="/search/futebol/jaquetas"
-            element={<ProductListPageFJaq />}
-          />
-          <Route
-            path="/search/futebol/bolas"
-            element={<ProductListPageFBall />}
-          />
+// Imports dos componentes Admin Pages
+import AdminHome from "./pages/adminPages/AdminHome/AdminHome";
+import AdminRoutes from "./components/AdminComponents/Routes/AdminRoutes"
 
-          <Route
-            path="/search/acessorios"
-            element={<ProductListPageAcessories />}
-          />
-          <Route path="/search/nfl" element={<ProductListPageNFL />} />
-          <Route path="/search/bolas" element={<ProductListPageBall />} />
-          <Route path="/search/basquete" element={<ProductListPageBasket />} />
-          <Route path="/search/f1" element={<ProductListPageF1 />} />
-        </Routes>
-      </Router>
-    </MyState>
-  );
+
+function App() {
+    return (
+        <MyState>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/entrar" element={<SignIn />} />
+                    <Route path="/produto/:id" element={<ProductPage />} />
+                    <Route path="/carrinho" element={<Cart />} />
+                    <Route path="/MyItems" element={<MyItems />} />
+                    <Route path="/cadastrar" element={<Register />} />
+                    <Route path="/search/futebol" element={<ProductListPageFootball />} />
+                    <Route path="/search/futebol/camisas" element={<ProductListPageFC />} />
+                    <Route path="/search/futebol/shorts" element={<ProductListPageFShorts />} />
+                    <Route path="/search/futebol/conjuntos" element={<ProductListPageFConj />} />
+                    <Route path="/search/futebol/jaquetas" element={<ProductListPageFJaq />} />
+                    <Route path="/search/futebol/bolas" element={<ProductListPageFBall />} />
+                    <Route path="/search/acessorios" element={<ProductListPageAcessories />} />
+                    <Route path="/search/nfl" element={<ProductListPageNFL />} />
+                    <Route path="/search/bolas" element={<ProductListPageBall />} />
+                    <Route path="/search/basquete" element={<ProductListPageBasket />} />
+                    <Route path="/search/f1" element={<ProductListPageF1 />} />
+                    
+                    {/* Admin Routes */}
+                    <Route path="/admin" element={<AdminRoutes />}>
+                        <Route index element={<AdminHome />} />
+                        {/* Adicione mais rotas administrativas aqui se necessário */}
+                    </Route>
+                </Routes>
+            </Router>
+        </MyState>
+    );
 }
 
 export default App;

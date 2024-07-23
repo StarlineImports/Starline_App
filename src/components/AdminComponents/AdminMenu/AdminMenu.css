@@ -1,0 +1,101 @@
+.Menu-lateral {
+    background: #ffffff00;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    border-radius: 0 16px 16px 0;
+    border: 1px solid rgba(68, 252, 12, 0.274);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    overflow-Y: scroll;
+}
+
+.Menu-lateral::-webkit-scrollbar {
+    display: none;
+}
+
+.Menu-lateral img {
+    width: 3rem;
+    margin-top: 2rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.Menu-lateral img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px 0 rgba(234, 234, 236, 0.068);
+}
+
+.Menu-lateral ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 2rem;
+}
+
+.Menu-lateral ul li {
+    margin: .7rem 0;
+    list-style: none;
+    position: relative;
+    width: 100%;
+    color: #00ff26;
+    text-align: center;
+}
+
+.Menu-lateral ul li a {
+    text-decoration: none;
+    color: #00ff26;
+    font-size: 1.2rem;
+    font-weight: 600;
+    width: 100%;
+    border-radius: 0 16px 16px 0;
+    transition: all 0.3s;
+}
+
+.Menu-lateral ul li a::before {
+    position: absolute;
+    content: '';
+    top: 13px;
+    left: 0;
+    width: 0px;
+    height: 5px;
+    background: transparent;
+    border-bottom: 1px solid #fff;
+
+}
+
+.Menu-lateral ul li a:hover {
+    color: #FFF;
+}
+
+.Menu-lateral ul li a:hover a::before {
+    width: 1.8rem;
+    transition: all 0.3s;
+}
+
+.Menu-lateral ul li.active a {
+    color: #FFF;
+}
+
+.Menu-lateral ul li.active a::before {
+    width: 1.2rem;
+    transition: all 0.3s;
+}
+
+.lasttMenu {
+    margin-top: auto;
+}
+
+/* Txt DropDow */
+Link {
+    color: #00ff26;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
