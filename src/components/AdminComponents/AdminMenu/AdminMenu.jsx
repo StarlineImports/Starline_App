@@ -9,6 +9,7 @@ import "./AdminMenu.css";
 
 // Import icon, image
 import LogoAdmin from "../../../assets/logoBig.png";
+import { MdSpaceDashboard } from "react-icons/md";
 import {
     FaHome,
     FaWallet,
@@ -39,15 +40,16 @@ const AdminMenu = () => {
             </Link>
 
             <ul id="mainMenu">
-                <Icon to="/" icon={<FaHome />} title="Home" />
-                <Icon to="#" icon={<FaRegClock />} title="" />
-                <Icon to="#" icon={<FaChartLine />} title="" />
-                <Icon to="#" icon={<FaCanadianMapleLeaf />} title="" />
+                <Icon to="/" icon={<MdSpaceDashboard />} title="DashBoard" />
+                <Icon to="#" icon={<FaRegClock />} title="Produtos" />
+                <Icon to="#" icon={<FaChartLine />} title="Ordes List" />
+               <Icon to="#" icon={<FaCanadianMapleLeaf />} title="Compras" />
                 <Icon to="#" icon={<FaWallet />} title="Carteira" />
             </ul>
+            <hr />
             <ul className="lasttMenu">
-                <Icon to="#" icon={<FaCog />} title="Configurações" /> {/* page Settings */}
-                <Icon to="#" icon={<FaSignOutAlt />} title="Sair" onClick={""} /> {/* page Logout */}
+                <Icon to="#" icon={<FaCog />} title="Configurações" />
+                <Icon to="#" icon={<FaSignOutAlt />} title="Sair"/>
             </ul>
         </nav>
     )
@@ -57,6 +59,7 @@ const Icon = ({ to, icon, title, onClick }) => ( // Icon component
     <li>
         <Link to={to} title={title} onClick={onClick} >
             {icon}
+            <span className="icon-text">{title}</span>
         </Link>
     </li>
 );
