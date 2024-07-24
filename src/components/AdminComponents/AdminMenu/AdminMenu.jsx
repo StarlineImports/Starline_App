@@ -9,16 +9,16 @@ import "./AdminMenu.css";
 
 // Import icon, image
 import LogoAdmin from "../../../assets/logoBig.png";
-import { MdSpaceDashboard } from "react-icons/md";
-import {
-    FaHome,
-    FaWallet,
-    FaChartLine,
-    FaRegClock,
-    FaCog,
-    FaSignOutAlt,
-    FaCanadianMapleLeaf
-} from "react-icons/fa";
+import { 
+    MdSpaceDashboard, 
+    MdGridView, 
+    MdOutlineForum, 
+    MdChecklist, 
+    MdOutlineGridOn,
+    MdSettings,
+    MdLogout,
+    MdCalendarMonth
+} from "react-icons/md";
 
 const AdminMenu = () => {
 
@@ -41,15 +41,16 @@ const AdminMenu = () => {
 
             <ul id="mainMenu">
                 <Icon to="/" icon={<MdSpaceDashboard />} title="DashBoard" />
-                <Icon to="#" icon={<FaRegClock />} title="Produtos" />
-                <Icon to="#" icon={<FaChartLine />} title="Ordes List" />
-               <Icon to="#" icon={<FaCanadianMapleLeaf />} title="Compras" />
-                <Icon to="#" icon={<FaWallet />} title="Carteira" />
+                <Icon to="#" icon={<MdGridView />} title="Produtos" />
+                <Icon to="#" icon={<MdChecklist />} title="Listas de Ordes" />
+                <Icon to="#" icon={<MdOutlineGridOn />} title="Stoques" />
+                <Icon to="#" icon={<MdOutlineForum />} title="Mensagens" />
+                <Icon to="#" icon={<MdCalendarMonth />} title="Agendas" />
             </ul>
             <hr />
             <ul className="lasttMenu">
-                <Icon to="#" icon={<FaCog />} title="Configurações" />
-                <Icon to="#" icon={<FaSignOutAlt />} title="Sair"/>
+                <Icon to="#" icon={<MdSettings />} title="Configurações" />
+                <Icon to="#" icon={<MdLogout />} title="Sair"/>
             </ul>
         </nav>
     )
