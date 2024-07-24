@@ -12,7 +12,9 @@ import AdminHeader from "../AdminHeader/AdminHeader";
 const AdminRoutes = () => {
     return (
         <div className="admin-layout">
-            <AdminMenu />
+            <div className="menu-lateral">
+                <AdminMenu />
+            </div>
             <div className="admin-main">
                 <AdminHeader />
                 <main>
