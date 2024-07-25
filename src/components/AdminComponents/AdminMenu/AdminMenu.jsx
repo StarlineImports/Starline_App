@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import "./AdminMenu.css";
 
 // Import icon, image
-import LogoAdmin from "../../../assets/logoBig.png";
+import LogoAdmin from "../../../assets/logoStarlineblue.png";
 import { 
     MdSpaceDashboard, 
     MdGridView, 
