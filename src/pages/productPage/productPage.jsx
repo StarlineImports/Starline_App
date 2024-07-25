@@ -3,6 +3,7 @@ import HeaderComponent from "../../components/Header/HeaderComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
+import { toast, Toaster } from "react-hot-toast";
 import productData from "../../product.json";
 import Footer from "../../components/footer/footer";
 import "./productPage.css";
@@ -10,7 +11,7 @@ import "./productPage.css";
 const ProductPage = () => {
   const [price, setPrice] = useState();
   const [additionalPrice, setAdditionalPrice] = useState(false);
-  const [selectedSizes, setSelectedSizes] = useState([]);
+  const [selectedSize, setSelectedSize] = useState("");
 
   const { id } = useParams();
   const productInfo = productData.find(
@@ -19,7 +20,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     setPrice(productInfo.price);
-  }, []);
+  }, [productInfo]);
 
   if (!productInfo) {
     return <div>Produto não encontrado.</div>;
@@ -31,11 +32,10 @@ const ProductPage = () => {
       if (additionalPrice) {
         totalPrice += 10;
       }
-
-      return setPrice(totalPrice.toFixed(2).replace(".", ","));
+      setPrice(totalPrice.toFixed(2).replace(".", ","));
     };
     calculateTotalPrice();
-  }, [additionalPrice]);
+  }, [additionalPrice, productInfo.price]);
 
   const hasOldPrice =
     productInfo.oldPrice !== undefined &&
@@ -43,14 +43,46 @@ const ProductPage = () => {
     parseFloat(productInfo.oldPrice) > parseFloat(productInfo.price);
 
   const handleSizeButtonClick = (size) => {
-    setSelectedSizes(size);
-
+    setSelectedSize(size);
     setAdditionalPrice(["GG", "XGG", "XGGG"].includes(size));
+  };
+
+  const handleBuyNowClick = () => {
+    if (!selectedSize) {
+      toast.error("Selecione um tamanho");
+      return;
+    }
+
+    const cartItem = {
+      id: productInfo.id,
+      name: productInfo.name,
+      image: productInfo.image,
+      price: price,
+      size: selectedSize,
+      quantity: 1,
+    };
+
+    let existingCartItems =
+      JSON.parse(localStorage.getItem("cart-items")) || [];
+    const existingItemIndex = existingCartItems.findIndex(
+      (item) => item.id === cartItem.id && item.size === cartItem.size
+    );
+
+    if (existingItemIndex !== -1) {
+      existingCartItems[existingItemIndex].quantity += 1;
+    } else {
+      existingCartItems.push(cartItem);
+    }
+
+    localStorage.setItem("cart-items", JSON.stringify(existingCartItems));
+
+    toast.success("Produto adicionado ao carrinho!");
   };
 
   return (
     <div>
       <div className="product-page-full-body">
+        <Toaster />
         <HeaderComponent />
         <div className="categories">
           <h4 className="mini-header-categories">
@@ -73,7 +105,7 @@ const ProductPage = () => {
               <div className="size-button-container">
                 <button
                   className={`size-button ${
-                    selectedSizes === "P" ? "colored-size-button" : ""
+                    selectedSize === "P" ? "colored-size-button" : ""
                   }`}
                   onClick={() => handleSizeButtonClick("P")}
                 >
@@ -81,7 +113,7 @@ const ProductPage = () => {
                 </button>
                 <button
                   className={`size-button ${
-                    selectedSizes === "M" ? "colored-size-button" : ""
+                    selectedSize === "M" ? "colored-size-button" : ""
                   }`}
                   onClick={() => handleSizeButtonClick("M")}
                 >
@@ -89,7 +121,7 @@ const ProductPage = () => {
                 </button>
                 <button
                   className={`size-button ${
-                    selectedSizes === "G" ? "colored-size-button" : ""
+                    selectedSize === "G" ? "colored-size-button" : ""
                   }`}
                   onClick={() => handleSizeButtonClick("G")}
                 >
@@ -97,7 +129,7 @@ const ProductPage = () => {
                 </button>
                 <button
                   className={`size-button ${
-                    selectedSizes === "GG" ? "colored-size-button" : ""
+                    selectedSize === "GG" ? "colored-size-button" : ""
                   }`}
                   onClick={() => handleSizeButtonClick("GG")}
                 >
@@ -106,7 +138,7 @@ const ProductPage = () => {
                 <div className="mobile-size-button-division">
                   <button
                     className={`size-button ${
-                      selectedSizes === "XGG" ? "colored-size-button" : ""
+                      selectedSize === "XGG" ? "colored-size-button" : ""
                     }`}
                     onClick={() => handleSizeButtonClick("XGG")}
                   >
@@ -114,7 +146,7 @@ const ProductPage = () => {
                   </button>
                   <button
                     className={`size-button ${
-                      selectedSizes === "XGGG" ? "colored-size-button" : ""
+                      selectedSize === "XGGG" ? "colored-size-button" : ""
                     }`}
                     onClick={() => handleSizeButtonClick("XGGG")}
                   >
@@ -123,7 +155,7 @@ const ProductPage = () => {
                 </div>
                 <button
                   className={`size-button size-button-pc ${
-                    selectedSizes === "XGG" ? "colored-size-button" : ""
+                    selectedSize === "XGG" ? "colored-size-button" : ""
                   }`}
                   onClick={() => handleSizeButtonClick("XGG")}
                 >
@@ -131,7 +163,7 @@ const ProductPage = () => {
                 </button>
                 <button
                   className={`size-button size-button-pc ${
-                    selectedSizes === "XGGG" ? "colored-size-button" : ""
+                    selectedSize === "XGGG" ? "colored-size-button" : ""
                   }`}
                   onClick={() => handleSizeButtonClick("XGGG")}
                 >
@@ -171,8 +203,10 @@ const ProductPage = () => {
             <p className="mobile-product-description">
               {productInfo.description}
             </p>
-            <button className="buy-button">COMPRAR AGORA</button>
-            <button className="add-cart-button">
+            <button className="buy-button" onClick={handleBuyNowClick}>
+              COMPRAR AGORA
+            </button>
+            <button className="add-cart-button" onClick={handleBuyNowClick}>
               <FaCartShopping />
             </button>
           </div>
