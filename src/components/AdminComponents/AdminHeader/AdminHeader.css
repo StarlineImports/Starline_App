@@ -1,6 +1,139 @@
+/*Container */
 header {
-    width: 100%;
-    height: 80px;
-    border: solid 1px black;
-    margin: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*Barra de pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 2rem;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3749A6;
+    font-size: 1.5rem;
+}
+
+.search-bar input {
+    padding: 10px;
+    background-color: #d5d5d5;
+    border: 1px solid #F5f6fa;
+    border-radius: 25px;
+    width: 22rem;
+    height: 2rem;
+    outline: none;
+    caret-color: #3749A6;
+    padding-left: 2.5rem;
+}
+
+.search-bar input::placeholder {
+    font-size: .8rem;
+}
+
+/* Lado direito Menu naigation */
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+/*Notification */
+.notifications {
+    position: relative;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.notifications i {
+    color: #3749A6;
+    font-size: 1.5rem;
+}
+
+.notification-count {
+    position: absolute;
+    top: 5px;
+    right: -5px;
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 7px;
+}
+
+/*Perfil */
+.profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.profile img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.profile img:hover {
+    transform: scale(1.1);
+}
+
+.user-name {
+    margin-left: 1rem;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.user-name:hover {
+    color: #3749A6;
+}
+
+/*Perfil Type */
+.pefill-adim-tipo .user-type {
+    position: absolute;
+    top: 40px;
+    cursor: default;
+}
+
+.user-type {
+    margin-left: 5px;
+    font-size: 12px;
+    color: #ccc;
+}
+
+.user-type:hover {
+    color: #3749A6;
+    transform: scale(1.1);
+}
+
+/* Menu DropDow */
+.menu-dropdow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 1rem;
+}
+
+.menu-dropdow i {
+    color: #3749A6;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.menu-dropdow i:hover {
+    transform: scale(1.1);
 }
