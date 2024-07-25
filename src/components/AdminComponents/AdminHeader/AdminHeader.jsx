@@ -5,6 +5,7 @@ import React from "react";
 import "./AdminHeader.css";
 
 // Imports Icons img e assets
+import Perfil from "../../../assets/Ge.jpg";
 import {
     MdOutlineSearch,
     MdNotifications,
@@ -29,7 +30,7 @@ const AdminHeader = () => {
 
                 <div className="profile">
                     <div className="perfill-name-img">
-                        <img src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" alt="User Profile" />
+                        <img src={Perfil} alt="User Profile" />
                         <span className="user-name">Geilson Freire</span>
                     </div>
                     <div className="pefill-adim-tipo">

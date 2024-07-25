@@ -27,7 +27,7 @@
     margin-top: 1.5rem;
     cursor: pointer;
     transition: all 0.5s ease-in-out;
-    filter: drop-shadow(5px 5px 0.75rem #ffffff88);
+    filter: drop-shadow(0 0 0.25rem #ffffff88);
 }
 
 .Menu-lateral img:hover {
