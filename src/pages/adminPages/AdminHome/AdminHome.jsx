@@ -4,13 +4,14 @@ import React from 'react';
 import './AdminHome.css';
 
 // Import Components
+import AdminDashBoard from '../AdminDashboard/AdminDashBoard';
 
 
 const AdminHome = () => {
     return (
-        <>
-            <h1>Este e um teste</h1>
-        </>
+        <main className='Home-container'>
+          <AdminDashBoard /> 
+        </main>
     )
 }
 

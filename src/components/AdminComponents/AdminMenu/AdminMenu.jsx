@@ -42,7 +42,7 @@ const AdminMenu = () => {
             <ul id="mainMenu">
                 <Icon to="/" icon={<MdSpaceDashboard />} title="DashBoard" />
                 <Icon to="#" icon={<MdGridView />} title="Produtos" />
-                <Icon to="#" icon={<MdChecklist />} title="Compras" />
+                <Icon to="#" icon={<MdChecklist />} title="Pedidos" />
                 <Icon to="#" icon={<MdOutlineGridOn />} title="Stoques" />
                 <Icon to="#" icon={<MdOutlineForum />} title="Mensagens" />
                 <Icon to="#" icon={<MdCalendarMonth />} title="Agendas" />
