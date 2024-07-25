@@ -1,5 +1,4 @@
 import React from "react";
-import HeaderComponent from "../../components/Header/HeaderComponent";
 import Form from "react-bootstrap/Form";
 import Footer from "../../components/footer/footer";
 import "./myItemsTop.css";
@@ -7,11 +6,10 @@ import "./myItemsTop.css";
 const MyItemsTop = () => {
   return (
     <>
-      <div>
-        <HeaderComponent />
-      </div>
-      <div className="myItems-container">
-        <h1 className="h1-top">MEUS PEDIDOS</h1>
+    <div>
+    </div>
+    <div className="myItems-container">
+            <h1 className="h1-top">MEUS PEDIDOS</h1>
         <div className="box-top">
           <div className="top">
             <input type="text" className="input-top" />

@@ -113,7 +113,7 @@ const HeaderComponent = () => {
               Sair
             </div>
             <div className="signIn-text">
-              <Link className="signIn-text" to="/MyItems">
+              <Link className="signIn-text" to="/Perfil">
                 {userName ? (
                   <>
                     Olá, {userName.split(" ")[0]}{" "}

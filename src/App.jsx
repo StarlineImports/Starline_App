@@ -19,7 +19,7 @@ import ProductListPageNFL from "./pages/productListPages/productListPageNFL/prod
 import ProductListPageBall from "./pages/productListPages/productListPageBall/productListPageBall";
 import ProductListPageBasket from "./pages/productListPages/productListPageBasket/productListPageBasket";
 import ProductListPageF1 from "./pages/productListPages/productListPageF1/productListPageF1";
-import MyItems from "./pages/myItems/myItems";
+import Perfil from "./pages/profile/perfil";
 
 import MyState from "./context/myState";
 
@@ -32,7 +32,7 @@ function App() {
           <Route path="/entrar" element={<SignIn />} />
           <Route path="/produto/:id" element={<ProductPage />} />
           <Route path="/carrinho" element={<Cart />} />
-          <Route path="/MyItems" element={<MyItems />} />
+          <Route path="/Perfil" element={<Perfil />} />
           <Route path="/cadastrar" element={<Register />} />
           <Route path="/search/futebol" element={<ProductListPageFootball />} />
           <Route
