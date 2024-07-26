@@ -1,8 +1,9 @@
+main {
+    padding: 0 .5rem;
+}
+
 main .Title {
-    padding: 0 1rem;
-    background: #f5f6fac5;
-    position: sticky;
-    top: 68px;
+    padding: .5rem 0;
 }
 
 /*DashBoard Title */
@@ -15,12 +16,18 @@ main .Title span {
     color: #1e3194;
 }
 
+/*Global sections */
+section {
+    width: 100%;
+    margin: 1rem 0;
+}
+
 /*DashBoard Cards */
 main .grafil-cards {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0 1rem;
+    background: transparent;
 }
 
 main .grafil-cards .grafil-card {
@@ -48,7 +55,7 @@ main .grafil-cards .grafil-card .total-text i {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #1e3194;
+    background-color: c;
     font-size: 1rem;
     width: 2rem;
     height: 2rem;
@@ -73,8 +80,88 @@ main .grafil-cards .grafil-card .total-number i {
 }
 
 main .grafil-cards .grafil-card .total-number .text-update {
-   font-size: .8vw;
-   color: #00000057;
-   margin-left: .5rem;
+    font-size: .8vw;
+    color: #00000057;
+    margin-left: .5rem;
 }
 
+/*DashBoard Grafic */
+.Apexcharts {
+    width: 100%;
+}
+
+/*DashBoard charts body */
+.container-charts>div {
+    letter-spacing: 2px;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Seçao detalhes do pedido */
+.detalhes-pedidos {
+    background: #fff;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.detalhes-pedidos .subtitle {
+    display: flex;
+    justify-content: space-between;
+}
+
+.detalhes-pedidos .subtitle h2 {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-weight: normal;
+    margin: 0 1rem;
+}
+
+.detalhes-pedidos .subtitle label i {
+    font-size: 1.5rem;
+    color: #1e3194;
+}
+
+.detalhes-pedidos form select {
+    border: none;
+    border-bottom: 1px solid #1e3194;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+    color: #1e3194;
+    font-size: .8rem;
+}
+
+/* Detalhes da tabela dos pedidos */
+.detalhes-pedidos table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.detalhes-pedidos table thead {
+    background: #1e3194;
+    color: #fff;
+    font-weight: normal;
+    font-size: .8rem;
+}
+
+.detalhes-pedidos table thead th {
+    padding: .5rem;
+    text-align: left;
+}
+
+.detalhes-pedidos table tbody tr {
+    border-bottom: 1px solid #1e3194;
+}
+
+.detalhes-pedidos table tbody tr td {
+    padding: .5rem;
+}
+
+.detalhes-pedidos table tbody tr td img {
+    width: 40px;
+    height: 40px;
+}
