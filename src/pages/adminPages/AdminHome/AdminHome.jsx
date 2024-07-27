@@ -1,17 +1,28 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 
 // Import CSS
 import './AdminHome.css';
 
+
 // Import Components
-import AdminDashBoard from '../AdminDashboard/AdminDashBoard';
+import AdminMenu from "../../../components/AdminComponents/AdminMenu/AdminMenu";
+import AdminHeader from "../../../components/AdminComponents/AdminHeader/AdminHeader";
 
 
 const AdminHome = () => {
     return (
-        <main className='Home-container'>
-          <AdminDashBoard /> 
-        </main>
+        <div className="admin-layout">
+            <div className="menu-lateral">
+                <AdminMenu />
+            </div>
+            <div className="admin-main">
+                <AdminHeader />
+                <main>
+                    <Outlet />
+                </main>
+            </div>
+        </div>
     )
 }
 

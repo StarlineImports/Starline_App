@@ -3,6 +3,7 @@ import React from "react";
 
 // Import CSS
 import "./AdminHeader.css";
+import "../../../AdminGlobal.css";
 
 // Imports Icons img e assets
 import Perfil from "../../../assets/Ge.jpg";

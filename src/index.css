@@ -6,3 +6,11 @@ body {
   color: #1e3c64;
   font-family: "Poppins", sans-serif;
 }
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}

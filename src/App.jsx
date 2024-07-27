@@ -24,7 +24,8 @@ import MyState from "./context/myState";
 
 // Imports dos componentes Admin Pages
 import AdminHome from "./pages/adminPages/AdminHome/AdminHome";
-import AdminRoutes from "./components/AdminComponents/Routes/AdminRoutes"
+import AdminProducts from "./pages/adminPages/adminProducts/adminProducts";
+import AdminDashBoard from "./pages/adminPages/AdminDashboard/AdminDashBoard";
 
 
 function App() {
@@ -51,8 +52,9 @@ function App() {
                     <Route path="/search/f1" element={<ProductListPageF1 />} />
                     
                     {/* Admin Routes */}
-                    <Route path="/admin" element={<AdminRoutes />}>
-                        <Route index element={<AdminHome />} />
+                    <Route path="/admin" element={<AdminHome />}>
+                        <Route path="/admin/adminDashBoard" element={<AdminDashBoard />} />
+                        <Route path="/admin/adminProducts" element={<AdminProducts />} />
                         {/* Adicione mais rotas administrativas aqui se necessário */}
                     </Route>
                 </Routes>

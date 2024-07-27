@@ -3,6 +3,7 @@ import React from 'react'
 
 // Imports Css
 import './AdminDashBoard.css'
+import '../../../AdminGlobal.css'
 
 // Imports Componenets
 import Admincharts from '../../../components/AdminComponents/AdminCharts/AdminApexcharts'

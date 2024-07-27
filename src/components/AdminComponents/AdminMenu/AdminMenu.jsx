@@ -35,13 +35,13 @@ const AdminMenu = () => {
 
     return (
         <nav className="Menu-lateral">
-            <Link to="/">
+            <Link to="/admin">
                 <img src={LogoAdmin} alt="Logo da pagina" />
             </Link>
 
             <ul id="mainMenu">
-                <Icon to="/" icon={<MdSpaceDashboard />} title="DashBoard" />
-                <Icon to="#" icon={<MdGridView />} title="Produtos" />
+                <Icon to="/admin/adminDashBoard" icon={<MdSpaceDashboard />} title="DashBoard" />
+                <Icon to="/admin/adminProducts" icon={<MdGridView />} title="Produtos Stocks" />
                 <Icon to="#" icon={<MdChecklist />} title="Pedidos" />
                 <Icon to="#" icon={<MdOutlineGridOn />} title="Stoques" />
                 <Icon to="#" icon={<MdOutlineForum />} title="Mensagens" />
