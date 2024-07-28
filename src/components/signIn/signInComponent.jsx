@@ -11,7 +11,7 @@ import {
 } from "firebase/auth";
 import { doc, getDoc } from "firebase/firestore";
 import Loader from "../../components/loader/Loader";
-import LogoStarlineBlue from "../../assets/logoStarlineBlue.png";
+import LogoStarlineBlue from "../../assets/logoStarlineblue.png";
 import "./signInComponent.css";
 
 const SignInComponent = () => {

@@ -1,0 +1,69 @@
+/*Conatiner Body*/
+main {
+    padding: 0 .5rem;
+}
+
+/*Container Title */
+main .Title {
+    padding: .5rem 0;
+}
+
+main .Title h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+main .Title span {
+    color: #1e3194;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*Global sections */
+section {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+/*Barra de pesquisa */
+.search-bar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 2rem;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #3749A6;
+    font-size: 1.5rem;
+}
+
+.search-bar input {
+    padding: 10px;
+    background-color: #d5d5d5;
+    border: 1px solid #F5f6fa;
+    border-radius: 25px;
+    width: 22rem;
+    height: 2rem;
+    outline: none;
+    caret-color: #3749A6;
+    padding-left: 2.5rem;
+}
+
+.search-bar input::placeholder {
+    font-size: .8rem;
+}

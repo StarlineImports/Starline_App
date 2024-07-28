@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { AreaComponentImage } from "./styled";
-import Kratos from "../../Assets/kratos.png";
-import Bluedemon from "../../Assets/bluedemon.png";
-import Apocalypse from "../../Assets/apocalypse.png";
+import Kratos from "../../assets/kratos.png";
+import Bluedemon from "../../assets/bluedemon.png";
+import Apocalypse from "../../assets/apocalypse.png";
 import BannerPalmeiras from "../../assets/palmeirasBanner.png";
 
 function ComponentImage() {
