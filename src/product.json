@@ -854,5 +854,60 @@
     "team": "Santos",
     "category": "jaqueta",
     "subcategory": "futebol"
+  },
+  {
+    "id": 89,
+    "name": "Camisa III Man City 23/24",
+    "oldPrice": "79,90",
+    "price": "60,00",
+    "image": "https://images.tcdn.com.br/img/img_prod/638286/camisa_manchester_city_2024_uniforme_3_jogador_dry_cell_9853_1_6d473365f2afec417d3ad52f8e60b802.jpg",
+    "description": "Camisa Manchester City modelo torcedor 23/24. Desenvolvida pela Puma, a camisa I do Manchester City 2025, é perfeita para os torcedores fanáticos demonstrem toda a sua paixão pelo Manchester City nas arquibancadas e nos momentos casuais. O manto é feito 100% em poliéster, tecido de alta qualidade",
+    "team": "Manchester City",
+    "category": "camisa",
+    "subcategory": "futebol"
+  },
+  {
+    "id": 90,
+    "name": "Camisa II São Paulo 23/24",
+    "oldPrice": "79,90",
+    "price": "60,00",
+    "image": "https://goatimport.com.br/wp-content/uploads/2024/04/78b084ff.webp",
+    "description": "Camisa São Paulo modelo torcedor 23/24. Desenvolvida pela Adidas, a camisa II do São Paulo 2023, é perfeita para os torcedores fanáticos demonstrem toda a sua paixão pelo Tricolor nas arquibancadas e nos momentos casuais. O manto é feito 100% em poliéster, tecido de alta qualidade",
+    "team": "São Paulo",
+    "category": "camisa",
+    "subcategory": "futebol"
+  },
+  {
+    "id": 91,
+    "name": "Camisa Flamengo 23/24",
+    "oldPrice": "79,90",
+    "price": "60,00",
+    "image": "https://acdn.mitiendanube.com/stores/003/164/010/products/home-frente1-7de76489cdaf0de1e516848692252956-1024-1024.png",
+    "description": "Camisa Flamengo modelo torcedor 23/24. Desenvolvida pela Adidas, a camisa I do Flamengo 2023, é perfeita para os torcedores fanáticos demonstrem toda a sua paixão pelo Mengão nas arquibancadas e nos momentos casuais. O manto é feito 100% em poliéster, tecido de alta qualidade",
+    "team": "Flamengo",
+    "category": "camisa",
+    "subcategory": "futebol"
+  },
+  {
+    "id": 92,
+    "name": "Camisa Man City 23/24",
+    "oldPrice": "79,90",
+    "price": "60,00",
+    "image": "https://images.tcdn.com.br/img/img_prod/638286/camisa_manchester_city_2024_uniforme_titular_dry_cell_9525_1_09f0816aca1be57cb8d9e6d6dd6a06a4.jpeg",
+    "description": "Camisa Manchester City modelo torcedor 23/24. Desenvolvida pela Puma, a camisa I do Manchester City 2025, é perfeita para os torcedores fanáticos demonstrem toda a sua paixão pelo Manchester City nas arquibancadas e nos momentos casuais. O manto é feito 100% em poliéster, tecido de alta qualidade",
+    "team": "Manchester City",
+    "category": "camisa",
+    "subcategory": "futebol"
+  },
+  {
+    "id": 93,
+    "name": "Camisa Liverpool 23/24",
+    "oldPrice": "79,90",
+    "price": "60,00",
+    "image": "https://static.wixstatic.com/media/ffff24_701043e73c2549c9a38ea158b6a5ad75~mv2.png/v1/fill/w_480,h_480,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ffff24_701043e73c2549c9a38ea158b6a5ad75~mv2.png",
+    "description": "Camisa Liverpool modelo torcedor 23/24. Desenvolvida pela Nike, a camisa I do Liverpool 2025, é perfeita para os torcedores fanáticos demonstrem toda a sua paixão pelo Liverpool nas arquibancadas e nos momentos casuais. O manto é feito 100% em poliéster, tecido de alta qualidade",
+    "team": "Liverpool",
+    "category": "camisa",
+    "subcategory": "futebol"
   }
 ]

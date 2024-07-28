@@ -80,33 +80,7 @@ const HeaderComponent = () => {
             </div>
           </div>
         </div>
-        {!isLogged && (
-          <div className="signIn signIn-mini signIn-big col-xl-2 col-lg-2">
-            <>
-              <svg
-                className="signIn-icon"
-                width="16"
-                height="20"
-                viewBox="0 0 16 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15 19C15 15.134 11.866 12 8 12C4.13401 12 1 15.134 1 19M8 9C5.79086 9 4 7.20914 4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5C12 7.20914 10.2091 9 8 9Z"
-                  stroke="#1e3c64"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <div className="signIn-text">
-                <Link className="signIn-text" to="/entrar">
-                  Entrar/Cadastre-se
-                </Link>
-              </div>
-            </>
-          </div>
-        )}
+
         <div className="cart cart-mini col-lg-2">
           <svg
             className="cart-icon"
@@ -139,7 +113,7 @@ const HeaderComponent = () => {
               Sair
             </div>
             <div className="signIn-text">
-              <Link className="signIn-text" to="/MyItems">
+              <Link className="signIn-text" to="/Perfil">
                 {userName ? (
                   <>
                     Olá, {userName.split(" ")[0]}{" "}
@@ -150,6 +124,33 @@ const HeaderComponent = () => {
                 )}
               </Link>
             </div>
+          </div>
+        )}
+        {!isLogged && (
+          <div className="signIn signIn-mini signIn-big col-xl-2 col-lg-2">
+            <>
+              <svg
+                className="signIn-icon"
+                width="16"
+                height="20"
+                viewBox="0 0 16 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15 19C15 15.134 11.866 12 8 12C4.13401 12 1 15.134 1 19M8 9C5.79086 9 4 7.20914 4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5C12 7.20914 10.2091 9 8 9Z"
+                  stroke="#1e3c64"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <div className="signIn-text">
+                <Link className="signIn-text" to="/entrar">
+                  Entrar/Cadastre-se
+                </Link>
+              </div>
+            </>
           </div>
         )}
       </header>
@@ -179,12 +180,12 @@ const HeaderComponent = () => {
             </li>
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
               <Link className="second-text" to={`/search/f1`}>
-                Formula 1
+                Streetwear
               </Link>
             </li>
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">
               <Link className="second-text" to={`/search/nfl`}>
-                Roupas NFL
+                Calças
               </Link>
             </li>
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">

@@ -5,7 +5,6 @@ import Footer from "../../components/footer/footer";
 const MyItems = () => {
     return ( 
         <>
-
         <MyItemsTop/>
         <MyItemsContent/>
         <Footer/>

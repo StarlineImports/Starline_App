@@ -12,18 +12,18 @@ function Home() {
   const name = context;
 
   const promotionProducts = [
-    ProductData[9],
-    ProductData[4],
-    ProductData[6],
-    ProductData[3],
-    ProductData[2],
+    ProductData[89],
+    ProductData[90],
+    ProductData[91],
+    ProductData[92],
+    ProductData[93],
   ];
   const selectedProducts = [
-    ProductData[1],
-    ProductData[11],
-    ProductData[7],
-    ProductData[8],
-    ProductData[3],
+    ProductData[89],
+    ProductData[90],
+    ProductData[91],
+    ProductData[92],
+    ProductData[93],
   ];
 
   return (

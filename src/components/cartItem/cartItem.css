@@ -144,3 +144,7 @@
   border: 1px solid #25456e;
   border-radius: 10px;
 }
+.cart-total-body {
+  margin-top: 10px;
+  display: flex;
+}

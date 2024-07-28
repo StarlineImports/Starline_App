@@ -5,8 +5,11 @@ import "./myItemsContent.css";
 import MyItemsTop from '../myItemsTop/myItemsTop'
 import Img from '../myItemsContent/Headset.webp'
 import Button from 'react-bootstrap/Button';
+import MyVerticallyCenteredModal from  '../details/details.jsx'
 
 const MyItemsContent = () => {
+  const [modalShow, setModalShow] = React.useState(false);
+
     return ( 
         <>
             <div className="myItems-Content">
@@ -19,7 +22,7 @@ const MyItemsContent = () => {
                         </div>
                         <div className="btn-top">
                             <Button variant="outline-warning" className="btn-help-order">AJUDA COM O PEDIDO</Button>{' '}
-                            <Button variant="warning" className="btn-details">VER DETALHES</Button>{' '}
+                            <Button variant="warning" className="btn-details" onClick={() => setModalShow(true)}>VER DETALHES</Button>{' '}
                         </div>
                     </div>
                    <div>
@@ -37,6 +40,10 @@ const MyItemsContent = () => {
                     </form>
                 </div>
             </div>  
+            <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
         </>
     );
 }

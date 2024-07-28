@@ -1,32 +1,27 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import Home from "./pages/home";
 import SignIn from "./pages/signIn/singIn";
 import ProductPage from "./pages/productPage/productPage";
 import Cart from "./pages/cart/cart";
 import Register from "./pages/register/register";
-
 import ProductListPageFootball from "./pages/productListPages/productListPageFootball/productListPageFootball";
 import ProductListPageFC from "./pages/productListPages/productListPageFootball/productListPageFC";
 import ProductListPageFShorts from "./pages/productListPages/productListPageFootball/productListPageFShorts";
 import ProductListPageFConj from "./pages/productListPages/productListPageFootball/productListPageFConj";
 import ProductListPageFJaq from "./pages/productListPages/productListPageFootball/productListPageFJaq";
 import ProductListPageFBall from "./pages/productListPages/productListPageFootball/productListPageFBall";
-
 import ProductListPageAcessories from "./pages/productListPages/productListPageAccessories/productListPageAccessories";
 import ProductListPageNFL from "./pages/productListPages/productListPageNFL/productListPageNFL";
 import ProductListPageBall from "./pages/productListPages/productListPageBall/productListPageBall";
 import ProductListPageBasket from "./pages/productListPages/productListPageBasket/productListPageBasket";
 import ProductListPageF1 from "./pages/productListPages/productListPageF1/productListPageF1";
-import MyItems from "./pages/myItems/myItems";
-
-import MyState from "./context/myState";
-
-// Imports dos componentes Admin Pages
+import Perfil from "./pages/profile/perfil";
 import AdminHome from "./pages/adminPages/AdminHome/AdminHome";
 import AdminProducts from "./pages/adminPages/adminProducts/adminProducts";
 import AdminDashBoard from "./pages/adminPages/AdminDashboard/AdminDashBoard";
-
+import MyState from "./context/myState";
 
 function App() {
     return (
@@ -50,12 +45,11 @@ function App() {
                     <Route path="/search/bolas" element={<ProductListPageBall />} />
                     <Route path="/search/basquete" element={<ProductListPageBasket />} />
                     <Route path="/search/f1" element={<ProductListPageF1 />} />
-                    
-                    {/* Admin Routes */}
+                  
                     <Route path="/admin" element={<AdminHome />}>
                         <Route path="/admin/adminDashBoard" element={<AdminDashBoard />} />
                         <Route path="/admin/adminProducts" element={<AdminProducts />} />
-                        {/* Adicione mais rotas administrativas aqui se necessário */}
+
                     </Route>
                 </Routes>
             </Router>
