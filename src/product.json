@@ -909,5 +909,126 @@
     "team": "Liverpool",
     "category": "camisa",
     "subcategory": "futebol"
+  },
+  {
+    "id": 94,
+    "name": "Bone Five Panel Adidas Preto",
+    "oldPrice": "",
+    "price": "50,00",
+    "image": "https://dcdn.mitiendanube.com/stores/004/759/393/products/90240712-ae48-5651-ad1d-28359442d4df-5b2ef3d2abdb7168b917172631590102-480-0.webp",
+    "description": "O Boné Five Panel da Adidas é uma peça de vestuário casual e moderna, projetada para oferecer conforto e estilo em qualquer ambiente. Com um design de cinco painéis, este boné apresenta uma estrutura leve e respirável que proporciona ventilação adequada para a cabeça, mantendo-a fresca e arejada durante o uso.",
+    "team": "Adidas",
+    "category": "bone",
+    "subcategory": "Five Panel"
+  },
+  {
+    "id": 95,
+    "name": "Bone Five Panel High Preto",
+    "oldPrice": "",
+    "price": "50,00",
+    "image": "https://static.rockcity.com.br/public/rockcity/imagens/produtos/bone-high-company-5-panel-preto-89143.jpg",
+    "description": "O Boné Five Panel da High é uma peça de vestuário casual e moderna, projetada para oferecer conforto e estilo em qualquer ambiente. Com um design de cinco painéis, este boné apresenta uma estrutura leve e respirável que proporciona ventilação adequada para a cabeça, mantendo-a fresca e arejada durante o uso.",
+    "team": "High",
+    "category": "bone",
+    "subcategory": "Five Panel"
+  },
+  {
+    "id": 96,
+    "name": "Bone Five Panel Nike Preto",
+    "oldPrice": "",
+    "price": "50,00",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3bS2obxIizgHYg5t0ja5lrL2LbuewX9GCJg&s",
+    "description": "O Boné Five Panel da Nike é uma peça de vestuário casual e moderna, projetada para oferecer conforto e estilo em qualquer ambiente. Com um design de cinco painéis, este boné apresenta uma estrutura leve e respirável que proporciona ventilação adequada para a cabeça, mantendo-a fresca e arejada durante o uso.",
+    "team": "Nike",
+    "category": "bone",
+    "subcategory": "Five Panel"
+  },
+  {
+    "id": 97,
+    "name": "Bermuda Adidas Dry-Fit",
+    "oldPrice": "",
+    "price": "70,00",
+    "image": "https://images.tcdn.com.br/img/img_prod/1053679/short_adidas_dry_fit_preto_gk9607_3257_1_48b6b0a06897d3eff05ac81c3ab55e1f.jpg",
+    "description": "Os calções High Dri-FIT Icon são essenciais para o basquetebol, com um toque leve e um caimento largo que é fácil de movimentar. Eles são feitos de um tecido de malha respirável com tecnologia de absorção de suor para ajudar você a ficar confortável em momentos de aperto. A tecnologia Dri-FIT ajuda a manter você seco e confortável. Cintura elástica com cordão ajusta para uma sensação confortável. Ajuste solto para uma sensação de espaço, tecido de malha leve e respirável e bolsos de mão.",
+    "team": "Adidas",
+    "category": "bermuda",
+    "subcategory": "dryfit"
+  },
+  {
+    "id": 98,
+    "name": "Bermuda High Dry-Fit",
+    "oldPrice": "",
+    "price": "70,00",
+    "image": "https://cf.shopee.com.br/file/br-11134201-22120-lk8w5o1nf8kv12",
+    "description": "Os calções High Dri-FIT Icon são essenciais para o basquetebol, com um toque leve e um caimento largo que é fácil de movimentar. Eles são feitos de um tecido de malha respirável com tecnologia de absorção de suor para ajudar você a ficar confortável em momentos de aperto. A tecnologia Dri-FIT ajuda a manter você seco e confortável. Cintura elástica com cordão ajusta para uma sensação confortável. Ajuste solto para uma sensação de espaço, tecido de malha leve e respirável e bolsos de mão.",
+    "team": "High",
+    "category": "bermuda",
+    "subcategory": "dryfit"
+  },
+  {
+    "id": 99,
+    "name": "Bermuda Nike Dry-Fit",
+    "oldPrice": "",
+    "price": "70,00",
+    "image": "https://bayard.vtexassets.com/arquivos/ids/2945745/0799980001-A.jpg?v=638182704902830000",
+    "description": "Os calções Nike Dri-FIT Icon são essenciais para o basquetebol, com um toque leve e um caimento largo que é fácil de movimentar. Eles são feitos de um tecido de malha respirável com tecnologia de absorção de suor para ajudar você a ficar confortável em momentos de aperto. A tecnologia Dri-FIT ajuda a manter você seco e confortável. Cintura elástica com cordão ajusta para uma sensação confortável. Ajuste solto para uma sensação de espaço, tecido de malha leve e respirável e bolsos de mão.",
+    "team": "Nike",
+    "category": "bermuda",
+    "subcategory": "dryfit"
+  },
+  {
+    "id": 100,
+    "name": "Moletom Canguru Adidas",
+    "oldPrice": "167,90",
+    "price": "130,00",
+    "image": "https://a-static.mlcdn.com.br/450x450/blusa-moletom-adidas-3-listras-essentials-classic-masculino/netshoes/fb8-0976-026-03/e75e8f39ffd8329c8e8a217a1d65c46e.jpeg",
+    "description": "Moletom básico Adidas mas vai garantir um toque super estiloso e muito conforto naqueles dias mais frios. Possui construção em tecido 80% algodão e 20% poliéster com um toque aconchegante e familiar além de um ajuste consistente que você não vai querer tirar. Conta ainda com um pequeno bordado na parte do peito com o logo da marca que junto da sua combinação de cores, o tornam essencial e fácil de compor.",
+    "team": "Adidas",
+    "category": "moletom",
+    "subcategory": "canguru"
+  },
+  {
+    "id": 101,
+    "name": "Moletom Canguru High",
+    "oldPrice": "167,90",
+    "price": "130,00",
+    "image": "https://images.tcdn.com.br/img/img_prod/560775/moletom_high_company_canguru_hoodie_logo_preto_18285_1_c5fc669e523326c97fa202bab5464744.jpg",
+    "description": "Moletom básico High mas vai garantir um toque super estiloso e muito conforto naqueles dias mais frios. Possui construção em tecido 80% algodão e 20% poliéster com um toque aconchegante e familiar além de um ajuste consistente que você não vai querer tirar. Conta ainda com um pequeno bordado na parte do peito com o logo da marca que junto da sua combinação de cores, o tornam essencial e fácil de compor.",
+    "team": "High",
+    "category": "moletom",
+    "subcategory": "canguru"
+  },
+  {
+    "id": 102,
+    "name": "Moletom Canguru Nike",
+    "oldPrice": "167,90",
+    "price": "130,00",
+    "image": "https://balanimports.com/cdn/shop/files/1_fe2f087a-dcdb-4f65-816e-f3690ecec319.jpg?v=1699622412",
+    "description": "Moletom básico Nike mas vai garantir um toque super estiloso e muito conforto naqueles dias mais frios. Possui construção em tecido 80% algodão e 20% poliéster com um toque aconchegante e familiar além de um ajuste consistente que você não vai querer tirar. Conta ainda com um pequeno bordado na parte do peito com o logo da marca que junto da sua combinação de cores, o tornam essencial e fácil de compor.",
+    "team": "Nike",
+    "category": "moletom",
+    "subcategory": "canguru"
+  },
+  {
+    "id": 103,
+    "name": "Calça Cargo High",
+    "oldPrice": "117,90",
+    "price": "100,00",
+    "image": "https://static.rockcity.com.br/public/rockcity/imagens/produtos/calca-high-company-cargo-preto-moletom-85783.jpg",
+    "description": "Com certeza você já ouviu falar da High. Criada em 2012 por Diogo Roccon em Vitória, no Espírito Santo, a marca que desde o início cultiva originalidade e inovação hoje colhe frutos em forma de respeito e popularidade, sendo uma das maiores marcas brasileiras reconhecidas no cenário mundial. A fila de fãs que aguardam o lançamento das peças a cada drop, os produtos esgotados em um curto período de tempo e a demanda de revendedores nacionais e internacionais: esse é o legado que a High Company está construindo.",
+    "team": "High",
+    "category": "calça",
+    "subcategory": "cargo"
+  },
+  {
+    "id": 104,
+    "name": "Calça Cargo Nike",
+    "oldPrice": "",
+    "price": "100,00",
+    "image": "https://cdn.shoppub.io/cdn-cgi/image/w=1000,h=1000,q=80,f=auto/mkd/media/uploads/produtos/foto/ivykwogz/calca-nike-sb-cargo-kearny-bege.jpg",
+    "description": "Espaçosa para você se mover com maior conforto, a calça Nike Cargo possuem um design descontraído para deixar seu visual ainda mais estiloso. Esta peça conta com bolsos extras, confeccionada em Ripstop e algodão macio e durável em um ajuste espaçoso para conforto casual e despreocupado.",
+    "team": "Nike",
+    "category": "calça",
+    "subcategory": "cargo"
   }
 ]

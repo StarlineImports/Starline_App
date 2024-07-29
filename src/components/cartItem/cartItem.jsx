@@ -75,15 +75,79 @@ const CartItem = () => {
     updateCartTotals(updatedCartItems);
   };
 
-  const calculatePricePerItem = (totalQuantity) => {
-    if (totalQuantity >= 100) return 24.0;
-    if (totalQuantity >= 70) return 25.0;
-    if (totalQuantity >= 40) return 26.0;
-    if (totalQuantity >= 25) return 27.0;
-    if (totalQuantity >= 12) return 28.0;
-    if (totalQuantity >= 8) return 29.0;
-    if (totalQuantity >= 5) return 35.0;
-    if (totalQuantity < 5) return 60.0;
+  const calculatePricePerItem = (category, quantity, productId) => {
+    return getPriceByCategoryAndQuantity(category, quantity, productId);
+  };
+
+  const getPriceByCategoryAndQuantity = (category, quantity, productId) => {
+    const totalItemsQuantity =
+      parseInt(localStorage.getItem("items-quantity")) || 0;
+
+    const priceTable = {
+      camisa: [
+        { quantity: 1, price: 60.0 },
+        { quantity: 5, price: 35.0 },
+        { quantity: 8, price: 29.0 },
+        { quantity: 12, price: 28.0 },
+        { quantity: 25, price: 27.0 },
+        { quantity: 40, price: 26.0 },
+        { quantity: 70, price: 25.0 },
+        { quantity: 100, price: 24.0 },
+      ],
+      bone: [
+        { quantity: 1, price: 50.0 },
+        { quantity: 5, price: 35.0 },
+        { quantity: 8, price: 33.0 },
+        { quantity: 12, price: 32.0 },
+        { quantity: 25, price: 31.0 },
+        { quantity: 40, price: 30.0 },
+        { quantity: 70, price: 29.0 },
+      ],
+      bermuda: [
+        { quantity: 1, price: 70.0 },
+        { quantity: 5, price: 43.0 },
+        { quantity: 8, price: 40.0 },
+        { quantity: 12, price: 39.0 },
+        { quantity: 25, price: 35.0 },
+        { quantity: 40, price: 36.0 },
+        { quantity: 70, price: 35.0 },
+      ],
+      moletom: [
+        { quantity: 1, price: 130.0 },
+        { quantity: 5, price: 89.0 },
+        { quantity: 8, price: 87.0 },
+        { quantity: 12, price: 85.0 },
+        { quantity: 25, price: 84.0 },
+        { quantity: 40, price: 83.0 },
+      ],
+      calça: [
+        { quantity: 1, price: 100.0 },
+        { quantity: 5, price: 70.0 },
+        { quantity: 8, price: 68.0 },
+        { quantity: 12, price: 65.0 },
+        { quantity: 22, price: 63.0 },
+        { quantity: 40, price: 62.0 },
+      ],
+    };
+
+    const prices = priceTable[category] || [];
+
+    const applicablePrice = prices
+      .slice()
+      .reverse()
+      .find(({ quantity: q }) => q <= (totalItemsQuantity || quantity));
+
+    if (!applicablePrice) {
+      console.error(
+        `Nenhum preço encontrado para a categoria "${category}" com quantidade ${quantity}`
+      );
+      const savedCartItems =
+        JSON.parse(localStorage.getItem("cart-items")) || [];
+      const product = savedCartItems.find((item) => item.id === productId);
+      return product ? product.unitPrice : null;
+    }
+
+    return applicablePrice.price;
   };
 
   const updateCartTotals = (items) => {
@@ -91,34 +155,52 @@ const CartItem = () => {
       (total, item) => total + item.quantity,
       0
     );
-    const pricePerItem = calculatePricePerItem(totalQuantity);
 
-    const subtotal = (totalQuantity * 60.0).toFixed(2).replace(".", ",");
+    const subtotal = items.reduce((total, item) => {
+      const pricePerItem = parseFloat(item.price.replace(",", "."));
+      return total + pricePerItem * item.quantity;
+    }, 0);
 
     const totalPrice = items
       .reduce((total, item) => {
+        const pricePerItem = getPriceByCategoryAndQuantity(
+          item.category,
+          item.quantity
+        );
+
+        let itemUnitPrice = pricePerItem * item.quantity;
+
+        console.log(itemUnitPrice);
+
         return total + pricePerItem * item.quantity;
       }, 0)
-      .toFixed(2)
-      .replace(".", ",");
+      .toFixed(2);
 
-    const discount = (
-      parseFloat(subtotal.replace(",", ".")) -
-      parseFloat(totalPrice.replace(",", "."))
-    )
-      .toFixed(2)
-      .replace(".", ",");
+    const discount = (subtotal - parseFloat(totalPrice)).toFixed(2);
+
+    const itemsWithDiscount = items.map((item) => {
+      const pricePerItem = getPriceByCategoryAndQuantity(
+        item.category,
+        item.quantity,
+        item.id
+      );
+      const totalValueWithDiscount = pricePerItem * item.quantity;
+      return {
+        ...item,
+        totalValueWithDiscount,
+      };
+    });
 
     localStorage.setItem("cart-total-value", totalPrice);
     localStorage.setItem("items-quantity", totalQuantity);
     localStorage.setItem("cart-freight-value", freightValue);
 
-    return { subtotal, totalPrice, discount };
+    return { subtotal: subtotal.toFixed(2), totalPrice, discount };
   };
 
   const handleFreightCalculation = () => {
-    setFreightValue("31,40");
-    localStorage.setItem("cart-freight-value", "31,40");
+    setFreightValue("31,00");
+    localStorage.setItem("cart-freight-value", "31,00");
   };
 
   const getButtonText = () => {
@@ -132,6 +214,8 @@ const CartItem = () => {
   };
 
   const { subtotal, discount, totalPrice } = updateCartTotals(cartItems);
+
+  let geralPrice = parseFloat(totalPrice) + parseFloat(freightValue);
 
   return (
     <div className="cart-itens">
@@ -192,14 +276,7 @@ const CartItem = () => {
                 </div>
                 <p className="cart-price">
                   R${" "}
-                  {(
-                    calculatePricePerItem(
-                      cartItems.reduce(
-                        (total, item) => total + item.quantity,
-                        0
-                      )
-                    ) * product.quantity
-                  )
+                  {(parseFloat(product.price) * parseFloat(product.quantity))
                     .toFixed(2)
                     .replace(".", ",")}
                 </p>
@@ -223,7 +300,7 @@ const CartItem = () => {
                     R$ {localStorage.getItem("cart-freight-value") || "0,00"}
                   </li>
                   <li className="result-li">R$ {discount}</li>
-                  <li className="result-li">R$ {totalPrice}</li>
+                  <li className="result-li">R$ {geralPrice.toFixed(2)}</li>
                 </ul>
               </div>
               <Button className="result-btn" variant="success">

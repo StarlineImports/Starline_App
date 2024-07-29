@@ -24,37 +24,53 @@ import AdminDashBoard from "./pages/adminPages/AdminDashboard/AdminDashBoard";
 import MyState from "./context/myState";
 
 function App() {
-    return (
-        <MyState>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/entrar" element={<SignIn />} />
-                    <Route path="/produto/:id" element={<ProductPage />} />
-                    <Route path="/carrinho" element={<Cart />} />
-                    <Route path="/MyItems" element={<MyItems />} />
-                    <Route path="/cadastrar" element={<Register />} />
-                    <Route path="/search/futebol" element={<ProductListPageFootball />} />
-                    <Route path="/search/futebol/camisas" element={<ProductListPageFC />} />
-                    <Route path="/search/futebol/shorts" element={<ProductListPageFShorts />} />
-                    <Route path="/search/futebol/conjuntos" element={<ProductListPageFConj />} />
-                    <Route path="/search/futebol/jaquetas" element={<ProductListPageFJaq />} />
-                    <Route path="/search/futebol/bolas" element={<ProductListPageFBall />} />
-                    <Route path="/search/acessorios" element={<ProductListPageAcessories />} />
-                    <Route path="/search/nfl" element={<ProductListPageNFL />} />
-                    <Route path="/search/bolas" element={<ProductListPageBall />} />
-                    <Route path="/search/basquete" element={<ProductListPageBasket />} />
-                    <Route path="/search/f1" element={<ProductListPageF1 />} />
-                  
-                    <Route path="/admin" element={<AdminHome />}>
-                        <Route path="/admin/adminDashBoard" element={<AdminDashBoard />} />
-                        <Route path="/admin/adminProducts" element={<AdminProducts />} />
+  return (
+    <MyState>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/entrar" element={<SignIn />} />
+          <Route path="/produto/:id" element={<ProductPage />} />
+          <Route path="/carrinho" element={<Cart />} />
+          <Route path="/cadastrar" element={<Register />} />
+          <Route path="/search/futebol" element={<ProductListPageFootball />} />
+          <Route
+            path="/search/futebol/camisas"
+            element={<ProductListPageFC />}
+          />
+          <Route
+            path="/search/futebol/shorts"
+            element={<ProductListPageFShorts />}
+          />
+          <Route
+            path="/search/futebol/conjuntos"
+            element={<ProductListPageFConj />}
+          />
+          <Route
+            path="/search/futebol/jaquetas"
+            element={<ProductListPageFJaq />}
+          />
+          <Route
+            path="/search/futebol/bolas"
+            element={<ProductListPageFBall />}
+          />
+          <Route
+            path="/search/acessorios"
+            element={<ProductListPageAcessories />}
+          />
+          <Route path="/search/nfl" element={<ProductListPageNFL />} />
+          <Route path="/search/bolas" element={<ProductListPageBall />} />
+          <Route path="/search/basquete" element={<ProductListPageBasket />} />
+          <Route path="/search/f1" element={<ProductListPageF1 />} />
 
-                    </Route>
-                </Routes>
-            </Router>
-        </MyState>
-    );
+          <Route path="/admin" element={<AdminHome />}>
+            <Route path="/admin/adminDashBoard" element={<AdminDashBoard />} />
+            <Route path="/admin/adminProducts" element={<AdminProducts />} />
+          </Route>
+        </Routes>
+      </Router>
+    </MyState>
+  );
 }
 
 export default App;

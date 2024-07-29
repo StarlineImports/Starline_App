@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./productList.css";
-import Product from "../product/product";
-import Category from "../category/categoryItem/category";
+import Category from "../category/category";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const ProductList = ({ listTitle, selectedProducts, renderAllProducts }) => {

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import MaskedInput from "react-input-mask";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { toast } from "react-hot-toast";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, collection } from "firebase/firestore";
 import { fireDB, auth } from "../../../firebase";
 import LogoStarlineBlue from "../../../assets/logoStarlineblue.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -36,12 +36,12 @@ const RegisterComponent1 = () => {
       !telefone ||
       !cpf
     ) {
-      alert("Preencha todos os campos obrigatórios.");
+      toast.error("Preencha todos os campos obrigatórios.");
       return;
     }
 
     if (senha !== confirmarSenha) {
-      alert("As senhas não coincidem.");
+      toast.error("As senhas não coincidem.");
       return;
     }
 
@@ -65,11 +65,20 @@ const RegisterComponent1 = () => {
         image,
       });
 
+      // Criação de subcoleções
+      const ordersRef = collection(userDocRef, "orders");
+      const addressesRef = collection(userDocRef, "addresses");
+      const cartRef = collection(userDocRef, "cart");
+
+      await setDoc(doc(ordersRef), {});
+      await setDoc(doc(addressesRef), {});
+      await setDoc(doc(cartRef), {});
+
       toast.success("Registro realizado com sucesso");
       navigate("/entrar");
     } catch (error) {
-      console.error("Erro de registro:", error.message);
-      alert("Falha no registro. Tente novamente.");
+      toast.error("Erro de registro: " + error.message);
+      toast.error("Falha no registro. Tente novamente.");
     }
   };
 
@@ -88,6 +97,7 @@ const RegisterComponent1 = () => {
 
   return (
     <div>
+      <toast />
       <form className="row full-signIn-container" onSubmit={handleSubmit}>
         <div className="col-lg-12 col-md-10 col-sm-12">
           <label className="col-lg-2"></label>

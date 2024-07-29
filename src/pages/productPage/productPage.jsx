@@ -4,43 +4,60 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { useParams } from "react-router-dom";
 import { FaCartShopping } from "react-icons/fa6";
 import { toast, Toaster } from "react-hot-toast";
-import productData from "../../product.json";
+import { doc, getDoc } from "firebase/firestore";
+import { fireDB } from "../../firebase";
 import Footer from "../../components/footer/footer";
 import "./productPage.css";
 
 const ProductPage = () => {
+  const [productInfo, setProductInfo] = useState(null);
   const [price, setPrice] = useState();
   const [additionalPrice, setAdditionalPrice] = useState(false);
   const [selectedSize, setSelectedSize] = useState("");
 
   const { id } = useParams();
-  const productInfo = productData.find(
-    (product) => product.id === parseInt(id)
-  );
 
   useEffect(() => {
-    setPrice(productInfo.price);
-  }, [productInfo]);
-
-  if (!productInfo) {
-    return <div>Produto não encontrado.</div>;
-  }
-
-  useEffect(() => {
-    const calculateTotalPrice = () => {
-      let totalPrice = parseFloat(productInfo.price.replace(",", "."));
-      if (additionalPrice) {
-        totalPrice += 10;
+    const fetchProduct = async () => {
+      try {
+        console.log("Fetching product with ID:", id); //
+        const productDocRef = doc(fireDB, "products", id);
+        const productDoc = await getDoc(productDocRef);
+        if (productDoc.exists()) {
+          console.log("Product found:", productDoc.data());
+          setProductInfo(productDoc.data());
+          setPrice(productDoc.data().price);
+        } else {
+          console.error("Produto não encontrado.");
+          toast.error("Produto não encontrado.");
+        }
+      } catch (error) {
+        console.error("Erro ao buscar produto:", error.message);
+        toast.error("Erro ao buscar produto: " + error.message);
       }
-      setPrice(totalPrice.toFixed(2).replace(".", ","));
     };
-    calculateTotalPrice();
-  }, [additionalPrice, productInfo.price]);
+
+    fetchProduct();
+  }, [id]);
+
+  useEffect(() => {
+    if (productInfo) {
+      const calculateTotalPrice = () => {
+        let totalPrice = parseFloat(productInfo.price.replace(",", "."));
+        if (additionalPrice) {
+          totalPrice += 10;
+        }
+        setPrice(totalPrice.toFixed(2).replace(".", ","));
+      };
+      calculateTotalPrice();
+    }
+  }, [additionalPrice, productInfo]);
 
   const hasOldPrice =
-    productInfo.oldPrice !== undefined &&
-    productInfo.oldPrice !== null &&
-    parseFloat(productInfo.oldPrice) > parseFloat(productInfo.price);
+    productInfo?.oldPrice !== undefined &&
+    productInfo?.oldPrice !== null &&
+    parseFloat(productInfo?.oldPrice.replace(",", ".")) >
+      parseFloat(productInfo?.price.replace(",", "."));
 
   const handleSizeButtonClick = (size) => {
     setSelectedSize(size);
@@ -60,6 +77,7 @@ const ProductPage = () => {
       price: price,
       size: selectedSize,
       quantity: 1,
+      category: productInfo.category,
     };
 
     let existingCartItems =
@@ -78,6 +96,10 @@ const ProductPage = () => {
 
     toast.success("Produto adicionado ao carrinho!");
   };
+
+  if (!productInfo) {
+    return <div>Produto não encontrado.</div>;
+  }
 
   return (
     <div>

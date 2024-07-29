@@ -9,6 +9,7 @@ import "./headerStyles.css";
 const HeaderComponent = () => {
   const [visibleSection, setVisibleSection] = useState(null);
   const [isLogged, setIsLogged] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
   const [userName, setUserName] = useState("");
   const [userImage, setUserImage] = useState("");
 
@@ -23,7 +24,11 @@ const HeaderComponent = () => {
 
   useEffect(() => {
     if (user) {
-      setIsLogged(true);
+      if (user.tipo === 2) {
+        setIsAdmin(true);
+      } else {
+        setIsLogged(true);
+      }
       setUserName(user.displayName);
       setUserImage(user.image);
     }
@@ -113,7 +118,7 @@ const HeaderComponent = () => {
               Sair
             </div>
             <div className="signIn-text">
-              <Link className="signIn-text" to="/Perfil">
+              <Link className="signIn-text" to="/perfil">
                 {userName ? (
                   <>
                     Olá, {userName.split(" ")[0]}{" "}
@@ -126,31 +131,48 @@ const HeaderComponent = () => {
             </div>
           </div>
         )}
-        {!isLogged && (
+        {isAdmin && (
+          <div className="logged-text-header">
+            <div className="signIn-text" onClick={logout}>
+              Sair
+            </div>
+            <div className="signIn-text">
+              <Link className="signIn-text" to="/admin">
+                {userName ? (
+                  <>
+                    Olá, {userName.split(" ")[0]}{" "}
+                    <img className="user-header-image" src={userImage}></img>
+                  </>
+                ) : (
+                  <>Olá, Usuário</>
+                )}
+              </Link>
+            </div>
+          </div>
+        )}
+        {!isLogged && !isAdmin && (
           <div className="signIn signIn-mini signIn-big col-xl-2 col-lg-2">
-            <>
-              <svg
-                className="signIn-icon"
-                width="16"
-                height="20"
-                viewBox="0 0 16 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15 19C15 15.134 11.866 12 8 12C4.13401 12 1 15.134 1 19M8 9C5.79086 9 4 7.20914 4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5C12 7.20914 10.2091 9 8 9Z"
-                  stroke="#1e3c64"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <div className="signIn-text">
-                <Link className="signIn-text" to="/entrar">
-                  Entrar/Cadastre-se
-                </Link>
-              </div>
-            </>
+            <svg
+              className="signIn-icon"
+              width="16"
+              height="20"
+              viewBox="0 0 16 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 19C15 15.134 11.866 12 8 12C4.13401 12 1 15.134 1 19M8 9C5.79086 9 4 7.20914 4 5C4 2.79086 5.79086 1 8 1C10.2091 1 12 2.79086 12 5C12 7.20914 10.2091 9 8 9Z"
+                stroke="#1e3c64"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            <div className="signIn-text">
+              <Link className="signIn-text" to="/entrar">
+                Entrar/Cadastre-se
+              </Link>
+            </div>
           </div>
         )}
       </header>

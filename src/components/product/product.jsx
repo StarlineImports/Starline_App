@@ -7,7 +7,8 @@ const Product = ({ productInfo }) => {
   const hasOldPrice =
     productInfo.oldPrice !== undefined &&
     productInfo.oldPrice !== null &&
-    parseFloat(productInfo.oldPrice) > parseFloat(productInfo.price);
+    parseFloat(productInfo.oldPrice.replace(",", ".")) >
+      parseFloat(productInfo.price.replace(",", "."));
 
   return (
     <Link className="cart-text" to={`/produto/${productInfo.id}`}>
@@ -34,13 +35,13 @@ const Product = ({ productInfo }) => {
 
 Product.propTypes = {
   productInfo: PropTypes.shape({
-    id: PropTypes.number.isRequired,
+    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     oldPrice: PropTypes.string,
     price: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
-    subcategory: PropTypes.string.isRequired,
+    subcategory: PropTypes.string,
   }).isRequired,
 };
 
