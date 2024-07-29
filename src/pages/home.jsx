@@ -24,8 +24,8 @@ function Home() {
           ...doc.data(),
         }));
 
-        const promotionProductIDs = [1, 1, 1, 1, 1];
-        const selectedProductIDs = [1, 1, 1, 1, 1];
+        const promotionProductIDs = [1, 2, 3, 4, 5];
+        const selectedProductIDs = [1, 2, 3, 4, 5];
 
         const promotionProducts = products.filter((product) =>
           promotionProductIDs.includes(product.id)

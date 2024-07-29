@@ -140,7 +140,7 @@ const AdminProducts = () => {
               <th>Preço</th>
               <th>Quantidade</th>
               <th>Tamanho</th>
-              <th>Data Entrada</th>
+              <th>Vendidos</th>
               <th>Açoes</th>
             </tr>
           </thead>
