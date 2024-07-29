@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import "./category.css";
 
-const Category = ({ productInfo }) => {
+const Category = ({ categoryInfo }) => {
   return (
-    <Link className="cart-text" to={`/produto/${productInfo.id}`}>
+    <Link className="cart-text" to={`/produto/${categoryInfo.id}`}>
       <div className="category">
         <img
           className="category-image"
-          src={productInfo.image}
-          alt={productInfo.name}
+          src={categoryInfo.image}
+          alt={categoryInfo.name}
         />
-        <label className="category-name">{productInfo.name}</label>
+        <label className="category-name">{categoryInfo.name}</label>
       </div>
     </Link>
   );
@@ -22,11 +22,7 @@ Category.propTypes = {
   categoryInfo: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    oldPrice: PropTypes.string,
-    price: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
-    subcategory: PropTypes.string,
   }).isRequired,
 };
 

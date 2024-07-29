@@ -197,7 +197,7 @@ const HeaderComponent = () => {
                 to="/search/basquete"
                 onClick={() => handleSectionClick("basquete")}
               >
-                Basquete
+                Shorts
               </Link>
             </li>
             <li className="second-text col-xxl-2 col-xl-2 col-lg-2 col-12">

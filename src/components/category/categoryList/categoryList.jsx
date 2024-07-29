@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import "./productList.css";
-import Category from "../category/category";
+import "./categoryList.css";
+import Category from "../categoryItem/category";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const ProductList = ({ listTitle, selectedProducts, renderAllProducts }) => {
+const CategoryList = ({ listTitle, selectedProducts, renderAllProducts }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 1265);
   const [isMediumScreen, setIsMediumScreen] = useState(
     window.innerWidth < 1750
@@ -45,16 +45,16 @@ const ProductList = ({ listTitle, selectedProducts, renderAllProducts }) => {
       }`}
     >
       <label className={textClass}>{listTitle}</label>
-      {selectedProducts.slice(0, maxProductsToShow).map((product, index) => (
+      {selectedProducts.slice(0, maxProductsToShow).map((category, index) => (
         <div
           key={index}
           className={`col-md-4 col-sm-12 mb-3 ${colClass} text-center`}
         >
-          <Category productInfo={product} />
+          <Category categoryInfo={category} />
         </div>
       ))}
     </div>
   );
 };
 
-export default ProductList;
+export default CategoryList;
