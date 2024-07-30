@@ -70,12 +70,23 @@ section {
 
 /*Button */
 button {
-    padding: .5rem 1rem;
-    background-color: #1e3194;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    padding: .2rem 1rem;
     color: #fff;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     outline: none;
-    transition: background-color .3s ease;
+}
+
+button:hover {
+    background-color: #1e3194;
+}
+
+button i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
 }

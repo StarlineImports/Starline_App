@@ -91,18 +91,9 @@
     font-size: 0.6rem;
 }
 
-.modal-content .form-seçao-2 .btn {
+.modal-content .form-seçao-2 .btn-category {
     width: 45rem;
     border-radius: 10px;
-}
-
-.modal-content .form-seçao-2 .btn:hover {
-    background: #111d5a;
-}
-
-.modal-content .form-seçao-2 .btn i {
-    font-size: 1.5rem;
-    margin-right: 1rem;
 }
 
 /*Form Descriçao */

@@ -69,7 +69,7 @@ const AdminProducts = () => {
                         <li>
                             <button
                                 onClick={handleAddProductClick}
-                                className="add-product-button btn "
+                                className="btn-produto"
                             >
                                 <i>
                                     <MdAdd />

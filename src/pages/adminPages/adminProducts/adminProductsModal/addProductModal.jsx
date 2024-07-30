@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 
 // Import CSS
 import "./addProductModal.css";
+import "../../../../AdminGlobal.css";
 
 // Imports de Icones
 import {
@@ -223,7 +224,7 @@ const AddProductModal = ({ onClose }) => {
                             </select>
                         </div>
                         <button
-                            className="add-product-button btn"
+                            className="btn-category"
                             type="button"
                         >
                             <i>
