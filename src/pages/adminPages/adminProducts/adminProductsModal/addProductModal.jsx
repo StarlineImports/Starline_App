@@ -10,12 +10,23 @@ import "./addProductModal.css";
 import "../../../../AdminGlobal.css";
 
 // Imports de Icones
-import {
-    MdCategory,
-} from "react-icons/md";
+import { BiSolidCategory } from "react-icons/bi";
 import { IoMdImages } from "react-icons/io";
 
 const AddProductModal = ({ onClose }) => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const handleAddProductClick = () => {
+        console.log("Abrindo modal");
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        console.log("Fechando modal");
+        setIsModalOpen(false);
+    };
+
+    
+
     const [formData, setFormData] = useState({
         name: "",
         price: "",
@@ -61,6 +72,15 @@ const AddProductModal = ({ onClose }) => {
                     price: selectedCategory.preço || formData.price,
                 });
             }
+        } else if (name === "cost" || name === "price") {
+            // Remove todos os caracteres não numéricos
+            const numericValue = value.replace(/\D/g, '');
+            // Formata o valor como moeda BRL
+            const formattedValue = new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            }).format(numericValue / 100);
+            setFormData({ ...formData, [name]: formattedValue });
         } else {
             setFormData({ ...formData, [name]: value });
         }
@@ -161,6 +181,7 @@ const AddProductModal = ({ onClose }) => {
                                 value={formData.stock}
                                 onChange={handleChange}
                                 required
+                                step="1"
                             />
                         </div>
                     </div>
@@ -201,7 +222,6 @@ const AddProductModal = ({ onClose }) => {
                         <div className="form-dropdow">
                             <label htmlFor="subcategory">Tamanho</label>
                             <select
-                                className=""
                                 id="subcategory"
                                 name="subcategory"
                                 value={formData.subcategory}
@@ -220,7 +240,6 @@ const AddProductModal = ({ onClose }) => {
                             <select
                                 id="category"
                                 name="category"
-                                className=""
                                 value={formData.category}
                                 onChange={handleChange}
                                 required
@@ -238,7 +257,7 @@ const AddProductModal = ({ onClose }) => {
                             type="button"
                         >
                             <i>
-                                <MdCategory />
+                                <BiSolidCategory />
                             </i>{" "}
                             Adicionar Categoria
                         </button>
@@ -264,6 +283,7 @@ const AddProductModal = ({ onClose }) => {
                             name="image"
                             onChange={handleImageChange}
                             required
+                            accept="image/*"
                         />
                     </div>
 
