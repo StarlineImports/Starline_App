@@ -13,6 +13,7 @@
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
+/*Container */
 .modal-content {
     overflow-y: auto;
     position: relative;
@@ -68,10 +69,38 @@
     width: 100%;
 }
 
+
+/* seçao 2 */
 .modal-content .form-seçao-2 {
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
+}
+
+/*CheckBox */
+.form-checkbox {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    width: 50%;
+}
+
+.form-checkbox input {
+    appearance: none;
+    width: 1rem;
+    transform: scale(1.2);
+    border: solid 1px #1e3194;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-checkbox input:checked {
+    background: #00ff26;
+}
+
+.form-checkbox label {
+    font-size: 1rem;
 }
 
 .modal-content .form-seçao-2 .form-dropdow {
@@ -91,6 +120,7 @@
     font-size: 0.6rem;
 }
 
+/*Button categoria */
 .modal-content .form-seçao-2 .btn-category {
     width: 45rem;
     border-radius: 10px;
@@ -109,6 +139,7 @@
     resize: vertical;
 }
 
+/*Form Imagem */
 .modal-image {
     min-width: 10rem;
     min-height: 8rem;
@@ -120,7 +151,21 @@
     margin-left: 10px;
 }
 
+.form-add-img {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
 
+.form-add-img i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+/* Buttons salvar e cancelar*/
 .modal-buttons {
     display: flex;
     justify-content: flex-end;

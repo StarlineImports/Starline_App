@@ -13,6 +13,7 @@ import "../../../../AdminGlobal.css";
 import {
     MdCategory,
 } from "react-icons/md";
+import { IoMdImages } from "react-icons/io";
 
 const AddProductModal = ({ onClose }) => {
     const [formData, setFormData] = useState({
@@ -178,13 +179,22 @@ const AddProductModal = ({ onClose }) => {
                         <div className="form-price">
                             <label htmlFor="price">Preço Unit</label>
                             <input
+                                className="form-control"
                                 id="price"
                                 name="price"
-                                className="form-control"
                                 value={formData.price}
                                 onChange={handleChange}
                                 required
                             />
+                        </div>
+                        <div className="form-checkbox">
+                            <input
+                                className="Form-control"
+                                type="checkbox"
+                                value="Atacado"
+                                id="flexCheckDefault"
+                            ></input>
+                            <label htmlFor="flexCheckDefault">Atacado</label>
                         </div>
                     </div>
                     <div className="form-seçao-2">
@@ -245,26 +255,16 @@ const AddProductModal = ({ onClose }) => {
                             required
                         />
                     </div>
-                    <div className="">
-                        <label htmlFor="image">Imagem</label>
+                    <div className="form-add-img">
+                        <i><IoMdImages /></i>
                         <input
+                            className="form-control"
                             type="file"
                             id="image"
                             name="image"
                             onChange={handleImageChange}
                             required
                         />
-                    </div>
-                    <div className="">
-                        <label htmlFor="image" className="">
-                            Atacado
-                        </label>
-                        <input
-                            className=""
-                            type="checkbox"
-                            value=""
-                            id="flexCheckDefault"
-                        ></input>
                     </div>
 
                     <div className="modal-buttons">
