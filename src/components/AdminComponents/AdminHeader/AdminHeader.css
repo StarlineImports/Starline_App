@@ -1,3 +1,7 @@
+.Header-painel {
+    z-index: 1000;
+}
+
 /* Lado direito Menu naigation */
 .header-right {
     display: flex;

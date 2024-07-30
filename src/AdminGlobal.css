@@ -67,3 +67,15 @@ section {
 .search-bar input::placeholder {
     font-size: .8rem;
 }
+
+/*Button */
+button {
+    padding: .5rem 1rem;
+    background-color: #1e3194;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color .3s ease;
+}
