@@ -33,7 +33,7 @@
 
 
 /*Forms Inputs */
-.form-add-product input {
+.form-add-category input {
     width: 100%;
     padding: 10px;
     border: solid 1px #ccc;
@@ -57,74 +57,61 @@
     margin-bottom: 20px;
 }
 
-/*Form Seçao Product e QNT */
+/*Form Seçao 1 */
 .modal-content .form-seçao-1 {
     display: flex;
     align-items: flex-end;
     gap: 1rem;
-    margin-bottom: 1rem;
 }
 
-.modal-content .form-seçao-1 .form-product {
-    width: 100%;
+.modal-content .form-seçao-1 .form-add-img i {
+    font-size: 5rem;
 }
-
 
 /* seçao 2 */
 .modal-content .form-seçao-2 {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    flex-direction: column;
 }
 
-/*CheckBox */
-.form-checkbox {
+.modal-content .form-seçao-2 .form-dropdow-prefix {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     align-items: center;
     gap: 1rem;
-    width: 50%;
+    margin: 10px 0;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    padding: 1rem;
 }
 
-.form-checkbox input {
+.modal-content .form-seçao-2 .form-dropdow-prefix .form-inputs {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.modal-content .form-seçao-2 .form-dropdow-prefix .form-inputs .Form-check-input {
     appearance: none;
-    width: 1rem;
+    width: 10px;
+    height: 10px;
     transform: scale(1.2);
     border: solid 1px #1e3194;
     border-radius: 4px;
     cursor: pointer;
 }
 
-.form-checkbox input:checked {
+.modal-content .form-seçao-2 .form-dropdow-prefix .form-inputs .Form-check-input:checked {
     background: #00ff26;
 }
 
-.form-checkbox label {
-    font-size: 1rem;
-}
-
-.modal-content .form-seçao-2 .form-dropdow {
-    display: flex;
-    flex-direction: column;
+.modal-content .form-seçao-2 .form-dropdow-prefix .form-price {
     width: 100%;
 }
 
-.modal-content .form-seçao-2 .form-dropdow select {
-    border: none;
-    border-bottom: 1px solid #1e3194;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-    padding: 0.5rem 0.5rem;
-    color: #1e3194;
-    font-size: 0.6rem;
-}
 
-/*Button categoria */
-.modal-content .form-seçao-2 .btn-category {
-    width: 45rem;
-    border-radius: 10px;
-}
 
 /*Form Descriçao */
 .modal-content .form-descrition textarea {
@@ -137,32 +124,6 @@
     outline: none;
     box-sizing: border-box;
     resize: vertical;
-}
-
-/*Form Imagem */
-.modal-image {
-    min-width: 10rem;
-    min-height: 8rem;
-    width: 10rem;
-    height: 8rem;
-    padding: 0;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin-left: 10px;
-}
-
-.form-add-img {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.form-add-img i {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
 }
 
 /* Buttons salvar e cancelar*/

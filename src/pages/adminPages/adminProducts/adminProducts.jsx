@@ -2,11 +2,11 @@
 import React, { useState, useEffect } from "react";
 import {
     MdOutlineSearch,
-    MdCategory,
     MdAdd,
     MdFilterAlt,
 } from "react-icons/md";
 import AddProductModal from "./adminProductsModal/addProductModal";
+import AddCategoryModal from "./adminCategoryModal/adminCategoryModal";
 import { toast } from "react-hot-toast";
 import { collection, getDocs } from "firebase/firestore";
 import { fireDB } from "../../../firebase";
@@ -16,7 +16,8 @@ import "./adminProducts.css";
 import "../../../AdminGlobal.css";
 
 const AdminProducts = () => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalProductOpen, setIsModalProductOpen] = useState(false);
+    const [isModalCategoryOpen, setIsModalCategoryOpen] = useState(false);
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -40,12 +41,22 @@ const AdminProducts = () => {
 
     const handleAddProductClick = () => {
         console.log("Abrindo modal");
-        setIsModalOpen(true);
+        setIsModalProductOpen(true);
     };
 
-    const handleCloseModal = () => {
+    const handleCloseProductModal = () => {
         console.log("Fechando modal");
-        setIsModalOpen(false);
+        setIsModalProductOpen(false);
+    };
+
+    const handleAddCategoryClick = () => {
+        console.log("Abrindo modal");
+        setIsModalCategoryOpen(true);
+    };
+
+    const handleCloseCategoryModal = () => {
+        console.log("Fechando modal");
+        setIsModalCategoryOpen(false);
     };
 
     return (
@@ -75,6 +86,17 @@ const AdminProducts = () => {
                                     <MdAdd />
                                 </i>{" "}
                                 Adicionar Produto
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                onClick={handleAddCategoryClick}
+                                className="btn-produto"
+                            >
+                                <i>
+                                    <MdAdd />
+                                </i>{" "}
+                                Adicionar Category
                             </button>
                         </li>
                     </ul>
@@ -175,7 +197,8 @@ const AdminProducts = () => {
                     </tbody>
                 </table>
             </section>
-            {isModalOpen && <AddProductModal onClose={handleCloseModal} />}
+            {isModalProductOpen && <AddProductModal onClose={handleCloseProductModal} />}
+            {isModalCategoryOpen && <AddCategoryModal onClose={handleCloseCategoryModal} />}
         </main>
     );
 };

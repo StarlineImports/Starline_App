@@ -13,19 +13,21 @@ import "../../../../AdminGlobal.css";
 import { BiSolidCategory } from "react-icons/bi";
 import { IoMdImages } from "react-icons/io";
 
+// Imports de Componentes
+import AddCategoryModal from "../adminCategoryModal/adminCategoryModal";
+
 const AddProductModal = ({ onClose }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const handleAddProductClick = () => {
+    const [isModalCategoryOpen, setIsModalCategoryOpen] = useState(false);
+
+    const handleAddCategoryClick = () => {
         console.log("Abrindo modal");
-        setIsModalOpen(true);
+        setIsModalCategoryOpen(true);
     };
 
-    const handleCloseModal = () => {
+    const handleCloseCategoryModal = () => {
         console.log("Fechando modal");
-        setIsModalOpen(false);
+        setIsModalCategoryOpen(false);
     };
-
-    
 
     const [formData, setFormData] = useState({
         name: "",
@@ -255,6 +257,7 @@ const AddProductModal = ({ onClose }) => {
                         <button
                             className="btn-category"
                             type="button"
+                            onClick={handleAddCategoryClick}
                         >
                             <i>
                                 <BiSolidCategory />
@@ -295,6 +298,7 @@ const AddProductModal = ({ onClose }) => {
                     </div>
                 </form>
             </div>
+            {isModalCategoryOpen && <AddCategoryModal onClose={handleCloseCategoryModal} />}
         </div>
     );
 };
