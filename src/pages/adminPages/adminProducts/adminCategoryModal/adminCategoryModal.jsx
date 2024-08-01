@@ -10,7 +10,27 @@ import { IoMdImages } from 'react-icons/io';
 import { MdArrowDropDown } from "react-icons/md";
 
 const adminCategoryModal = ({ onClose }) => {
-    const [previewImage, setPreviewImage] = useState(null);
+    
+    // Função para mostrar e esconder o dropdown prefixação de preço
+    const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+    const toggleDropdown = () => {
+        setIsDropdownVisible(prevState => !prevState);
+    };
+    // Implementando efeito de mostrar o dropdown de prefixação de preço
+    useEffect(() => {
+        const dropdown = document.getElementById("dropdown");
+
+        if (dropdown) {
+            if (isDropdownVisible) {
+                setTimeout(() => {
+                    dropdown.classList.add("dropdown-show");
+                }, 10);
+            } else {
+                dropdown.classList.remove("dropdown-show");
+            }
+            }
+    }, [isDropdownVisible]);
+
 
     const [formData, setFormData] = useState({
         name: '',
@@ -19,7 +39,9 @@ const adminCategoryModal = ({ onClose }) => {
         subcategory: '',
         image: null
     });
-
+    
+    // Função para adicionar imagem
+    const [previewImage, setPreviewImage] = useState(null);
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         if (file) {
@@ -27,8 +49,6 @@ const adminCategoryModal = ({ onClose }) => {
             setPreviewImage(URL.createObjectURL(file));
         }
     };
-
-
 
     // Implementando efeito de showModal
     useEffect(() => {
@@ -92,17 +112,20 @@ const adminCategoryModal = ({ onClose }) => {
 
                     <div className="form-seçao-2">
 
-                        <div className="form-dropdow">
-                            <label htmlFor="Prefix">Prefixação <i><MdArrowDropDown /></i></label>
-                            <form className="form-dropdow-prefix">
+                        <div className="form-dropdow-category">
+                            <button type='button' onClick={toggleDropdown}>
+                                Prefixação de preço por Atacado
+                                <i><MdArrowDropDown /></i>
+                            </button>
+                            <div id='dropdown' className={`form-dropdow-prefix ${isDropdownVisible ? 'dropdown-show' : ''}`}>
                                 <div className="form-inputs">
                                     <input
                                         className='Form-check-input'
                                         type="checkbox"
-                                        id='1'
-                                        name='1'
+                                        id='checkbox'
+                                        name='checkbox'
                                     />
-                                    <label id='1' htmlFor="Prefix">1</label>
+                                    <label id='price' htmlFor="Prefix">1 UND</label>
                                     <input
                                         className='form-price'
                                         type="text"
@@ -115,10 +138,10 @@ const adminCategoryModal = ({ onClose }) => {
                                     <input
                                         className='Form-check-input'
                                         type="checkbox"
-                                        id='5'
-                                        name='5'
+                                        id='checkbox'
+                                        name='checkbox'
                                     />
-                                    <label id='5' htmlFor="Prefix">5</label>
+                                    <label id='price' htmlFor="Prefix">5 UND</label>
                                     <input
                                         className='form-price'
                                         type="text"
@@ -131,15 +154,15 @@ const adminCategoryModal = ({ onClose }) => {
                                     <input
                                         className='Form-check-input'
                                         type="checkbox"
-                                        id='checkbox-8'
-                                        name='checkbox-8'
+                                        id='checkbox'
+                                        name='checkbox'
                                     />
-                                    <label htmlFor="checkbox-8">8</label>
+                                    <label htmlFor="checkbox">8 UND</label>
                                     <input
                                         className='form-price'
                                         type="text"
-                                        id='price-8'
-                                        name='price-8'
+                                        id='price'
+                                        name='price'
                                         placeholder="Adicione o preço do produto"
                                     />
                                 </div>
@@ -147,15 +170,15 @@ const adminCategoryModal = ({ onClose }) => {
                                     <input
                                         className='Form-check-input'
                                         type="checkbox"
-                                        id='checkbox-12'
-                                        name='checkbox-12'
+                                        id='checkbox'
+                                        name='checkbox'
                                     />
-                                    <label htmlFor="checkbox-12">12</label>
+                                    <label htmlFor="checkbox">12 UND</label>
                                     <input
                                         className='form-price'
                                         type="text"
-                                        id='price-12'
-                                        name='price-12'
+                                        id='price'
+                                        name='price'
                                         placeholder="Adicione o preço do produto"
                                     />
                                 </div>
@@ -163,15 +186,15 @@ const adminCategoryModal = ({ onClose }) => {
                                     <input
                                         className='Form-check-input'
                                         type="checkbox"
-                                        id='checkbox-25'
-                                        name='checkbox-25'
+                                        id='checkbox'
+                                        name='checkbox'
                                     />
-                                    <label htmlFor="checkbox-25">25</label>
+                                    <label htmlFor="checkbox">25 UND</label>
                                     <input
                                         className='form-price'
                                         type="text"
-                                        id='price-25'
-                                        name='price-25'
+                                        id='price'
+                                        name='price'
                                         placeholder="Adicione o preço do produto"
                                     />
                                 </div>
@@ -179,15 +202,15 @@ const adminCategoryModal = ({ onClose }) => {
                                     <input
                                         className='Form-check-input'
                                         type="checkbox"
-                                        id='checkbox-40'
-                                        name='checkbox-40'
+                                        id='checkbox'
+                                        name='checkbox'
                                     />
-                                    <label htmlFor="checkbox-40">40</label>
+                                    <label htmlFor="checkbox">40 UND</label>
                                     <input
                                         className='form-price'
                                         type="text"
-                                        id='price-40'
-                                        name='price-40'
+                                        id='price'
+                                        name='price'
                                         placeholder="Adicione o preço do produto"
                                     />
                                 </div>
@@ -195,15 +218,15 @@ const adminCategoryModal = ({ onClose }) => {
                                     <input
                                         className='Form-check-input'
                                         type="checkbox"
-                                        id='checkbox-70'
-                                        name='checkbox-70'
+                                        id='checkbox'
+                                        name='checkbox'
                                     />
-                                    <label htmlFor="checkbox-70">70</label>
+                                    <label htmlFor="checkbox">70 UND</label>
                                     <input
                                         className='form-price'
                                         type="text"
-                                        id='price-70'
-                                        name='price-70'
+                                        id='price'
+                                        name='price'
                                         placeholder="Adicione o preço do produto"
                                     />
                                 </div>
@@ -211,10 +234,10 @@ const adminCategoryModal = ({ onClose }) => {
                                     <input
                                         className='Form-check-input'
                                         type="checkbox"
-                                        id='checkbox-100'
-                                        name='checkbox-100'
+                                        id='checkbox'
+                                        name='checkbox'
                                     />
-                                    <label htmlFor="checkbox-100">100</label>
+                                    <label htmlFor="checkbox">100 UND</label>
                                     <input
                                         className='form-price'
                                         type="text"
@@ -223,7 +246,7 @@ const adminCategoryModal = ({ onClose }) => {
                                         placeholder="Adicione o preço do produto"
                                     />
                                 </div>
-                            </form>
+                            </div>
 
                         </div>
                     </div>

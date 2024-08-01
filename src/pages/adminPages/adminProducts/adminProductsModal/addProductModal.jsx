@@ -254,17 +254,17 @@ const AddProductModal = ({ onClose }) => {
                                 ))}
                             </select>
                         </div>
-                        <button
-                            className="btn-category"
-                            type="button"
-                            onClick={handleAddCategoryClick}
-                        >
-                            <i>
-                                <BiSolidCategory />
-                            </i>{" "}
-                            Adicionar Categoria
-                        </button>
                     </div>
+                    <button
+                        className="btn-category"
+                        type="button"
+                        onClick={handleAddCategoryClick}
+                    >
+                        <i>
+                            <BiSolidCategory />
+                        </i>{" "}
+                        Adicionar Categoria
+                    </button>
 
                     <div className="form-descrition">
                         <label htmlFor="description">Descrição</label>
