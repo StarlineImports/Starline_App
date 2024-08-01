@@ -1,5 +1,6 @@
 // Imports bibliotecas
 import React, { useState, useEffect } from 'react';
+import Cleave from 'cleave.js/react';
 
 // Import Css
 import './adminCategoryModal.css'
@@ -31,6 +32,35 @@ const adminCategoryModal = ({ onClose }) => {
             }
     }, [isDropdownVisible]);
 
+    // Função para adicionar estado do checkbox definindo se está marcado ou não
+    const [checkboxStates, setCheckboxStates] = useState({
+        checkbox1: false,
+        checkbox2: false,
+        checkbox3: false,
+        checkbox4: false,
+        checkbox5: false,
+        checkbox6: false,
+        checkbox7: false,
+        checkbox8: false
+    });
+    // Função para adicionar estado do checkbox
+    const handleCheckboxChange = (e) => {
+        const { id, checked } = e.target;
+        setCheckboxStates(prevStates => ({
+            ...prevStates,
+            [id]: checked
+        })); // Adiciona o estado do checkbox
+    };
+
+
+    // Atualiza o estado não formatado e o estado formatado ao digitar
+    const handlePriceChange = (e) => {
+        const { id, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [id]: value
+        }));
+    };
 
     const [formData, setFormData] = useState({
         name: '',
@@ -118,134 +148,29 @@ const adminCategoryModal = ({ onClose }) => {
                                 <i><MdArrowDropDown /></i>
                             </button>
                             <div id='dropdown' className={`form-dropdow-prefix ${isDropdownVisible ? 'dropdown-show' : ''}`}>
-                                <div className="form-inputs">
-                                    <input
-                                        className='Form-check-input'
-                                        type="checkbox"
-                                        id='checkbox'
-                                        name='checkbox'
-                                    />
-                                    <label id='price' htmlFor="Prefix">1 UND</label>
-                                    <input
-                                        className='form-price'
-                                        type="text"
-                                        id='price'
-                                        name='price'
-                                        placeholder="Adicione o preço do produto"
-                                    />
-                                </div>
-                                <div className="form-inputs">
-                                    <input
-                                        className='Form-check-input'
-                                        type="checkbox"
-                                        id='checkbox'
-                                        name='checkbox'
-                                    />
-                                    <label id='price' htmlFor="Prefix">5 UND</label>
-                                    <input
-                                        className='form-price'
-                                        type="text"
-                                        id='price'
-                                        name='price'
-                                        placeholder="Adicione o preço do produto"
-                                    />
-                                </div>
-                                <div className="form-inputs">
-                                    <input
-                                        className='Form-check-input'
-                                        type="checkbox"
-                                        id='checkbox'
-                                        name='checkbox'
-                                    />
-                                    <label htmlFor="checkbox">8 UND</label>
-                                    <input
-                                        className='form-price'
-                                        type="text"
-                                        id='price'
-                                        name='price'
-                                        placeholder="Adicione o preço do produto"
-                                    />
-                                </div>
-                                <div className="form-inputs">
-                                    <input
-                                        className='Form-check-input'
-                                        type="checkbox"
-                                        id='checkbox'
-                                        name='checkbox'
-                                    />
-                                    <label htmlFor="checkbox">12 UND</label>
-                                    <input
-                                        className='form-price'
-                                        type="text"
-                                        id='price'
-                                        name='price'
-                                        placeholder="Adicione o preço do produto"
-                                    />
-                                </div>
-                                <div className="form-inputs">
-                                    <input
-                                        className='Form-check-input'
-                                        type="checkbox"
-                                        id='checkbox'
-                                        name='checkbox'
-                                    />
-                                    <label htmlFor="checkbox">25 UND</label>
-                                    <input
-                                        className='form-price'
-                                        type="text"
-                                        id='price'
-                                        name='price'
-                                        placeholder="Adicione o preço do produto"
-                                    />
-                                </div>
-                                <div className="form-inputs">
-                                    <input
-                                        className='Form-check-input'
-                                        type="checkbox"
-                                        id='checkbox'
-                                        name='checkbox'
-                                    />
-                                    <label htmlFor="checkbox">40 UND</label>
-                                    <input
-                                        className='form-price'
-                                        type="text"
-                                        id='price'
-                                        name='price'
-                                        placeholder="Adicione o preço do produto"
-                                    />
-                                </div>
-                                <div className="form-inputs">
-                                    <input
-                                        className='Form-check-input'
-                                        type="checkbox"
-                                        id='checkbox'
-                                        name='checkbox'
-                                    />
-                                    <label htmlFor="checkbox">70 UND</label>
-                                    <input
-                                        className='form-price'
-                                        type="text"
-                                        id='price'
-                                        name='price'
-                                        placeholder="Adicione o preço do produto"
-                                    />
-                                </div>
-                                <div className="form-inputs">
-                                    <input
-                                        className='Form-check-input'
-                                        type="checkbox"
-                                        id='checkbox'
-                                        name='checkbox'
-                                    />
-                                    <label htmlFor="checkbox">100 UND</label>
-                                    <input
-                                        className='form-price'
-                                        type="text"
-                                        id='price-100'
-                                        name='price-100'
-                                        placeholder="Adicione o preço do produto"
-                                    />
-                                </div>
+                                {[1, 5, 8, 12, 25, 40, 70, 100].map((quantity, index) => (
+                                    <div className="form-inputs" key={index}>
+                                        <input
+                                            className='Form-check-input'
+                                            type="checkbox"
+                                            id={`checkbox${index + 1}`}
+                                            name={`checkbox${index + 1}`}
+                                            checked={checkboxStates[`checkbox${index + 1}`]}
+                                            onChange={handleCheckboxChange}
+                                        />
+                                        <label htmlFor={`checkbox${index + 1}`}>{quantity} UND</label>
+                                        <Cleave
+                                            className='form-price'
+                                            id={`price${quantity}`}
+                                            name={`price${quantity}`}
+                                            placeholder="Adicione o preço do produto"
+                                            options={{ numeral: true, numeralThousandsGroupStyle: 'thousand', prefix: 'R$ ' }}
+                                            onChange={handlePriceChange}
+                                            disabled={!checkboxStates[`checkbox${index + 1}`]}
+                                            value={formData[`price${quantity}`] || ''}
+                                        />
+                                    </div>
+                                ))}
                             </div>
 
                         </div>
