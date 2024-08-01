@@ -82,8 +82,8 @@ const adminCategoryModal = ({ onClose }) => {
 
     // Implementando efeito de showModal
     useEffect(() => {
-        const overlay = document.getElementById("modalOverlay");
-        const modal = document.getElementById("modal");
+        const overlay = document.getElementById("modalOverlayTow");
+        const modal = document.getElementById("modalTow");
 
         setTimeout(() => {
             overlay.classList.add("show");
@@ -98,8 +98,8 @@ const adminCategoryModal = ({ onClose }) => {
     }, []);
 
     return (
-        <div className="modal-overlay modal-category" id="modalOverlay">
-            <div className="modal-content" id="modal">
+        <div className="modal-overlay" id="modalOverlayTow">
+            <div className="modal-content modal-category" id="modalTow">
                 <h2>Adicionar Categoria</h2>
                 <form onSubmit={""} className="form-add-category">
                     <div className="form-seçao-1">

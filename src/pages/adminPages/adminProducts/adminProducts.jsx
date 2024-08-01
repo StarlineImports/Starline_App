@@ -6,7 +6,6 @@ import {
     MdFilterAlt,
 } from "react-icons/md";
 import AddProductModal from "./adminProductsModal/addProductModal";
-import AddCategoryModal from "./adminCategoryModal/adminCategoryModal";
 import { toast } from "react-hot-toast";
 import { collection, getDocs } from "firebase/firestore";
 import { fireDB } from "../../../firebase";
@@ -17,7 +16,6 @@ import "../../../AdminGlobal.css";
 
 const AdminProducts = () => {
     const [isModalProductOpen, setIsModalProductOpen] = useState(false);
-    const [isModalCategoryOpen, setIsModalCategoryOpen] = useState(false);
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
@@ -49,16 +47,6 @@ const AdminProducts = () => {
         setIsModalProductOpen(false);
     };
 
-    const handleAddCategoryClick = () => {
-        console.log("Abrindo modal");
-        setIsModalCategoryOpen(true);
-    };
-
-    const handleCloseCategoryModal = () => {
-        console.log("Fechando modal");
-        setIsModalCategoryOpen(false);
-    };
-
     return (
         <main className="Page-Product">
             <toast />
@@ -86,17 +74,6 @@ const AdminProducts = () => {
                                     <MdAdd />
                                 </i>{" "}
                                 Adicionar Produto
-                            </button>
-                        </li>
-                        <li>
-                            <button
-                                onClick={handleAddCategoryClick}
-                                className="btn-produto"
-                            >
-                                <i>
-                                    <MdAdd />
-                                </i>{" "}
-                                Adicionar Category
                             </button>
                         </li>
                     </ul>
@@ -198,7 +175,6 @@ const AdminProducts = () => {
                 </table>
             </section>
             {isModalProductOpen && <AddProductModal onClose={handleCloseProductModal} />}
-            {isModalCategoryOpen && <AddCategoryModal onClose={handleCloseCategoryModal} />}
         </main>
     );
 };
