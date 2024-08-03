@@ -9,3 +9,6 @@ React ecommerce project by: Gustavo Queiroz Lima
      - npm install react-route-dom
 - Biblioteca: React-icons - para manipular icones,
      - npm install react-icons
+- Biblioteca: cleave.js - para atualizar entrada de input para moeda br
+     - npm install cleave.js
+
