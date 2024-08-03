@@ -1,18 +1,22 @@
 // Import Bibliotecas
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // Import CSS
 import "./AdminHeader.css";
 import "../../../AdminGlobal.css";
+
+// Import components
+import MenuDropDownPerfil from "./MenuDropDownPerfil/MenuDropDownPerfil";
 
 // Imports Icons img e assets
 import Perfil from "../../../assets/Ge.jpg";
 import {
     MdOutlineSearch,
     MdNotifications,
-    MdOutlineArrowDropDownCircle,
+    MdArrowCircleDown,
+    MdArrowCircleUp
 } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
 
 const AdminHeader = () => {
     const [userName, setUserName] = useState("");
@@ -22,6 +26,7 @@ const AdminHeader = () => {
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("usuarios"));
 
+    // Verifica se o usuário está logado e se é um admin
     useEffect(() => {
         if (user.tipo === 2) {
             setIsLogged(true);
@@ -32,6 +37,12 @@ const AdminHeader = () => {
             navigate("/");
         }
     }, [user]);
+
+    // Estado do dropdown icone
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const toggleDropdown = () => {
+        setIsDropdownOpen(PrevState => !PrevState);  
+    }; // Alterna o estado de aberto/fechado do dropdown    
 
     return (
         <header className="Header-painel">
@@ -62,11 +73,14 @@ const AdminHeader = () => {
                     </div>
                 </div>
 
-                <div className="menu-dropdow">
+                <div className="menu-dropdow"
+                    onClick={toggleDropdown} // Alterna o estado de aberto/fechado do dropdown
+                >
                     <i>
-                        <MdOutlineArrowDropDownCircle />
+                        {isDropdownOpen ? <MdArrowCircleUp /> : <MdArrowCircleDown />} 
                     </i>
                 </div>
+                {isDropdownOpen && <MenuDropDownPerfil />}
             </div>
         </header>
     );
