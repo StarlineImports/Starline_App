@@ -1,6 +1,6 @@
 // Imports Bibiotecas
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 //Import CSS
 import './MenuDropDownPerfil.css'
@@ -9,7 +9,10 @@ import './MenuDropDownPerfil.css'
 import { MdSettings, MdLogout, MdPix } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 
-const MenuDropDownPerfil = ({isDropdownOpen}) => {
+
+const MenuDropDownPerfil = ({ isDropdownOpen }) => {
+    const navigate = useNavigate();
+
     return (
         <div className={`container-menu-dropdown ${isDropdownOpen ? 'show' : ''}`}>
             <nav className='menu-dropdown-nav'>
@@ -20,7 +23,7 @@ const MenuDropDownPerfil = ({isDropdownOpen}) => {
                             <span>Perfil</span>
                         </li>
                     </Link>
-                    <Link to="#">
+                    <Link to="/admin/adminPix">
                         <li>
                             <MdPix />
                             <span>Pix</span>
@@ -33,7 +36,7 @@ const MenuDropDownPerfil = ({isDropdownOpen}) => {
                         </li>
                     </Link>
                     <hr />
-                    <Link to="#">
+                    <Link to="/">
                         <li>
                             <MdLogout />
                             <span>Sair</span>

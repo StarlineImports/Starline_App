@@ -1,0 +1,125 @@
+.container-pix-geral {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Container esquerdo */
+.container-pix {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    border-radius: 10px;
+}
+
+/*Logo Pix*/
+.container-pix .Pix-Logo {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.container-pix .Pix-Logo img {
+    width: 350px;
+    height: 150px;
+}
+
+/*Text Pix*/
+.Pix-Text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2.5rem;
+}
+
+.Pix-Text p {
+    font-size: 1rem;
+    color: #797474;
+    margin-bottom: 2rem;
+}
+
+/* Container mihas chaves Pix*/
+.pix-minhas-chaves-container {
+    width: 100%;
+    padding: 1rem 2rem;
+}
+
+.pix-minhas-chaves {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #797474;
+    margin-bottom: 2rem;
+}
+
+.pix-minhas-chaves h2 {
+    font-size: 2rem;
+    color: blue;
+}
+
+.pix-minhas-chaves h2 svg {
+    cursor: none;
+}
+
+.pix-minhas-chaves svg {
+    font-size: 2rem;
+    margin-right: 1rem;
+    color: blue;
+    cursor: pointer;
+}
+
+/*Lista de chaves Pix cadastradas*/
+.pix-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    border-bottom: solid 1px #7974741f;
+}
+
+.pix-info span {
+    font-size: .8rem;
+    color: #797474;
+
+}
+
+.pix-info .conatiner-pix-flex {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+
+.pix-info .conatiner-pix-flex h4 {
+    width: 100%;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: #000;
+    margin-left: 1rem;
+}
+
+.pix-info .conatiner-pix-flex svg {
+    width: 5%;
+    font-size: 2rem;
+    color: blue;
+    cursor: pointer;
+}
+
+.Pix-i-flex {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 80%;
+}
+
