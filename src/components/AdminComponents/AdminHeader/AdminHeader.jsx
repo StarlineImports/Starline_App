@@ -38,23 +38,22 @@ const AdminHeader = () => {
         }
     }, [user, navigate]);
 
-    const onLogout = () => {
-        localStorage.removeItem("usuarios");  // Remove o usuário do localStorage
-        navigate("/");  // Redireciona para a raiz
-    };
-
 
     // Estado do dropdown icone
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
+    const menuDropDownRef = useRef(null);
     const toggleDropdown = () => {
-        setIsDropdownOpen(PrevState => !PrevState);  
-    }; // Alterna o estado de aberto/fechado do dropdown    
-
-    // Fecha o dropdown ao clicar fora dele
+        setIsDropdownOpen(PrevState => !PrevState);
+    }; // Alterna o estado de aberto/fechado do dropdown   
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target) &&
+                menuDropDownRef.current &&
+                !menuDropDownRef.current.contains(event.target)
+            ) {
                 setIsDropdownOpen(false);
             }
         };
@@ -63,7 +62,8 @@ const AdminHeader = () => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [dropdownRef]);
+    }, []); 
+
 
     return (
         <header className="Header-painel">
@@ -99,10 +99,16 @@ const AdminHeader = () => {
                     ref={dropdownRef} // Referência para o dropdown
                 >
                     <i>
-                        {isDropdownOpen ? <MdArrowCircleUp /> : <MdArrowCircleDown />} 
+                        {isDropdownOpen ? <MdArrowCircleUp /> : <MdArrowCircleDown />}
                     </i>
                 </div>
-                {isDropdownOpen && <MenuDropDownPerfil isDropdownOpen={isDropdownOpen} onLogout={onLogout} />}
+                {isDropdownOpen && (
+                    <MenuDropDownPerfil
+                        isDropdownOpen={isDropdownOpen}
+                        setIsDropdownOpen={setIsDropdownOpen}
+                        ref={menuDropDownRef}
+                    />
+                )}
             </div>
         </header>
     );

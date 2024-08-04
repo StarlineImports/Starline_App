@@ -1,6 +1,6 @@
 // Imports Bibiotecas
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 //Import CSS
 import './MenuDropDownPerfil.css'
@@ -10,38 +10,35 @@ import { MdSettings, MdLogout, MdPix } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 
 
-const MenuDropDownPerfil = ({ isDropdownOpen }) => {
+const MenuDropDownPerfil = ({ isDropdownOpen, setIsDropdownOpen }) => {
+
     const navigate = useNavigate();
+    const handleNavigate = (path) => {
+        setIsDropdownOpen(false);
+        navigate("/admin/adminPix");
+    };
 
     return (
-        <div className={`container-menu-dropdown ${isDropdownOpen ? 'show' : ''}`}>
+        <div className={`container-menu-dropdown ${isDropdownOpen ? 'Dropshow' : ''}`}>
             <nav className='menu-dropdown-nav'>
                 <ul>
-                    <Link to="#">
-                        <li>
-                            <FaUserEdit />
-                            <span>Perfil</span>
-                        </li>
-                    </Link>
-                    <Link to="/admin/adminPix">
-                        <li>
-                            <MdPix />
-                            <span>Pix</span>
-                        </li>
-                    </Link>
-                    <Link to="#">
-                        <li>
-                            <MdSettings />
-                            <span>Configurações</span>
-                        </li>
-                    </Link>
+                    <li onClick={() => handleNavigate('#')}>
+                        <FaUserEdit />
+                        <span>Perfil</span>
+                    </li>
+                    <li onClick={() => handleNavigate('/admin/adminPix')}>
+                        <MdPix />
+                        <span>Pix</span>
+                    </li>
+                    <li onClick={() => handleNavigate('#')}>
+                        <MdSettings />
+                        <span>Configurações</span>
+                    </li>
                     <hr />
-                    <Link to="/">
-                        <li>
-                            <MdLogout />
-                            <span>Sair</span>
-                        </li>
-                    </Link>
+                    <li onClick={() => handleNavigate('/')}>
+                        <MdLogout />
+                        <span>Sair</span>
+                    </li>
                 </ul>
             </nav>
         </div>

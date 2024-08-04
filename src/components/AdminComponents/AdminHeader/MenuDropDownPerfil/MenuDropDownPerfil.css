@@ -2,21 +2,19 @@
     position: absolute;
     width: 200px;
     top: 78px;
-    right: 0;
+    right: 1%;
     background-color: #1c1c1c;
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
-        0 6px 20px rgba(0, 0, 0, 0.19);
-    transform: translateY(0, -20);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 }
 
-.container-menu-dropdown.show {
-    transform: translateY(0);
+.container-menu-dropdown.Dropshow {
     opacity: 1;
     visibility: visible;
 }
-
 
 
 /* Posiciona a ponta acima do container */
@@ -28,12 +26,6 @@
     border-width: 0 10px 10px 10px;
     border-style: solid;
     border-color: transparent transparent #1c1c1c transparent;
-}
-
-.container-menu-dropdown:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4),
-        0 12px 40px rgba(0, 0, 0, 0.38);
-    transform: perspective(500px) translateZ(20px);
 }
 
 .menu-dropdown-nav ul {
