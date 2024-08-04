@@ -1,17 +1,42 @@
 // Imports Bibliotecas 
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 // Import Css
 import './AdminPix.css'
 
+// Imports Components
+import AdminPixModalAdd from './AdminPixModal/AdminPixModalAdd';
+
 // Imports Icons imgs e assets
 import LogoPix from '../../../assets/LogoPix.png'
-import { MdQrCode, MdMoreVert, MdMarkunread, MdSmartphone, MdOutlineAdd } from "react-icons/md";
-import { IoMdKeypad, IoIosKey } from "react-icons/io";
+import { MdMoreVert, MdMarkunread, MdSmartphone, MdOutlineAdd } from "react-icons/md";
+import { IoIosKey } from "react-icons/io";
 import { RiSecurePaymentLine } from "react-icons/ri";
 
 
 const Adminpix = () => {
+
+    // Estado do dropdown icone
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
+    const toggleDropdown = () => {
+        setIsDropdownOpen(PrevState => !PrevState);
+    }; // Alterna o estado de aberto/fechado do dropdown    
+
+    // Fecha o dropdown ao clicar fora dele
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [dropdownRef]);
+
     return (
         <main className='container-pix-geral'>
             <div className="container-pix">
@@ -25,8 +50,12 @@ const Adminpix = () => {
                 <div className="pix-minhas-chaves-container">
                     <div className="pix-minhas-chaves">
                         <h2><IoIosKey /> Minhas Chaves</h2>
-                        <MdOutlineAdd />
+                        <div className="dropdown-container" ref={dropdownRef}>
+                            <MdOutlineAdd onClick={toggleDropdown} />
+                            <AdminPixModalAdd isOpen={isDropdownOpen} />
+                        </div>
                     </div>
+                    < AdminPixModalAdd />
                     <div className="pix-info">
                         <div className="conatiner-pix-flex">
                             <RiSecurePaymentLine />
@@ -59,6 +88,7 @@ const Adminpix = () => {
                     </div>
                 </div>
             </div>
+
         </main>
     )
 }

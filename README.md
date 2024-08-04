@@ -11,4 +11,5 @@ React ecommerce project by: Gustavo Queiroz Lima
      - npm install react-icons
 - Biblioteca: cleave.js - para atualizar entrada de input para moeda br
      - npm install cleave.js
-
+- Biblioteca: React-input-mask - para cria mascara de inputs
+     - npm install react-input-mask
