@@ -1,18 +1,22 @@
 // Import Bibliotecas
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // Import CSS
 import "./AdminHeader.css";
 import "../../../AdminGlobal.css";
+
+// Import components
+import MenuDropDownPerfil from "./MenuDropDownPerfil/MenuDropDownPerfil";
 
 // Imports Icons img e assets
 import Perfil from "../../../assets/Ge.jpg";
 import {
     MdOutlineSearch,
     MdNotifications,
-    MdOutlineArrowDropDownCircle,
+    MdArrowCircleDown,
+    MdArrowCircleUp
 } from "react-icons/md";
-import { Link, useNavigate } from "react-router-dom";
 
 const AdminHeader = () => {
     const [userName, setUserName] = useState("");
@@ -22,6 +26,7 @@ const AdminHeader = () => {
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("usuarios"));
 
+    // Verifica se o usuário está logado e se é um admin
     useEffect(() => {
         if (user.tipo === 2) {
             setIsLogged(true);
@@ -31,7 +36,34 @@ const AdminHeader = () => {
         } else {
             navigate("/");
         }
-    }, [user]);
+    }, [user, navigate]);
+
+
+    // Estado do dropdown icone
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef(null);
+    const menuDropDownRef = useRef(null);
+    const toggleDropdown = () => {
+        setIsDropdownOpen(PrevState => !PrevState);
+    }; // Alterna o estado de aberto/fechado do dropdown   
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (
+                dropdownRef.current &&
+                !dropdownRef.current.contains(event.target) &&
+                menuDropDownRef.current &&
+                !menuDropDownRef.current.contains(event.target)
+            ) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []); 
+
 
     return (
         <header className="Header-painel">
@@ -62,11 +94,21 @@ const AdminHeader = () => {
                     </div>
                 </div>
 
-                <div className="menu-dropdow">
+                <div className="menu-dropdow"
+                    onClick={toggleDropdown} // Alterna o estado de aberto/fechado do dropdown
+                    ref={dropdownRef} // Referência para o dropdown
+                >
                     <i>
-                        <MdOutlineArrowDropDownCircle />
+                        {isDropdownOpen ? <MdArrowCircleUp /> : <MdArrowCircleDown />}
                     </i>
                 </div>
+                {isDropdownOpen && (
+                    <MenuDropDownPerfil
+                        isDropdownOpen={isDropdownOpen}
+                        setIsDropdownOpen={setIsDropdownOpen}
+                        ref={menuDropDownRef}
+                    />
+                )}
             </div>
         </header>
     );

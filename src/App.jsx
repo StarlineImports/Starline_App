@@ -18,10 +18,13 @@ import ProductListPageBall from "./pages/productListPages/productListPageBall/pr
 import ProductListPageBasket from "./pages/productListPages/productListPageBasket/productListPageBasket";
 import ProductListPageF1 from "./pages/productListPages/productListPageF1/productListPageF1";
 import Perfil from "./pages/profile/perfil";
+import MyState from "./context/myState";
+
+// Admin Pages
 import AdminHome from "./pages/adminPages/AdminHome/AdminHome";
 import AdminProducts from "./pages/adminPages/adminProducts/adminProducts";
 import AdminDashBoard from "./pages/adminPages/AdminDashboard/AdminDashBoard";
-import MyState from "./context/myState";
+import AdminPix from "./pages/adminPages/AdminPix/Adminpix";
 
 function App() {
   return (
@@ -66,6 +69,7 @@ function App() {
           <Route path="/admin" element={<AdminHome />}>
             <Route path="/admin/adminDashBoard" element={<AdminDashBoard />} />
             <Route path="/admin/adminProducts" element={<AdminProducts />} />
+            <Route path="/admin/adminPix" element={<AdminPix />} />
           </Route>
         </Routes>
       </Router>
