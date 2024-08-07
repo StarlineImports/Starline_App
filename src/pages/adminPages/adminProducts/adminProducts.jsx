@@ -14,6 +14,10 @@ import { fireDB } from "../../../firebase";
 import "./adminProducts.css";
 import "../../../AdminGlobal.css";
 
+// Imports icons 
+import { FaEdit } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+
 const AdminProducts = () => {
     const [isModalProductOpen, setIsModalProductOpen] = useState(false);
     const [products, setProducts] = useState([]);
@@ -141,34 +145,20 @@ const AdminProducts = () => {
                                     <img
                                         src={product.image}
                                         alt={product.name}
-                                        className="admin-product-image mt10"
                                     />
                                 </td>
+                                <td>{product.name}</td>
+                                <td>{product.category}</td>
+                                <td>{product.cost}</td>
+                                <td>{product.price}</td>
+                                <td>{product.stock}</td>
+                                <td>{product.size}</td>
+                                <td>{product.subcategory}</td>
+                                <td>{product.createdAt}</td>
                                 <td>
-                                    <h5>{product.name}</h5>
+                                    <button className="btn-edit"><FaEdit /></button>
+                                    <button className="btn-delete"><MdDelete /></button>
                                 </td>
-                                <td>
-                                    <h5>{product.category}</h5>
-                                </td>
-                                <td>
-                                    <h5>{product.cost}</h5>
-                                </td>
-                                <td>
-                                    <h5>{product.price}</h5>
-                                </td>
-                                <td>
-                                    <h5>{product.stock}</h5>
-                                </td>
-                                <td>
-                                    <h5>{product.size}</h5>
-                                </td>
-                                <td>
-                                    <h5>{product.subcategory}</h5>
-                                </td>
-                                <td>
-                                    <h5>{product.createdAt}</h5>
-                                </td>
-                                <td></td>
                             </tr>
                         ))}
                     </tbody>
