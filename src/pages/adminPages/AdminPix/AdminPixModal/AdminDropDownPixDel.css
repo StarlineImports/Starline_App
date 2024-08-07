@@ -1,0 +1,95 @@
+.modal-pix-del-container {
+    position: absolute;
+    width: 40rem;
+    top: 60%;
+    right: 20%;
+    background-color: #1c1c1c;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2),
+        0 6px 20px rgba(0, 0, 0, 0.19);
+    transform: translateY(0, -20);
+}
+
+/* Posiciona a ponta acima do container */
+.modal-pix-del-container::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: -20px;
+    border-width: 0px 30px 30px 0px;
+    border-style: solid;
+    border-color: transparent transparent #1c1c1c transparent;
+}
+
+.modal-pix-del-content {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #ffffff44;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.modal-pix-del-content h2 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: solid 1px #ffffff44;
+}
+
+.modal-info {
+    margin-bottom: 20px;
+}
+
+.modal-info h4 {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.modal-info span {
+    font-size: 0.9rem;
+    color: #ffffff44;
+    margin-left: 5px;
+    font-weight: normal;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-btn {
+    width: 100%;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.modal-btn svg {
+    margin-right: 1rem;
+}
+
+.modal-btn:hover {
+    background: #0056b3;
+}
+
+.share-btn {
+    background: #28a745;
+}
+
+.qr-code-btn {
+    background: #17a2b8;
+}
+
+.delete-btn {
+    background: #dc3545;
+}

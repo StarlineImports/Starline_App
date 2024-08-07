@@ -3,18 +3,25 @@ import React, { useState } from 'react'
 import InputMask from 'react-input-mask';
 
 // Import CSS
-import './AdminPixModalAdd.css'
+import './AdminPixDropDownAdd.css'
 import "../../../../AdminGlobal.css"
 
-const AdminPixModalAdd = ({ isOpen }) => {
+// Imports icons e imagens
+import { MdSave } from "react-icons/md";
 
+
+const AdminPixDropDownAdd = ({ isOpen }) => {
     if (!isOpen) return null;
 
     // Estado para armazenar a chave selecionada
     const [selectedKey, setSelectedKey] = useState('');
+    const [inputValue, setInputValue] = useState('');
+
     const handleSelectKey = (e) => {
         setSelectedKey(e.target.value);
+        setInputValue('');
     };
+
     const renderInput = () => {
         switch (selectedKey) {
             case 'cpf':
@@ -32,13 +39,16 @@ const AdminPixModalAdd = ({ isOpen }) => {
         }
     };
 
-
-
     return (
         <main className="container-pix-menu-dropdown">
             <div className="DropDown-pix-add-container">
                 <h2>Selecione o tipo de chave pix desejada!</h2>
-                <select name="chave pix" id="chave-pix" onChange={handleSelectKey}>
+                <select
+                    name="chave pix"
+                    id="chave-pix"
+                    onChange={handleSelectKey}
+                    value={selectedKey}
+                >
                     <option value="selecione">Selecione</option>
                     <option value="cpf">CPF</option>
                     <option value="cnpj">CNPJ</option>
@@ -47,10 +57,16 @@ const AdminPixModalAdd = ({ isOpen }) => {
                     <option value="aleatoria">Chave Aleatória</option>s
                 </select>
                 {renderInput()}
+                <button   
+                    className="save-button"
+                >
+                    <MdSave />
+                    Salvar
+                </button>
             </div>
         </main>
     )
 }
 
-export default AdminPixModalAdd
+export default AdminPixDropDownAdd
 

@@ -5,29 +5,48 @@ import React, { useEffect, useRef, useState } from 'react'
 import './AdminPix.css'
 
 // Imports Components
-import AdminPixModalAdd from './AdminPixModal/AdminPixModalAdd';
+import AdminPixDropDownAdd from './AdminPixModal/AdminPixDropDownAdd';
+import AdminDropDownPixDel from './AdminPixModal/AdminDropDownlPixDel';
 
 // Imports Icons imgs e assets
 import LogoPix from '../../../assets/LogoPix.png'
-import { MdMoreVert, MdMarkunread, MdSmartphone, MdOutlineAdd } from "react-icons/md";
-import { IoIosKey } from "react-icons/io";
-import { RiSecurePaymentLine } from "react-icons/ri";
-
+import { MdMoreVert, MdOutlineAdd, MdKey, MdEmail, MdSmartphone } from "react-icons/md";
 
 const Adminpix = () => {
+    const dropdownAddRef = useRef(null);
+    const dropdownDelRef = useRef(null);
 
-    // Estado do dropdown icone
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-    const dropdownRef = useRef(null);
-    const toggleDropdown = () => {
-        setIsDropdownOpen(PrevState => !PrevState);
-    }; // Alterna o estado de aberto/fechado do dropdown    
+    const [isDropdownAddOpen, setIsDropdownAddOpen] = useState(false);
+    const toggleDropdownAdd = () => {
+        setIsDropdownAddOpen(PrevState => !PrevState);
+    }; // Alterna o estado de aberto/fechado do dropdown  
+    const [pixKeys, setPixKeys] = useState([
+        { h4Text: 'Chave aleatória', spanText: '4d6a7f8d-9e10-11e1-a9e2-3f4g5h6i7j8k', icon: <MdKey /> },
+        { h4Text: 'E-mail', spanText: 'fulanodetal@gmail.com', icon: <MdEmail /> },
+        { h4Text: 'Celular', spanText: '(98)-99884-3251', icon: <MdSmartphone /> }
+    ]);
+    const [selectedKey, setSelectedKey] = useState({ h4Text: '', spanText: '' });
+
+    // Estado do dropdown icone para Del
+    const [isDropdownDelOpen, setIsDropdownDelOpen] = useState(false);
+    const toggleDropdownDel = (h4Text, spanText) => {
+        setSelectedKey({ h4Text, spanText });
+        setIsDropdownDelOpen(prevState => !prevState);
+    };
+
+    const handleDeletePixKey = () => {
+        setPixKeys(pixKeys.filter(key => key.h4Text !== selectedKey.h4Text || key.spanText !== selectedKey.spanText));
+        setIsDropdownDelOpen(false);
+    };
 
     // Fecha o dropdown ao clicar fora dele
     useEffect(() => {
         const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setIsDropdownOpen(false);
+            if (dropdownAddRef.current && !dropdownAddRef.current.contains(event.target)) {
+                setIsDropdownAddOpen(false);
+            }
+            if (dropdownDelRef.current && !dropdownDelRef.current.contains(event.target)) {
+                setIsDropdownDelOpen(false);
             }
         };
 
@@ -35,7 +54,14 @@ const Adminpix = () => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [dropdownRef]);
+    }, [dropdownAddRef, dropdownDelRef]);
+
+
+    // Função para adicionar nova chave Pix
+    const handleSavePixKey = (selectedKey, inputValue) => {
+        setPixKeys([...pixKeys, { h4Text: selectedKey, spanText: inputValue, icon: <MdKey /> }]);
+        setIsDropdownAddOpen(false);
+    };
 
     return (
         <main className='container-pix-geral'>
@@ -49,43 +75,37 @@ const Adminpix = () => {
                 </div>
                 <div className="pix-minhas-chaves-container">
                     <div className="pix-minhas-chaves">
-                        <h2><IoIosKey /> Minhas Chaves</h2>
-                        <div className="dropdown-container" ref={dropdownRef}>
-                            <MdOutlineAdd onClick={toggleDropdown} />
-                            <AdminPixModalAdd isOpen={isDropdownOpen} />
+                        <h2>Minhas Chaves</h2>
+                        <div className="dropdown-container" ref={dropdownAddRef}>
+                            <MdOutlineAdd
+                                onClick={toggleDropdownAdd}
+                            />
+                            <AdminPixDropDownAdd
+                                isOpen={isDropdownAddOpen}
+                                onSave={handleSavePixKey}
+                            />
                         </div>
                     </div>
-                    < AdminPixModalAdd />
-                    <div className="pix-info">
-                        <div className="conatiner-pix-flex">
-                            <RiSecurePaymentLine />
-                            <h4>Chave aleatória</h4>
-                            <div className="Pix-i-flex">
-                                <MdMoreVert />
+                    {pixKeys.map((key, index) => (
+                        <div key={index} className="pix-info">
+                            <div className="conatiner-pix-flex">
+                                {key.icon}
+                                <h4>{key.h4Text}</h4>
+                                <div className="Pix-i-flex">
+                                    <MdMoreVert onClick={() => toggleDropdownDel(key.h4Text, key.spanText)} />
+                                </div>
                             </div>
+                            <span>{key.spanText}</span>
                         </div>
-                        <span>4d6a7f8d-9e10-11e1-a9e2-3f4g5h6i7j8k</span>
-                    </div>
-                    <div className="pix-info">
-                        <div className="conatiner-pix-flex">
-                            <MdMarkunread />
-                            <h4>E-mail</h4>
-                            <div className="Pix-i-flex">
-                                <MdMoreVert />
-                            </div>
-                        </div>
-                        <span>fulanodetal@gmail.com</span>
-                    </div>
-                    <div className="pix-info">
-                        <div className="conatiner-pix-flex">
-                            <MdSmartphone />
-                            <h4>Celular</h4>
-                            <div className="Pix-i-flex">
-                                <MdMoreVert />
-                            </div>
-                        </div>
-                        <span>(98)-99884-3251</span>
-                    </div>
+                    ))}
+                </div>
+                <div className="dropdown-container" ref={dropdownDelRef}>
+                    <AdminDropDownPixDel
+                        h4Text={selectedKey.h4Text}
+                        spanText={selectedKey.spanText}
+                        isOpen={isDropdownDelOpen}
+                        onDelete={handleDeletePixKey}
+                    />
                 </div>
             </div>
 
