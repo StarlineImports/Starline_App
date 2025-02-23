@@ -1,6 +1,6 @@
 React ecommerce project by: Gustavo Queiroz Lima
 
-# Bibiletecas Utilizadas para elaborar o admin painel - (Branch - Geilson)
+# Bibiletecas Utilizadas para elaborar o admin painel 
 - Biblioteca: APEXCHARTS - para manipullaçao de gaificcos,
      - npm install apexchrts
 - Biblioteca: React-apexcharts - para manipular graficos,
